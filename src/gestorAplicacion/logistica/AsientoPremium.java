@@ -1,4 +1,4 @@
-package logistica;
+package gestorAplicacion.logistica;
 
 public class AsientoPremium extends Asiento {
     static double multiplicador =  1.5;

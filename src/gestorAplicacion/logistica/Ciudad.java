@@ -1,4 +1,4 @@
-package logistica;
+package gestorAplicacion.logistica;
 class Ciudad{
     String nombre;
     String pais;

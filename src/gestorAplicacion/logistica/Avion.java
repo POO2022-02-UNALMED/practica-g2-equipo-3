@@ -1,4 +1,4 @@
-package logistica;
+package gestorAplicacion.logistica;
 import java.util.ArrayList;
 
 public class Avion {

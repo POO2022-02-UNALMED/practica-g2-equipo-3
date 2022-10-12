@@ -1,4 +1,4 @@
-package logistica;
+package gestorAplicacion.logistica;
 
 abstract class Asiento{
     int numero_asiento;
