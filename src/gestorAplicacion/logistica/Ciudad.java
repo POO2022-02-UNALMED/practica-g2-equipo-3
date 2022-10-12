@@ -6,6 +6,7 @@ class Ciudad{
         this.nombre = nombre;
         this.pais = pais;
     }
+    //getter and setter
     public String getNombre() {
         return nombre;
     }

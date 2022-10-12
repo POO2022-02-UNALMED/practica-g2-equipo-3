@@ -40,6 +40,7 @@ public class Avion {
         ls.add(ejecutiva);
         ls.add(economica);
         return ls;
+    //getter and setter
     }
     public String getModelo() {
         return modelo;
