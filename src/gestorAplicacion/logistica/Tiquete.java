@@ -1,5 +1,5 @@
 package gestorAplicacion.logistica;
-import gestorAplicacion.usuario.Pasajero;
+import java.util.*;
 
 public class Tiquete {
     int id_tiquete;
@@ -7,6 +7,7 @@ public class Tiquete {
     Vuelo vuelo;
     Asiento asiento;
     int precio;
+    ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
     public Tiquete(int id_tiquete, Vuelo vuelo, Asiento asiento, int precio) {
         this.id_tiquete = id_tiquete;
         this.vuelo = vuelo;

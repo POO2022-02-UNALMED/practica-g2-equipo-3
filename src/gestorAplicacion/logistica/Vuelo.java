@@ -10,8 +10,9 @@ public class Vuelo {
     String hora_llegada;
     String fecha;
     int tarifa_base;
-    ArrayList<Asiento> asientos = new ArrayList<>();
     String puerto;
+
+    
     public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, int tarifa_base,String puerto) {
         this.id_vuelo = id_vuelo;
         this.avion = avion;
@@ -21,9 +22,10 @@ public class Vuelo {
         this.hora_llegada = hora_llegada;
         this.fecha = fecha;
         this.tarifa_base = tarifa_base;
-        this.asientos = avion.getAsientos();
         this.puerto = puerto;
     }
+
+
     //getter and setter
     public int getId_vuelo() {
         return id_vuelo;
@@ -72,12 +74,6 @@ public class Vuelo {
     }
     public void setTarifa_base(int tarifa_base) {
         this.tarifa_base = tarifa_base;
-    }
-    public ArrayList<Asiento> getAsientos() {
-        return asientos;
-    }
-    public void setAsientos(ArrayList<Asiento> asientos) {
-        this.asientos = asientos;
     }
     public String getPuerto() {
         return puerto;
