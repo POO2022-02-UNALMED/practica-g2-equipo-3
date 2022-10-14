@@ -9,6 +9,7 @@ public class Pasajero {
         this.identificacion = identificacion;
         this.tiquete = null;
     }
+    //getter and setter
     public String getNombre() {
         return nombre;
     }

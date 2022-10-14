@@ -11,4 +11,12 @@ public class AsientoEconomico extends Asiento {
         return txt;
     }
     
+    //getter and setter
+    public static double getMultiplicador() {
+        return multiplicador;
+    }
+    public static void setMultiplicador(double multiplicador) {
+        AsientoEconomico.multiplicador = multiplicador;
+    }
+    
 }

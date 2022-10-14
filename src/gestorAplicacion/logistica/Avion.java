@@ -5,10 +5,11 @@ public class Avion {
     String modelo;
     int cantidad_asientos;
     ArrayList<Asiento> asientos = new ArrayList<>();
+
     public Avion(String modelo, int cantidad_asientos) {
         this.modelo = modelo;
         this.cantidad_asientos = cantidad_asientos;
-        ArrayList<Integer> ls =  Avion.calasientos(cantidad_asientos);
+        ArrayList<Integer> ls =  Avion.calcularasientos(cantidad_asientos);
         for(int i = 1; i<cantidad_asientos; i++){
             if(i<=ls.get(0)){
                 this.asientos.add(new AsientoPremium(i, this));
@@ -19,7 +20,8 @@ public class Avion {
             }
         }
     }
-    public static ArrayList<Integer> calasientos(int n){
+
+    public static ArrayList<Integer> calcularasientos(int n){
         ArrayList<Integer> ls = new ArrayList<>();
         int premium;
         int ejecutiva;
@@ -40,6 +42,7 @@ public class Avion {
         ls.add(ejecutiva);
         ls.add(economica);
         return ls;
+
     //getter and setter
     }
     public String getModelo() {

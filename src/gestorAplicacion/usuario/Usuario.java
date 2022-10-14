@@ -11,7 +11,8 @@ public class Usuario {
         this.id = id;
         this.password = password;
     }
-
+    
+    //getter and setter
     public int getId() {
         return id;
     }

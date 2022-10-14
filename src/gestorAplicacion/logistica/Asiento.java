@@ -10,6 +10,7 @@ abstract class Asiento{
         this.avion = avion;
     }
     abstract public String toString();
+    
     //getter and setter
     public int getNumero_asiento() {
         return numero_asiento;
