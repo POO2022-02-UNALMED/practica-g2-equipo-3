@@ -5,11 +5,13 @@ import gestorAplicacion.logistica.*;;
 public class Usuario {
     int id;
     String password;
-    ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
+    ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>(); 
 
-    public Usuario(int id, String password) {
+    //constructores
+    public Usuario(int id, String password, ArrayList<Tiquete> tiquetes) {
         this.id = id;
         this.password = password;
+        this.tiquetes = tiquetes;
     }
     
     //getter and setter
@@ -25,4 +27,13 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public ArrayList<Tiquete> getTiquetes() {
+        return tiquetes;
+    }
+
+    public void setTiquetes(ArrayList<Tiquete> tiquetes) {
+        this.tiquetes = tiquetes;
+    }
+
 }

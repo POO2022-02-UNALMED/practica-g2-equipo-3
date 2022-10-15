@@ -1,9 +1,12 @@
 package gestorAplicacion.usuario;
+import java.util.*;
+import gestorAplicacion.logistica.*;
 
 public class Admin {
     int id;
     String password;
 
+    //constructores
     public Admin(int id, String password) {
         this.id = id;
         this.password = password;

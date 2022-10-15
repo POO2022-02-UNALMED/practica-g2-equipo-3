@@ -2,23 +2,26 @@ package gestorAplicacion.logistica;
 import java.util.ArrayList;
 
 public class Avion {
+    static ArrayList<Avion> aviones = new ArrayList<Avion>();
     String modelo;
     int cantidad_asientos;
-    ArrayList<Asiento> asientos = new ArrayList<>();
+    ArrayList<Asiento> asientos = new ArrayList<Asiento>();
 
+    //constructores
     public Avion(String modelo, int cantidad_asientos) {
         this.modelo = modelo;
         this.cantidad_asientos = cantidad_asientos;
         ArrayList<Integer> ls =  Avion.calcularasientos(cantidad_asientos);
         for(int i = 1; i<cantidad_asientos; i++){
             if(i<=ls.get(0)){
-                this.asientos.add(new AsientoPremium(i, this));
+                this.asientos.add(new Asiento(i, this, Clase.PREMIUM));
             }else if(i<=ls.get(1)){
-                this.asientos.add(new AsientoEjecutivo(i, this));
+                this.asientos.add(new Asiento(i, this, Clase.EJECUTIVA));
             }else{
-                this.asientos.add(new AsientoEconomico(i, this));
+                this.asientos.add(new Asiento(i, this, Clase.ECONOMICA));
             }
         }
+        aviones.add(this);
     }
 
     public static ArrayList<Integer> calcularasientos(int n){
@@ -62,5 +65,11 @@ public class Avion {
     }
     public void setAsientos(ArrayList<Asiento> asientos) {
         this.asientos = asientos;
+    }
+    public static ArrayList<Avion> getAviones() {
+        return aviones;
+    }
+    public static void setAviones(ArrayList<Avion> aviones) {
+        Avion.aviones = aviones;
     }
 }

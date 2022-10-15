@@ -2,6 +2,7 @@ package gestorAplicacion.logistica;
 import java.util.ArrayList;
 
 public class Vuelo {
+    static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
     int id_vuelo;
     Avion avion;
     Ciudad origen;
@@ -9,11 +10,12 @@ public class Vuelo {
     String hora_salida;
     String hora_llegada;
     String fecha;
-    int tarifa_base;
+    Float tarifa_base;
     String puerto;
+    ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
 
-    
-    public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, int tarifa_base,String puerto) {
+    //constructores
+    public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Float tarifa_base, String puerto, ArrayList<Tiquete> tiquetes) {
         this.id_vuelo = id_vuelo;
         this.avion = avion;
         this.origen = origen;
@@ -23,6 +25,11 @@ public class Vuelo {
         this.fecha = fecha;
         this.tarifa_base = tarifa_base;
         this.puerto = puerto;
+        this.tiquetes = tiquetes;
+        vuelos.add(this);
+    }
+    public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Float tarifa_base,String puerto) {
+        this(id_vuelo, avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
     }
 
 
@@ -69,10 +76,10 @@ public class Vuelo {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    public int getTarifa_base() {
+    public float getTarifa_base() {
         return tarifa_base;
     }
-    public void setTarifa_base(int tarifa_base) {
+    public void setTarifa_base(Float tarifa_base) {
         this.tarifa_base = tarifa_base;
     }
     public String getPuerto() {
@@ -80,5 +87,17 @@ public class Vuelo {
     }
     public void setPuerto(String puerto) {
         this.puerto = puerto;
+    }
+    public static ArrayList<Vuelo> getVuelos() {
+        return vuelos;
+    }
+    public static void setVuelos(ArrayList<Vuelo> vuelos) {
+        Vuelo.vuelos = vuelos;
+    }
+    public ArrayList<Tiquete> getTiquetes() {
+        return tiquetes;
+    }
+    public void setTiquetes(ArrayList<Tiquete> tiquetes) {
+        this.tiquetes = tiquetes;
     }
 }

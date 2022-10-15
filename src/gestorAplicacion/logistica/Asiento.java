@@ -1,15 +1,33 @@
 package gestorAplicacion.logistica;
 
-abstract class Asiento{
+public class Asiento{
     int numero_asiento;
     Boolean disponibilidad;
     Avion avion;
-    public Asiento(int numero_asiento, Avion avion) {
+    Clase clase;
+
+    //constructores
+    public Asiento(int numero_asiento, Avion avion, Clase clase) {
         this.numero_asiento = numero_asiento;
         this.disponibilidad = true;
         this.avion = avion;
+        this.clase = clase;
     }
-    abstract public String toString();
+
+    //methods
+    @Override
+	public String toString() {
+        if(this.clase == Clase.PREMIUM){
+            String txt = this.numero_asiento+"PR";
+            return txt;
+        }else if(this.clase == Clase.EJECUTIVA){
+            String txt = this.numero_asiento +"EJ" ;
+            return txt; 
+        }else{
+            String txt = this.numero_asiento+"PR";
+            return txt;
+        }
+	}
     
     //getter and setter
     public int getNumero_asiento() {
@@ -29,5 +47,11 @@ abstract class Asiento{
     }
     public void setAvion(Avion avion) {
         this.avion = avion;
+    }
+    public Clase getClase() {
+        return clase;
+    }
+    public void setClase(Clase clase) {
+        this.clase = clase;
     }
 }

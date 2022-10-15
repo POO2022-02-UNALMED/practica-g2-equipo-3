@@ -3,30 +3,29 @@ import java.util.*;
 
 public class Tiquete {
     int id_tiquete;
-    Pasajero Pasajero;
+    Pasajero pasajero;
     Vuelo vuelo;
     Asiento asiento;
-    int precio;
     ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
-    public Tiquete(int id_tiquete, Vuelo vuelo, Asiento asiento, int precio) {
+
+    //constructores
+    public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
         this.id_tiquete = id_tiquete;
+        this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
-        this.precio = precio;
-        this.Pasajero = null;
+        this.cargaExtra = cargaExtra;
     }
+
+    public Tiquete() {
+    }
+
     //getter and setter
     public int getId_tiquete() {
         return id_tiquete;
     }
     public void setId_tiquete(int id_tiquete) {
         this.id_tiquete = id_tiquete;
-    }
-    public Pasajero getPasajero() {
-        return Pasajero;
-    }
-    public void setPasajero(Pasajero pasajero) {
-        Pasajero = pasajero;
     }
     public Vuelo getVuelo() {
         return vuelo;
@@ -40,10 +39,18 @@ public class Tiquete {
     public void setAsiento(Asiento asiento) {
         this.asiento = asiento;
     }
-    public int getPrecio() {
-        return precio;
+    public ArrayList<CargaExtra> getCargaExtra() {
+        return cargaExtra;
     }
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setCargaExtra(ArrayList<CargaExtra> cargaExtra) {
+        this.cargaExtra = cargaExtra;
+    }
+
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
+
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
     }
 }
