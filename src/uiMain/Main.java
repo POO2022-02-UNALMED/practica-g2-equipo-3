@@ -19,6 +19,11 @@ public class Main {
         Vuelo bb = new Vuelo(2, circular_coonatra, boyaca, bogota, "05:00", "06:00", "20/10/2022", 70000., "4A");
         Usuario Pepito = new Usuario(123, "1235", 100000);
         Pasajero Alejandro = new Pasajero("Alejandro", 777);
+        Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
+        ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+        tiquetes.add(barranca);
+        Alejandro.setTiquete(barranca);
+        Pepito.setTiquetes(tiquetes);
 
         System.out.println("\n================================");
         System.out.println("AERO UNAL");
@@ -30,6 +35,8 @@ public class Main {
         }
         System.out.println("================================");
         
-        Pepito.ReservaTiquete();
+        //Pepito.ReservaTiquete();
+        Pepito.Factura(barranca);
+        Pepito.Reembolsar(0);
     }
 }

@@ -101,14 +101,13 @@ public class Usuario implements Serializable{
             Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
             this.cartera += tiqueteReembolsado.precio_total();
             this.tiquetes.remove(tiquete);
-            tiqueteReembolsado = null;
     }
     public void Factura(Tiquete tiquete){
             double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
             System.out.println("Costo Asiento: "+ costoAsiento);
             int contadorMascotas=0;
             int contadorEquipaje=0;
-            if (tiquete.getCargaExtra().isEmpty() == false){
+            if (tiquete.getCargaExtra() != null){
                 for (CargaExtra carga : tiquete.getCargaExtra()){
                     if (carga instanceof Mascota){
                         contadorMascotas++;

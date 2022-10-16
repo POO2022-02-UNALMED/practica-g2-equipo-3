@@ -26,6 +26,20 @@ public class Tiquete implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
+    public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
+        this.id_tiquete = id_tiquete;
+        this.pasajero = pasajero;
+        this.vuelo = vuelo;
+        this.asiento = asiento;
+        this.cargaExtra = null;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Tiquetes.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
+    }
+
     public Tiquete() {
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
