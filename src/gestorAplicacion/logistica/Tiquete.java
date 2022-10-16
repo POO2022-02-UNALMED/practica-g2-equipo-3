@@ -22,8 +22,8 @@ public class Tiquete {
     }
 
     //metodos
-    public Float precio_total(){
-        Float p= this.vuelo.getTarifa_base();
+    public Double precio_total(){
+        Double p= this.vuelo.getTarifa_base();
         if(this.cargaExtra != null){
             for(CargaExtra extra : this.cargaExtra){
                 p+=extra.getPrecio();

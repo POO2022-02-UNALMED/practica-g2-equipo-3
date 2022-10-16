@@ -13,29 +13,6 @@ public class Admin {
     }
 
     //metodos
-    public void ReservaTiquete(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Tipo de busqueda:");
-        System.out.println("1. Origen-Destino");
-        System.out.println("2. Origen-Destino y fecha");
-        System.out.println("0. Regresar");
-        int eleccion = input.nextInt();
-        while (eleccion != 0 & eleccion != 1 & eleccion != 2){
-            System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
-        }
-        if(eleccion == 1){
-            System.out.println("Origen");
-            String origen = input.nextLine();
-            while(){
-
-            }
-        }else if(eleccion == 2){
-
-        }else{
-
-        }
-    }
 
     //getter and setter
     public int getId() {

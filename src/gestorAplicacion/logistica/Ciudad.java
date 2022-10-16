@@ -5,14 +5,18 @@ public class Ciudad{
     
     private static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
     private String nombre;
+    private String pais;
 
     //constructores
     public Ciudad(String nombre, String pais) {
         this.nombre = nombre;
+        this.pais = pais;
     }
+
+    
     @Override
     public String toString() {return this.nombre;}
-    
+
     //getter and setter
     public String getNombre() {
         return nombre;
@@ -25,5 +29,11 @@ public class Ciudad{
     }
     public static void setCiudades(ArrayList<Ciudad> ciudades) {
         Ciudad.ciudades = ciudades;
+    }
+    public String getPais() {
+        return pais;
+    }
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 }
