@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Avion implements Serializable{
     
+    static File archivo = new File("");
     private  static ArrayList<Avion> aviones = new ArrayList<Avion>();
     private  String modelo;
     private  int cantidad_asientos;
@@ -24,6 +25,12 @@ public class Avion implements Serializable{
             }
         }
         aviones.add(this);
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Aviones.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     public static ArrayList<Integer> calcularasientos(int n){

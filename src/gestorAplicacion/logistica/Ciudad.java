@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Ciudad implements Serializable{
     
+    static File archivo = new File("");
     private static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
     private String nombre;
     private String pais;
@@ -12,6 +13,12 @@ public class Ciudad implements Serializable{
     public Ciudad(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Ciudades.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     

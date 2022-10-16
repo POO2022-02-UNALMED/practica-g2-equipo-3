@@ -15,7 +15,14 @@ public class Asiento implements Serializable{
         this.disponibilidad = true;
         this.avion = avion;
         this.clase = clase;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Asientos.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
+
     //methods
     @Override
 	public String toString() {
