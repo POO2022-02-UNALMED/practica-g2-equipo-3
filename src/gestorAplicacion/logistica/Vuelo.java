@@ -1,7 +1,5 @@
 package gestorAplicacion.logistica;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class Vuelo {
 
@@ -35,31 +33,39 @@ public class Vuelo {
         this(id_vuelo, avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
     }
     //metodos
-    public static Object filtroVuelos(String origen){
-        Predicate<Vuelo> byOrigen = vuelo -> vuelo.getOrigen().getNombre() == origen;
-        var result = vuelos.stream().filter(byOrigen).collect(Collectors.toList());
+    public static ArrayList<Vuelo> filtroVuelos(String origen){
+        ArrayList<Vuelo> result = new ArrayList<Vuelo>();
+        for(Vuelo vuelo: Vuelo.vuelos){
+            if(vuelo.getOrigen().getNombre().equals(origen)){
+                result.add(vuelo);
+            }
+        }
         return result;
     }
-    public static Object filtroVuelos(String origen,String destino){
-        Predicate<Vuelo> byOrigen = vuelo -> vuelo.getOrigen().getNombre() == origen;
-        Predicate<Vuelo> byDestino = vuelo -> vuelo.getOrigen().getNombre() == destino;
-        var result = vuelos.stream().filter(byOrigen).collect(Collectors.toList());
-        result = result.stream().filter(byDestino).collect(Collectors.toList());
+    public static ArrayList<Vuelo> filtroVuelos(String origen,String destino){
+        ArrayList<Vuelo> base = filtroVuelos(origen);
+        ArrayList<Vuelo> result = new ArrayList<Vuelo>();
+        for(Vuelo vuelo: base){
+            if(vuelo.getDestino().getNombre().equals(destino)){
+                result.add(vuelo);
+            }
+        }
         return result;
     }
-    public static Object filtroVuelos(String origen,String destino,String fecha){
-        Predicate<Vuelo> byOrigen = vuelo -> vuelo.getOrigen().getNombre() == origen;
-        Predicate<Vuelo> byDestino = vuelo -> vuelo.getOrigen().getNombre() == destino;
-        Predicate<Vuelo> byFecha = vuelo -> vuelo.getFecha() == fecha;
-        var result = vuelos.stream().filter(byOrigen).collect(Collectors.toList());
-        result = result.stream().filter(byDestino).collect(Collectors.toList());
-        result = result.stream().filter(byFecha).collect(Collectors.toList());
+    public static ArrayList<Vuelo> filtroVuelos(String origen,String destino,String fecha){
+        ArrayList<Vuelo> base = filtroVuelos(origen,destino);
+        ArrayList<Vuelo> result = new ArrayList<Vuelo>();
+        for(Vuelo vuelo: base){
+            if(vuelo.getFecha().equals(fecha)){
+                result.add(vuelo);
+            }
+        }
         return result;
     }
 
     @Override
     public String toString() {
-        return this.id_vuelo+" "+this.origen+"-"+this.destino+" "+this.fecha+" "+this.hora_salida+"-"+this.hora_llegada;
+        return "ID: "+this.id_vuelo+" ORIGEN: "+this.origen+" DESTINO: "+this.destino+" FECHA: "+this.fecha+" HORA DE SALIDA: "+this.hora_salida+"HORA DE LLEGADA: "+this.hora_llegada;
     }
 
 

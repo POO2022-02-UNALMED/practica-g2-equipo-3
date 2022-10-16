@@ -30,29 +30,32 @@ public class Usuario {
             eleccion = input.nextInt();
         }
         if(eleccion == 1){
+
             System.out.println("Ingrese un origen: ");
-            String origen = input.nextLine();
             input.nextLine();
-            Object vuelos =  Vuelo.filtroVuelos(origen);
-            System.out.println(vuelos);
+            String origen = input.nextLine();
             System.out.println("Ingrese un destino: ");
             String destino = input.nextLine();
-            input.nextLine();
-            vuelos =  Vuelo.filtroVuelos(destino);
-            System.out.println(vuelos);
-            //funcion motras vuelos con este origen y destino
+            for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino)){
+                System.out.println(vuelo.toString());
+            }
+
         }else if(eleccion == 2){
-            System.out.println("Origen");
+
+            System.out.println("Ingrese un origen: ");
+            input.nextLine();
             String origen = input.nextLine();
-            System.out.println("Destino");
+            System.out.println("Ingrese un destino: ");
             String destino = input.nextLine();
-            System.out.println("Fecha DD/MM");
+            System.out.println("Fecha DD/MM/AAAA: ");
             String fecha = input.nextLine();
-            //funcion motras vuelos con este origen,destino y fecha
+            for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino, fecha)){
+                System.out.println(vuelo.toString());
+            }
+
         }else{
             return;
         }
-        
     }
 
     //getter and setter
