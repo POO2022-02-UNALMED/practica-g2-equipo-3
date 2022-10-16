@@ -62,7 +62,6 @@ public class Vuelo {
         }
         return result;
     }
-
     @Override
     public String toString() {
         return "ID: "+this.id_vuelo+" ORIGEN: "+this.origen+" DESTINO: "+this.destino+" FECHA: "+this.fecha+" HORA DE SALIDA: "+this.hora_salida+"HORA DE LLEGADA: "+this.hora_llegada;
