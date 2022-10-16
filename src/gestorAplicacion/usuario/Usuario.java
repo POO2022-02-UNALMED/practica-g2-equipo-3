@@ -1,9 +1,11 @@
 package gestorAplicacion.usuario;
 import java.util.*;
 import gestorAplicacion.logistica.*;
-import java.io.Serializable;
+import java.io.*;
 
 public class Usuario implements Serializable{
+
+    static File archivo = new File("");
     private int id;
     private String password;
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
@@ -15,12 +17,21 @@ public class Usuario implements Serializable{
         this.password = password;
         this.cartera = cartera;
         this.tiquetes = tiquetes;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Usuarios.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Usuario(int id, String password, int cartera) {
         this(id,password,cartera,new ArrayList<>());
-    }
-    public Usuario(int id, String password) {
-        this(id,password,0,new ArrayList<>());
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Usuarios.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     
     //metodos

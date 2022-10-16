@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Vuelo implements Serializable {
 
+    static File archivo = new File("");
     private static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
     private int id_vuelo;
     private Avion avion;
@@ -29,9 +30,21 @@ public class Vuelo implements Serializable {
         this.puerto = puerto;
         this.tiquetes = tiquetes;
         vuelos.add(this);
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Vuelos.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base,String puerto) {
         this(id_vuelo, avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Vuelos.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     //metodos
     public static ArrayList<Vuelo> filtroVuelos(String origen){

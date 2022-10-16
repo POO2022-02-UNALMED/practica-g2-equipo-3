@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Tiquete implements Serializable{
     
+    static File archivo = new File("");
     private int id_tiquete;
     private Pasajero pasajero;
     private Vuelo vuelo;
@@ -17,9 +18,21 @@ public class Tiquete implements Serializable{
         this.vuelo = vuelo;
         this.asiento = asiento;
         this.cargaExtra = cargaExtra;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Tiquetes.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     public Tiquete() {
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Tiquetes.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     //metodos

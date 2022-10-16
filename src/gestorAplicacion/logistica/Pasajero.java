@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Pasajero implements Serializable{
     
+    static File archivo = new File("");
     private static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
     private String nombre;
     private int identificacion;
@@ -14,6 +15,12 @@ public class Pasajero implements Serializable{
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.tiquete = null;
+        try {
+            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
+            "\\src\\baseDatos\\Pasajeros.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(this);
+        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     //getter and setter
