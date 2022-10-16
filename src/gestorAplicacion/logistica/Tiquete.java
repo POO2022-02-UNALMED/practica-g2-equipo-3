@@ -23,7 +23,7 @@ public class Tiquete {
 
     //metodos
     public Double precio_total(){
-        Double p= this.vuelo.getTarifa_base();
+        Double p= this.vuelo.getTarifa_base()*this.asiento.getClase().type;
         if(this.cargaExtra != null){
             for(CargaExtra extra : this.cargaExtra){
                 p+=extra.getPrecio();

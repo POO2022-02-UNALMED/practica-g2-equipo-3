@@ -5,16 +5,21 @@ import gestorAplicacion.logistica.*;;
 public class Usuario {
     private int id;
     private String password;
-    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>(); 
+    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+    private int cartera;
 
     //constructores
-    public Usuario(int id, String password, ArrayList<Tiquete> tiquetes) {
+    public Usuario(int id, String password,  int cartera, ArrayList<Tiquete> tiquetes) {
         this.id = id;
         this.password = password;
+        this.cartera = cartera;
         this.tiquetes = tiquetes;
     }
+    public Usuario(int id, String password, int cartera) {
+        this(id,password,cartera,new ArrayList<>());
+    }
     public Usuario(int id, String password) {
-        this(id,password,new ArrayList<>());
+        this(id,password,0,new ArrayList<>());
     }
     
     //metodos
@@ -57,6 +62,12 @@ public class Usuario {
             return;
         }
     }
+    public void Reembolsar(int tiquete){
+            Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
+            this.cartera += tiqueteReembolsado.precio_total();
+            this.tiquetes.remove(tiquete);
+            tiqueteReembolsado = null;
+    }
 
     //getter and setter
     public int getId() {
@@ -78,6 +89,12 @@ public class Usuario {
 
     public void setTiquetes(ArrayList<Tiquete> tiquetes) {
         this.tiquetes = tiquetes;
+    }
+    public int getCartera() {
+        return cartera;
+    }
+    public void setCartera(int cartera) {
+        this.cartera = cartera;
     }
 
 }
