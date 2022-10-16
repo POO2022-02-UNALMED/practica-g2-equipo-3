@@ -68,6 +68,24 @@ public class Usuario {
             this.tiquetes.remove(tiquete);
             tiqueteReembolsado = null;
     }
+    public void Factura(Tiquete tiquete){
+            double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
+            System.out.println("Costo Asiento: "+ costoAsiento);
+            int contadorMascotas=0;
+            int contadorEquipaje=0;
+            if (tiquete.getCargaExtra().isEmpty() == false){
+                for (CargaExtra carga : tiquete.getCargaExtra()){
+                    if (carga instanceof Mascota){
+                        contadorMascotas++;
+                        System.out.println("Costo Mascota "+contadorMascotas+":"+ carga.getPrecio());
+                    }
+                    else if (carga instanceof Equipaje){
+                        contadorEquipaje++;
+                        System.out.println("Costo Equipaje "+contadorEquipaje+":"+ carga.getPrecio());
+                    }
+                }
+            }
+    }
 
     //getter and setter
     public int getId() {
