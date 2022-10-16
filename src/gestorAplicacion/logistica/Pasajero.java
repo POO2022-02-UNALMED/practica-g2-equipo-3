@@ -11,7 +11,7 @@ public class Pasajero implements Serializable{
     private Tiquete tiquete;
 
     //constructores
-    public Pasajero(String nombre, int identificacion, Tiquete tiquete) {
+    public Pasajero(String nombre, int identificacion) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.tiquete = null;
