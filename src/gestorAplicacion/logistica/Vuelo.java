@@ -150,4 +150,10 @@ public class Vuelo implements Serializable {
     public void setTiquetes(ArrayList<Tiquete> tiquetes) {
         this.tiquetes = tiquetes;
     }
+    public static File getArchivo() {
+        return archivo;
+    }
+    public static void setArchivo(File archivo) {
+        Vuelo.archivo = archivo;
+    }
 }

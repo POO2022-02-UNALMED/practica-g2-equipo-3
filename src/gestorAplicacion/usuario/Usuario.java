@@ -66,8 +66,10 @@ public class Usuario implements Serializable{
             String destino = input.nextLine();
             System.out.println("Fecha DD/MM/AAAA: ");
             String fecha = input.nextLine();
+            int counter = 0;
             for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino, fecha)){
-                System.out.println(vuelo.toString());
+                System.out.println(counter+" "+vuelo.toString());
+                counter ++;
             }
 
         }else{
@@ -86,16 +88,37 @@ public class Usuario implements Serializable{
             System.out.println("Ingrese una opcion valida");
             eleccion = input.nextInt();
         }
+        int counter = 0;
         if(eleccion == 1){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM));
+            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM)){
+                System.out.println(counter+" "+asiento);
+                counter++;
+            };
         }else if(eleccion == 2){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA));
+            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA)){
+                System.out.println(counter+" "+asiento);
+                counter++;
+            }
         }else if(eleccion == 3){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.ECONOMICA));
+            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.ECONOMICA)){
+                System.out.println(counter+" "+asiento);
+                counter++;
+            }
         }else{
             return;
         }
+        System.out.println("Ingrese el numero de opcion del asiento: ");
+        eleccion = input.nextInt();
+        Asiento asiento = vuelo.getAvion().getAsientos().get(eleccion);
+        System.out.println("Ingrese el nombre del pasajero: ");
+        input.nextLine();
+        String nombre= input.nextLine();
+        System.out.println("Ingrese el numero de documento del pasajero: ");
+        int identificacion = input.nextInt();
+        new Tiquete(1235,new Pasajero(nombre, identificacion),vuelo,asiento);
+        return;
     }
+
     public void Reembolsar(int tiquete){
             Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
             this.cartera += tiqueteReembolsado.precio_total();

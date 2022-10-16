@@ -13,6 +13,7 @@ public class Ciudad implements Serializable{
     public Ciudad(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
+        ciudades.add(this);
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Ciudades.txt"));
@@ -43,5 +44,15 @@ public class Ciudad implements Serializable{
     }
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+
+    public static File getArchivo() {
+        return archivo;
+    }
+
+
+    public static void setArchivo(File archivo) {
+        Ciudad.archivo = archivo;
     }
 }

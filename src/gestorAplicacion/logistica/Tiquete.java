@@ -5,6 +5,8 @@ import java.io.*;
 public class Tiquete implements Serializable{
     
     static File archivo = new File("");
+    private static ArrayList<Tiquete>tiquetes = new ArrayList<Tiquete>();
+    private static int total_creado;
     private int id_tiquete;
     private Pasajero pasajero;
     private Vuelo vuelo;
@@ -12,12 +14,14 @@ public class Tiquete implements Serializable{
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
 
     //constructores
-    public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
+    public Tiquete(int id_tiquete, Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
         this.id_tiquete = id_tiquete;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
         this.cargaExtra = cargaExtra;
+        tiquetes.add(this);
+        total_creado++;
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Tiquetes.txt"));
@@ -26,12 +30,13 @@ public class Tiquete implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
-    public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
+    public Tiquete(int id_tiquete, Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
         this.id_tiquete = id_tiquete;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
         this.cargaExtra = null;
+        total_creado++;
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Tiquetes.txt"));
@@ -94,5 +99,29 @@ public class Tiquete implements Serializable{
     }
     public void setPasajero(Pasajero pasajero) {
         this.pasajero = pasajero;
+    }
+
+    public static File getArchivo() {
+        return archivo;
+    }
+
+    public static void setArchivo(File archivo) {
+        Tiquete.archivo = archivo;
+    }
+
+    public static int getTotal_creado() {
+        return total_creado;
+    }
+
+    public static void setTotal_creado(int total_creado) {
+        Tiquete.total_creado = total_creado;
+    }
+
+    public static ArrayList<Tiquete> getTiquetes() {
+        return tiquetes;
+    }
+
+    public static void setTiquetes(ArrayList<Tiquete> tiquetes) {
+        Tiquete.tiquetes = tiquetes;
     }
 }

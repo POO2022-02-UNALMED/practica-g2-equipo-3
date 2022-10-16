@@ -38,5 +38,11 @@ public class Main {
         //Pepito.ReservaTiquete();
         Pepito.Factura(barranca);
         Pepito.Reembolsar(0);
+        
+        System.out.println(Pasajero.getPasajeros());
+        System.out.println(Tiquete.getTiquetes());
+        Pepito.ReservaTiquete();
+        System.out.println(Pasajero.getPasajeros());
+        System.out.println(Tiquete.getTiquetes());
     }
 }

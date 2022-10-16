@@ -63,4 +63,12 @@ public class Asiento implements Serializable{
     public void setClase(Clase clase) {
         this.clase = clase;
     }
+
+    public static File getArchivo() {
+        return archivo;
+    }
+
+    public static void setArchivo(File archivo) {
+        Asiento.archivo = archivo;
+    }
 }

@@ -15,12 +15,18 @@ public class Pasajero implements Serializable{
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.tiquete = null;
+        pasajeros.add(this);
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Pasajeros.txt"));
             ObjectOutputStream o = new ObjectOutputStream(f);
             o.writeObject(this);
         } catch (FileNotFoundException e) {} catch (IOException e) {}
+    }
+
+    @Override
+    public String toString() {
+        return nombre+" "+identificacion;
     }
 
     //getter and setter
@@ -47,5 +53,13 @@ public class Pasajero implements Serializable{
     }
     public static void setPasajeros(ArrayList<Pasajero> pasajeros) {
         Pasajero.pasajeros = pasajeros;
+    }
+
+    public static File getArchivo() {
+        return archivo;
+    }
+
+    public static void setArchivo(File archivo) {
+        Pasajero.archivo = archivo;
     }
 }

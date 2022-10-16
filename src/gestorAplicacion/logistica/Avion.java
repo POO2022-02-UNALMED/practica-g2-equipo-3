@@ -90,4 +90,12 @@ public class Avion implements Serializable{
     public static void setAviones(ArrayList<Avion> aviones) {
         Avion.aviones = aviones;
     }
+
+    public static File getArchivo() {
+        return archivo;
+    }
+
+    public static void setArchivo(File archivo) {
+        Avion.archivo = archivo;
+    }
 }
