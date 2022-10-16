@@ -1,6 +1,7 @@
 package gestorAplicacion.logistica;
+import java.io.*;
 
-public abstract class CargaExtra {
+public abstract class CargaExtra implements Serializable{
     
     private Float precio;
     private String tamaño;

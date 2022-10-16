@@ -1,7 +1,8 @@
 package gestorAplicacion.logistica;
 import java.util.*;
+import java.io.*;
 
-public class Ciudad{
+public class Ciudad implements Serializable{
     
     private static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
     private String nombre;

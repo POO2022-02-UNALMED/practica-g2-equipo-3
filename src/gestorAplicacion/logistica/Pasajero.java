@@ -1,7 +1,8 @@
 package gestorAplicacion.logistica;
 import java.util.*;
+import java.io.*;
 
-public class Pasajero {
+public class Pasajero implements Serializable{
     
     private static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
     private String nombre;

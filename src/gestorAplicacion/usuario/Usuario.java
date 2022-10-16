@@ -1,20 +1,26 @@
 package gestorAplicacion.usuario;
 import java.util.*;
-import gestorAplicacion.logistica.*;;
+import gestorAplicacion.logistica.*;
+import java.io.Serializable;
 
-public class Usuario {
+public class Usuario implements Serializable{
     private int id;
     private String password;
-    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>(); 
+    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+    private int cartera;
 
     //constructores
-    public Usuario(int id, String password, ArrayList<Tiquete> tiquetes) {
+    public Usuario(int id, String password,  int cartera, ArrayList<Tiquete> tiquetes) {
         this.id = id;
         this.password = password;
+        this.cartera = cartera;
         this.tiquetes = tiquetes;
     }
+    public Usuario(int id, String password, int cartera) {
+        this(id,password,cartera,new ArrayList<>());
+    }
     public Usuario(int id, String password) {
-        this(id,password,new ArrayList<>());
+        this(id,password,0,new ArrayList<>());
     }
     
     //metodos
@@ -49,36 +55,37 @@ public class Usuario {
             String destino = input.nextLine();
             System.out.println("Fecha DD/MM/AAAA: ");
             String fecha = input.nextLine();
-            int count = 0;
             for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino, fecha)){
-                System.out.println(count+" "+vuelo.toString());
-                count++;
+                System.out.println(vuelo.toString());
             }
+
         }else{
             return;
         }
-        System.out.println("Ingrese el numero de opcion del vuelo: ");
-        eleccion = input.nextInt();
-        Vuelo vuelo = Vuelo.getVuelos().get(eleccion);
-        System.out.println("Clase del asiento: ");
-        System.out.println("1. Premium");
-        System.out.println("2. Ejecutiva");
-        System.out.println("3. Economica");
-        System.out.println("0. Regresar");
-        eleccion = input.nextInt();
-        while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion != 3){
-            System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
-        }
-        if(eleccion == 1){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM));
-        }else if(eleccion == 2){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA));
-        }else if(eleccion == 3){
-            System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.ECONOMICA));
-        }else{
-            return;
-        }
+    }
+    public void Reembolsar(int tiquete){
+            Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
+            this.cartera += tiqueteReembolsado.precio_total();
+            this.tiquetes.remove(tiquete);
+            tiqueteReembolsado = null;
+    }
+    public void Factura(Tiquete tiquete){
+            double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
+            System.out.println("Costo Asiento: "+ costoAsiento);
+            int contadorMascotas=0;
+            int contadorEquipaje=0;
+            if (tiquete.getCargaExtra().isEmpty() == false){
+                for (CargaExtra carga : tiquete.getCargaExtra()){
+                    if (carga instanceof Mascota){
+                        contadorMascotas++;
+                        System.out.println("Costo Mascota "+contadorMascotas+":"+ carga.getPrecio());
+                    }
+                    else if (carga instanceof Equipaje){
+                        contadorEquipaje++;
+                        System.out.println("Costo Equipaje "+contadorEquipaje+":"+ carga.getPrecio());
+                    }
+                }
+            }
     }
 
     //getter and setter
@@ -101,6 +108,12 @@ public class Usuario {
 
     public void setTiquetes(ArrayList<Tiquete> tiquetes) {
         this.tiquetes = tiquetes;
+    }
+    public int getCartera() {
+        return cartera;
+    }
+    public void setCartera(int cartera) {
+        this.cartera = cartera;
     }
 
 }

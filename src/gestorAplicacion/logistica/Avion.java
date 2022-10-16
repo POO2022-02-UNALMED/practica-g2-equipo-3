@@ -1,7 +1,8 @@
 package gestorAplicacion.logistica;
 import java.util.*;
+import java.io.*;
 
-public class Avion {
+public class Avion implements Serializable{
     
     private  static ArrayList<Avion> aviones = new ArrayList<Avion>();
     private  String modelo;
@@ -25,7 +26,6 @@ public class Avion {
         aviones.add(this);
     }
 
-    //metodos
     public static ArrayList<Integer> calcularasientos(int n){
         ArrayList<Integer> ls = new ArrayList<>();
         int premium;
@@ -47,19 +47,9 @@ public class Avion {
         ls.add(ejecutiva);
         ls.add(economica);
         return ls;
-    }
-
-    public ArrayList<Asiento> filtrar_Asientos(Clase clase){
-        ArrayList<Asiento> result = new ArrayList<Asiento>();
-        for(Asiento asiento: this.asientos){
-            if(asiento.getClase().equals(clase)){
-                result.add(asiento);
-            }
-        }
-        return result;
-    }
 
     //getter and setter
+    }
     public String getModelo() {
         return modelo;
     }

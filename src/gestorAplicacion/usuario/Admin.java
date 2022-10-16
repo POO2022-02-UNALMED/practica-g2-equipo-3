@@ -1,8 +1,9 @@
 package gestorAplicacion.usuario;
 import java.util.*;
 import gestorAplicacion.*;
+import java.io.*;
 
-public class Admin {
+public class Admin implements Serializable{
     private int id;
     private String password;
 

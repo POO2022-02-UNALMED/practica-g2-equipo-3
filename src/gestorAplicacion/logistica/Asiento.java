@@ -1,20 +1,21 @@
 package gestorAplicacion.logistica;
+import java.io.*;
 
-public class Asiento{
+public class Asiento implements Serializable{
     
+    static File archivo = new File("");
     private int numero_asiento;
     private Boolean disponibilidad;
     private Avion avion;
     private Clase clase;
 
     //constructores
-    public Asiento(int numero_asiento, Avion avion, Clase clase) {
+    public Asiento(int numero_asiento, Avion avion, Clase clase){
         this.numero_asiento = numero_asiento;
         this.disponibilidad = true;
         this.avion = avion;
         this.clase = clase;
     }
-
     //methods
     @Override
 	public String toString() {

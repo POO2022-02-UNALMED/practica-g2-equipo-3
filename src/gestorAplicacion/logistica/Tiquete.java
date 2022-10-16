@@ -1,7 +1,8 @@
 package gestorAplicacion.logistica;
 import java.util.*;
+import java.io.*;
 
-public class Tiquete {
+public class Tiquete implements Serializable{
     
     private int id_tiquete;
     private Pasajero pasajero;
@@ -10,7 +11,7 @@ public class Tiquete {
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
 
     //constructores
-    public Tiquete(int id_tiquete, Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
+    public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
         this.id_tiquete = id_tiquete;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
@@ -30,6 +31,10 @@ public class Tiquete {
             }
         }
         return p;
+    }
+    public String toString(){
+        return ("Tiquete #"+ this.getId_tiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"\nVuelo #"+ this.vuelo.getId_vuelo() +
+        "  Asiento #"+ this.getAsiento().getNumero_asiento() + "\nCarga Extra Permitida: "+ this.cargaExtra.size());
     }
 
     //getter and setter
