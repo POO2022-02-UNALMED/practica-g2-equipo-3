@@ -31,6 +31,10 @@ public class Tiquete {
         }
         return p;
     }
+    public String toString(){
+        return ("Tiquete #"+ this.getId_tiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"\nVuelo #"+ this.vuelo.getId_vuelo() +
+        "  Asiento #"+ this.getAsiento().getNumero_asiento() + "\nCarga Extra Permitida: "+ this.cargaExtra.size());
+    }
 
     //getter and setter
     public int getId_tiquete() {
