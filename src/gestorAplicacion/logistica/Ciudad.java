@@ -22,7 +22,7 @@ public class Ciudad implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
-    
+    //metodos
     @Override
     public String toString() {return this.nombre;}
 

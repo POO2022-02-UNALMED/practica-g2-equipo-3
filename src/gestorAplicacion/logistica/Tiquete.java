@@ -35,7 +35,8 @@ public class Tiquete implements Serializable{
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
-        this.cargaExtra = null;
+        this.cargaExtra = new ArrayList<CargaExtra>();
+        tiquetes.add(this);
         total_creado++;
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+

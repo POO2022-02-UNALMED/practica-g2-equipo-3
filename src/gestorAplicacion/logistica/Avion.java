@@ -33,6 +33,7 @@ public class Avion implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
+    //metodos
     public static ArrayList<Integer> calcularasientos(int n){
         ArrayList<Integer> ls = new ArrayList<>();
         int premium;

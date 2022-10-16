@@ -11,6 +11,7 @@ public class Usuario implements Serializable{
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
     private int cartera;
 
+    
     //constructores
     public Usuario(int id, String password,  int cartera, ArrayList<Tiquete> tiquetes) {
         this.id = id;
@@ -66,7 +67,7 @@ public class Usuario implements Serializable{
             String destino = input.nextLine();
             System.out.println("Fecha DD/MM/AAAA: ");
             String fecha = input.nextLine();
-            int counter = 0;
+            int counter = 1;
             for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino, fecha)){
                 System.out.println(counter+" "+vuelo.toString());
                 counter ++;
@@ -88,7 +89,7 @@ public class Usuario implements Serializable{
             System.out.println("Ingrese una opcion valida");
             eleccion = input.nextInt();
         }
-        int counter = 0;
+        int counter = 1;
         if(eleccion == 1){
             for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM)){
                 System.out.println(counter+" "+asiento);
@@ -115,7 +116,7 @@ public class Usuario implements Serializable{
         String nombre= input.nextLine();
         System.out.println("Ingrese el numero de documento del pasajero: ");
         int identificacion = input.nextInt();
-        new Tiquete(1235,new Pasajero(nombre, identificacion),vuelo,asiento);
+        this.AddTiquete(new Tiquete(identificacion,new Pasajero(nombre, identificacion),vuelo,asiento));
         return;
     }
 
@@ -124,6 +125,7 @@ public class Usuario implements Serializable{
             this.cartera += tiqueteReembolsado.precio_total();
             this.tiquetes.remove(tiquete);
     }
+
     public void Factura(Tiquete tiquete){
             double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
             System.out.println("Costo Asiento: "+ costoAsiento);
@@ -142,6 +144,7 @@ public class Usuario implements Serializable{
                 }
             }
     }
+
 
     //getter and setter
     public int getId() {
@@ -170,5 +173,7 @@ public class Usuario implements Serializable{
     public void setCartera(int cartera) {
         this.cartera = cartera;
     }
-
+    public void AddTiquete(Tiquete tiquete){
+        this.tiquetes.add(tiquete);
+    }
 }
