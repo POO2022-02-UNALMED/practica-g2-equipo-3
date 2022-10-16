@@ -2,11 +2,12 @@ package gestorAplicacion.logistica;
 import java.util.*;
 
 public class Tiquete {
-    int id_tiquete;
-    Pasajero pasajero;
-    Vuelo vuelo;
-    Asiento asiento;
-    ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
+    
+    private int id_tiquete;
+    private Pasajero pasajero;
+    private Vuelo vuelo;
+    private Asiento asiento;
+    private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
 
     //constructores
     public Tiquete(int id_tiquete, gestorAplicacion.logistica.Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
@@ -18,6 +19,17 @@ public class Tiquete {
     }
 
     public Tiquete() {
+    }
+
+    //metodos
+    public Float precio_total(){
+        Float p= this.vuelo.getTarifa_base();
+        if(this.cargaExtra != null){
+            for(CargaExtra extra : this.cargaExtra){
+                p+=extra.getPrecio();
+            }
+        }
+        return p;
     }
 
     //getter and setter
@@ -45,11 +57,9 @@ public class Tiquete {
     public void setCargaExtra(ArrayList<CargaExtra> cargaExtra) {
         this.cargaExtra = cargaExtra;
     }
-
     public Pasajero getPasajero() {
         return pasajero;
     }
-
     public void setPasajero(Pasajero pasajero) {
         this.pasajero = pasajero;
     }

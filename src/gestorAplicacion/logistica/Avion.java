@@ -2,10 +2,11 @@ package gestorAplicacion.logistica;
 import java.util.ArrayList;
 
 public class Avion {
-    static ArrayList<Avion> aviones = new ArrayList<Avion>();
-    String modelo;
-    int cantidad_asientos;
-    ArrayList<Asiento> asientos = new ArrayList<Asiento>();
+    
+    private  static ArrayList<Avion> aviones = new ArrayList<Avion>();
+    private  String modelo;
+    private  int cantidad_asientos;
+    private  ArrayList<Asiento> asientos = new ArrayList<Asiento>();
 
     //constructores
     public Avion(String modelo, int cantidad_asientos) {

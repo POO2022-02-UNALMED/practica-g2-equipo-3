@@ -1,15 +1,17 @@
 package gestorAplicacion.logistica;
 import java.util.*;
-class Ciudad{
-    static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
-    String nombre;
-    String pais;
+
+public class Ciudad{
+    
+    private static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+    private String nombre;
 
     //constructores
     public Ciudad(String nombre, String pais) {
         this.nombre = nombre;
-        this.pais = pais;
     }
+    @Override
+    public String toString() {return this.nombre;}
     
     //getter and setter
     public String getNombre() {
@@ -17,12 +19,6 @@ class Ciudad{
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public String getPais() {
-        return pais;
-    }
-    public void setPais(String pais) {
-        this.pais = pais;
     }
     public static ArrayList<Ciudad> getCiudades() {
         return ciudades;

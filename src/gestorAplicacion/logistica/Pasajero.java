@@ -2,10 +2,11 @@ package gestorAplicacion.logistica;
 import java.util.*;
 
 public class Pasajero {
-    static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
-    String nombre;
-    int identificacion;
-    Tiquete tiquete;
+    
+    private static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
+    private String nombre;
+    private int identificacion;
+    private Tiquete tiquete;
 
     //constructores
     public Pasajero(String nombre, int identificacion, Tiquete tiquete) {

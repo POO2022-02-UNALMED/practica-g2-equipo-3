@@ -3,9 +3,9 @@ import java.util.*;
 import gestorAplicacion.logistica.*;;
 
 public class Usuario {
-    int id;
-    String password;
-    ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>(); 
+    private int id;
+    private String password;
+    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>(); 
 
     //constructores
     public Usuario(int id, String password, ArrayList<Tiquete> tiquetes) {
@@ -13,7 +13,7 @@ public class Usuario {
         this.password = password;
         this.tiquetes = tiquetes;
     }
-    
+
     //getter and setter
     public int getId() {
         return id;

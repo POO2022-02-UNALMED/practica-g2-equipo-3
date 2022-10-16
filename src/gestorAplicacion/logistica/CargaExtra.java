@@ -1,15 +1,27 @@
 package gestorAplicacion.logistica;
 
 public abstract class CargaExtra {
-    Float precio;
-    String tamaño;
+    
+    private Float precio;
+    private String tamaño;
+
+    //constructores
     public CargaExtra(Float precio, String tamaño) {
         this.precio = precio;
         this.tamaño = tamaño;
     }
-    public CargaExtra(String tamaño){
-        this(definir_precio(tamaño), tamaño);
+
+     //getter and setter
+    public Float getPrecio() {
+        return precio;
     }
-    public static Float definir_precio(String tamaño);
-    
+    public void setPrecio(Float precio) {
+        this.precio = precio;
+    }
+    public String getTamaño() {
+        return tamaño;
+    }
+    public void setTamaño(String tamaño) {
+        this.tamaño = tamaño;
+    }
 }

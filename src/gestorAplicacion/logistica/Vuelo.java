@@ -2,17 +2,18 @@ package gestorAplicacion.logistica;
 import java.util.ArrayList;
 
 public class Vuelo {
-    static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-    int id_vuelo;
-    Avion avion;
-    Ciudad origen;
-    Ciudad destino;
-    String hora_salida;
-    String hora_llegada;
-    String fecha;
-    Float tarifa_base;
-    String puerto;
-    ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+    
+    private static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
+    private int id_vuelo;
+    private Avion avion;
+    private Ciudad origen;
+    private Ciudad destino;
+    private String hora_salida;
+    private String hora_llegada;
+    private String fecha;
+    private Float tarifa_base;
+    private String puerto;
+    private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
 
     //constructores
     public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Float tarifa_base, String puerto, ArrayList<Tiquete> tiquetes) {

@@ -1,10 +1,11 @@
 package gestorAplicacion.logistica;
 
 public class Asiento{
-    int numero_asiento;
-    Boolean disponibilidad;
-    Avion avion;
-    Clase clase;
+    
+    private int numero_asiento;
+    private Boolean disponibilidad;
+    private Avion avion;
+    private Clase clase;
 
     //constructores
     public Asiento(int numero_asiento, Avion avion, Clase clase) {
