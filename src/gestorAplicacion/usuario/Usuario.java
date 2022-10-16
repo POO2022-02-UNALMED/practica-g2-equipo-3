@@ -35,6 +35,7 @@ public class Usuario implements Serializable{
             System.out.println("Ingrese una opcion valida");
             eleccion = input.nextInt();
         }
+        
         if(eleccion == 1){
 
             System.out.println("Ingrese un origen: ");
@@ -44,6 +45,28 @@ public class Usuario implements Serializable{
             String destino = input.nextLine();
             for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino)){
                 System.out.println(vuelo.toString());
+            }
+            System.out.println("Ingrese el numero de opcion del vuelo: ");
+            eleccion = input.nextInt();
+            Vuelo vuelo = Vuelo.getVuelos().get(eleccion);
+            System.out.println("Clase del asiento: ");
+            System.out.println("1. Premium");
+            System.out.println("2. Ejecutiva");
+            System.out.println("3. Economica");
+            System.out.println("0. Regresar");
+            eleccion = input.nextInt();
+            while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion != 3){
+                System.out.println("Ingrese una opcion valida");
+                eleccion = input.nextInt();
+            }
+            if(eleccion == 1){
+                System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM));
+            }else if(eleccion == 2){
+                System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA));
+            }else if(eleccion == 3){
+                System.out.println(vuelo.getAvion().filtrar_Asientos(Clase.ECONOMICA));
+            }else{
+                return;
             }
 
         }else if(eleccion == 2){
@@ -60,7 +83,7 @@ public class Usuario implements Serializable{
             }
 
         }else{
-            return;
+
         }
     }
     public void Reembolsar(int tiquete){

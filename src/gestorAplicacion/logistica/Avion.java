@@ -47,9 +47,18 @@ public class Avion implements Serializable{
         ls.add(ejecutiva);
         ls.add(economica);
         return ls;
-
-    //getter and setter
     }
+    public ArrayList<Asiento> filtrar_Asientos(Clase clase){
+        ArrayList<Asiento> result = new ArrayList<Asiento>();
+        for(Asiento asiento: this.getAsientos()){
+            if(asiento.getClase().equals(clase)){
+                result.add(asiento);
+            }
+        }
+        return result;
+    }
+    //getter and setter
+
     public String getModelo() {
         return modelo;
     }
