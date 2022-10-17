@@ -16,10 +16,10 @@ public class Avion implements Serializable{
         this.modelo = modelo;
         this.cantidadAsientos = cantidad_asientos;
         ArrayList<Integer> ls =  Avion.calcularasientos(cantidad_asientos);
-        for(int i = 1; i<cantidad_asientos; i++){
+        for(int i = 1; i<=cantidad_asientos; i++){
             if(i<=ls.get(0)){
                 this.asientos.add(new Asiento(i, this, Clase.PREMIUM));
-            }else if(i<=ls.get(1)){
+            }else if(i<=(ls.get(1)+ls.get(0))){
                 this.asientos.add(new Asiento(i, this, Clase.EJECUTIVA));
             }else{
                 this.asientos.add(new Asiento(i, this, Clase.ECONOMICA));

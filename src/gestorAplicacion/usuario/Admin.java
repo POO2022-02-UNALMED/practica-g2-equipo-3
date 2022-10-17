@@ -39,14 +39,29 @@ public class Admin implements Serializable{
                 int hora_s = (int) (Math.random()*21);
                 int hora_l = (int) (Math.random()*2+hora_s+1);
                 int dia = (int) (Math.random()*27+1);
-                int mes =(int) (Math.random()*2+10);
+                int mes =(int) (Math.random()+11);
                 int p = (int) (Math.random()*5+1);
-                int tarifa = (int) (Math.random()*300000+80000);
+                int tarifa = (int) (Math.random()*300000+200000);
                     if(origen!=destino){
                         String fecha = dia+"/"+mes+"/2022";
+                        if(dia<10){
+                            fecha = "0"+dia+"/"+mes+"/2022";
+                        }else{
+                            fecha = dia+"/"+mes+"/2022";
+                        }
                         String puerto = String.valueOf(p);
-                        String horaSalida = hora_s+":"+"00";
-                        String horaLlegada = hora_l+":"+"00";
+                        String horaSalida;
+                        String horaLlegada;
+                        if(hora_s<10){
+                            horaSalida = "0"+hora_s+":"+"00";
+                        }else{
+                            horaSalida = hora_s+":"+"00";
+                        }
+                        if(hora_l<10){
+                            horaLlegada = "0"+hora_l+":"+"00";
+                        }else{
+                            horaLlegada = hora_l+":"+"00";
+                        }
                         new Vuelo(aviones.get(avion), ciudades.get(origen), ciudades.get(destino), horaSalida, horaLlegada, fecha, tarifa, puerto);
                         loop = false;
                     }

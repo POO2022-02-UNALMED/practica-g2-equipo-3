@@ -18,13 +18,13 @@ public class Main {
         Ciudad pasto = new Ciudad("pasto", "Colombia");
         Ciudad bogota = new Ciudad("bogota", "Colombia");
 
-        Avion A1 = new Avion("747", 50);
+        Avion A1 = new Avion("747", 20);
         Avion A2 = new Avion("420", 100);
         Avion A3 = new Avion("747", 200);
-        Avion A4 = new Avion("420", 300);
-        Avion A5 = new Avion("747", 366 );
+        Avion A4 = new Avion("420", 240);
+        Avion A5 = new Avion("747", 166 );
 
-        Admin.vuelosRandom(20);
+        Admin.vuelosRandom(50);
 
         /*  
         Pasajero Alejandro = new Pasajero("Alejandro", 777);
@@ -52,6 +52,10 @@ public class Main {
             System.out.println("3. Mis tiquetes");
             System.out.println("0. Cerrar");
             int eleccion = input.nextInt();
+            while (eleccion != 0 &eleccion != 1 & eleccion != 2 & eleccion != 3){
+                System.out.println("Ingrese una opcion valida");
+                eleccion = input.nextInt();
+            }
             
             switch (eleccion) {
                 case 0:{
