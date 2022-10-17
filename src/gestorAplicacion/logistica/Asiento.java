@@ -33,7 +33,7 @@ public class Asiento implements Serializable{
             String txt = this.numero_asiento +"EJ" ;
             return txt; 
         }else{
-            String txt = this.numero_asiento+"PR";
+            String txt = this.numero_asiento+"EC";
             return txt;
         }
 	}

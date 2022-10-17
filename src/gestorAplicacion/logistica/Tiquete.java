@@ -14,8 +14,8 @@ public class Tiquete implements Serializable{
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
 
     //constructores
-    public Tiquete(int id_tiquete, Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
-        this.id_tiquete = id_tiquete;
+    public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
+        this.id_tiquete = total_creado;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
@@ -30,14 +30,8 @@ public class Tiquete implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
-    public Tiquete(int id_tiquete, Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
-        this.id_tiquete = id_tiquete;
-        this.pasajero = pasajero;
-        this.vuelo = vuelo;
-        this.asiento = asiento;
-        this.cargaExtra = new ArrayList<CargaExtra>();
-        tiquetes.add(this);
-        total_creado++;
+    public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
+        this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>());
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Tiquetes.txt"));

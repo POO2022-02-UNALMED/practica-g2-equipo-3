@@ -12,37 +12,62 @@ public class Main {
         Ciudad cucuta = new Ciudad("cucuta", "Colombia");
         Ciudad boyaca = new Ciudad("boyaca", "Colombia");
         Ciudad medellin  = new Ciudad("medellin", "Colombia");
+        Ciudad cartagena = new Ciudad("cartagena", "Colombia");
+        Ciudad cali = new Ciudad("cali", "Colombia");
+        Ciudad ibague = new Ciudad("ibague", "Colombia");
+        Ciudad barranquilla = new Ciudad("barranquilla", "Colombia");
+        Ciudad barrancabermeja = new Ciudad("barrancabermeja", "Colombia");
+        Ciudad leticia = new Ciudad("leticia", "Colombia");
+        Ciudad pasto = new Ciudad("pasto", "Colombia");
         Ciudad bogota = new Ciudad("bogota", "Colombia");
-        Avion circular_coonatra = new Avion("747", 50);
-        Avion bus_unal = new Avion("420", 100);
-        Vuelo mc = new Vuelo(1, bus_unal, medellin, cucuta, "12:30", "13:20", "20/10/2022", 200000., "3C");
-        Vuelo bb = new Vuelo(2, circular_coonatra, boyaca, bogota, "05:00", "06:00", "20/10/2022", 70000., "4A");
-        Usuario Pepito = new Usuario(123, "1235", 100000);
-        Pasajero Alejandro = new Pasajero("Alejandro", 777);
-        Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
-        ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
-        tiquetes.add(barranca);
-        Alejandro.setTiquete(barranca);
-        Pepito.setTiquetes(tiquetes);
 
+        Avion A1 = new Avion("747", 50);
+        Avion A2 = new Avion("420", 100);
+        Avion A3 = new Avion("747", 200);
+        Avion A4 = new Avion("420", 300);
+        Avion A5 = new Avion("747", 366 );
+
+        Admin.vuelos_random(50);
+
+        Usuario Pepito = new Usuario(123, "1235", 100000);
+        //Pasajero Alejandro = new Pasajero("Alejandro", 777);
+        //Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
+        //ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+        //tiquetes.add(barranca);
+        //Alejandro.setTiquete(barranca);
+        //Pepito.setTiquetes(tiquetes);
+        //Pepito.Factura(barranca);
+        //Pepito.Reembolsar(0);
+
+
+        //Real Main
         System.out.println("\n================================");
         System.out.println("AERO UNAL");
         System.out.println("================================");
-
-        System.out.println("Vuelos disponoibles:");
-        for(Vuelo vuelo: Vuelo.getVuelos()){
-            System.out.println(vuelo.toString());
+        boolean loop = true;
+        while (loop) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Servicios:");
+            System.out.println("1. Ver todos los vuelos disponibles");
+            System.out.println("2. Reserva tiquete");
+            System.out.println("0. Cerrar");
+            int eleccion = input.nextInt();
+            
+            switch (eleccion) {
+                case 0:{
+                    loop=false;
+                    break;
+                }
+                case 1:{
+                    Usuario.ver_todos_los_vuelos();
+                    break;
+                    }
+                case 2:{
+                    Pepito.ReservaTiquete();
+                    break;
+                }
+            }
+            System.out.println("================================");
         }
-        System.out.println("================================");
-        
-        //Pepito.ReservaTiquete();
-        Pepito.Factura(barranca);
-        Pepito.Reembolsar(0);
-        
-        System.out.println(Pasajero.getPasajeros());
-        System.out.println(Tiquete.getTiquetes());
-        Pepito.ReservaTiquete();
-        System.out.println(Pasajero.getPasajeros());
-        System.out.println(Tiquete.getTiquetes());
     }
 }

@@ -6,6 +6,7 @@ public class Vuelo implements Serializable {
 
     static File archivo = new File("");
     private static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
+    private static int total_creado;
     private int id_vuelo;
     private Avion avion;
     private Ciudad origen;
@@ -18,8 +19,8 @@ public class Vuelo implements Serializable {
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
 
     //constructores
-    public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base, String puerto, ArrayList<Tiquete> tiquetes) {
-        this.id_vuelo = id_vuelo;
+    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base, String puerto, ArrayList<Tiquete> tiquetes) {
+        this.id_vuelo = total_creado;
         this.avion = avion;
         this.origen = origen;
         this.destino = destino;
@@ -30,6 +31,7 @@ public class Vuelo implements Serializable {
         this.puerto = puerto;
         this.tiquetes = tiquetes;
         vuelos.add(this);
+        total_creado++;
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Vuelos.txt"));
@@ -37,8 +39,8 @@ public class Vuelo implements Serializable {
             o.writeObject(this);
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
-    public Vuelo(int id_vuelo, Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base,String puerto) {
-        this(id_vuelo, avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
+    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base,String puerto) {
+        this(avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Vuelos.txt"));
@@ -79,7 +81,7 @@ public class Vuelo implements Serializable {
 
     @Override
     public String toString() {
-        return "ID: "+this.id_vuelo+" ORIGEN: "+this.origen+" DESTINO: "+this.destino+" FECHA: "+this.fecha+" HORA DE SALIDA: "+this.hora_salida+"HORA DE LLEGADA: "+this.hora_llegada;
+        return " | Id: "+this.id_vuelo+" | Origen: "+this.origen+" | Destino: "+this.destino+" | Fecha: "+this.fecha+" | Hora De Salida: "+this.hora_salida+" | Hora De Llegada: "+this.hora_llegada;
     }
 
 
