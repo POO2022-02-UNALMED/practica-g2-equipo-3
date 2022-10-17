@@ -44,10 +44,10 @@ public class Admin implements Serializable{
                 int p = (int) (Math.random()*5+1);
                 Double tarifa = (double) (Math.random()*500000.+80000.);
                     if(origen!=destino){
-                        String fecha = dia+"//"+mes+"//"+2022;
+                        String fecha = dia+"/"+mes+"/2022";
                         String puerto = String.valueOf(p);
-                        String hora_salida = hora_s+":"+00;
-                        String hora_llegada = hora_l+":"+00;
+                        String hora_salida = hora_s+":"+"00";
+                        String hora_llegada = hora_l+":"+"00";
                         new Vuelo(aviones.get(avion), ciudades.get(origen), ciudades.get(destino), hora_salida, hora_llegada, fecha, tarifa, puerto);
                         loop = false;
                     }

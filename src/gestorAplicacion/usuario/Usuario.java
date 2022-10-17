@@ -137,13 +137,21 @@ public class Usuario implements Serializable{
         System.out.println("\nIngrese el nombre del pasajero: ");
         input.nextLine();
         String nombre= input.nextLine();
-
         System.out.println("\nIngrese el numero de documento del pasajero: ");
         int identificacion = input.nextInt();
-        Tiquete tiquete = new Tiquete(new Pasajero(nombre, identificacion),vuelo,asiento);
-        this.AddTiquete(tiquete);
         asiento.setDisponibilidad(false);
-        System.out.println("Reserva exitosa :3");
+        Tiquete tiquete = new Tiquete(new Pasajero(nombre, identificacion),vuelo,asiento);
+        this.Factura(tiquete);
+        System.out.println("\nConfirmacion de compra: ");
+        System.out.println("1. Confirmar");
+        System.out.println("2. rechazar");
+        eleccion = input.nextInt();
+        if(eleccion == 2){
+            tiquete=null;
+            return;
+        }
+        System.out.println("\n<3 Reserva exitosa :3 <3");
+        this.AddTiquete(tiquete);
         return;
     }
 
@@ -152,10 +160,17 @@ public class Usuario implements Serializable{
             this.cartera += tiqueteReembolsado.precio_total();
             this.tiquetes.remove(tiquete);
     }
+    public void mis_tiquetes(){
+        System.out.println();
+        for(Tiquete tiquete : tiquetes){
+            System.out.println(tiquete.toString());
+        }
+        System.out.println();
+    }
 
     public void Factura(Tiquete tiquete){
             double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
-            System.out.println("Costo Asiento: "+ costoAsiento);
+            System.out.println("\nCosto Asiento: "+ Math.round(costoAsiento));
             int contadorMascotas=0;
             int contadorEquipaje=0;
             if (tiquete.getCargaExtra() != null){

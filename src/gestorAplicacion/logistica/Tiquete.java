@@ -60,8 +60,7 @@ public class Tiquete implements Serializable{
         return p;
     }
     public String toString(){
-        return ("Tiquete #"+ this.getId_tiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"\nVuelo #"+ this.vuelo.getId_vuelo() +
-        "  Asiento #"+ this.getAsiento().getNumero_asiento() + "\nCarga Extra Permitida: "+ this.cargaExtra.size());
+        return ("Tiquete #"+ this.getId_tiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"  Vuelo #"+ this.vuelo.getId_vuelo() +"  Asiento #"+ this.getAsiento().getNumero_asiento() + "  Carga Extra: "+ this.cargaExtra.size());
     }
 
     //getter and setter
