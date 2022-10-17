@@ -2,7 +2,7 @@ package gestorAplicacion.logistica;
 
 public class Equipaje extends CargaExtra {
 
-    public Equipaje(Float precio, String tamaño) {
+    public Equipaje(int precio, String tamaño) {
         super(precio, tamaño);
     }
     

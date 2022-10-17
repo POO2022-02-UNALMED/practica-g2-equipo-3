@@ -6,32 +6,33 @@ public class Vuelo implements Serializable {
 
     static File archivo = new File("");
     private static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-    private static int total_creado;
-    private int id_vuelo;
+    private static int totalCreado;
+    private int idVuelo;
     private Avion avion;
     private Ciudad origen;
     private Ciudad destino;
-    private String hora_salida;
-    private String hora_llegada;
+    private String horaSalida;
+    private String horaLlegada;
     private String fecha;
-    private Double tarifa_base;
+    private int tarifaBase;
     private String puerto;
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
 
+
     //constructores
-    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base, String puerto, ArrayList<Tiquete> tiquetes) {
-        this.id_vuelo = total_creado;
+    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String horaSalida, String horaLlegada, String fecha, int tarifaBase, String puerto, ArrayList<Tiquete> tiquetes) {
+        this.idVuelo = totalCreado;
         this.avion = avion;
         this.origen = origen;
         this.destino = destino;
-        this.hora_salida = hora_salida;
-        this.hora_llegada = hora_llegada;
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
         this.fecha = fecha;
-        this.tarifa_base = tarifa_base;
+        this.tarifaBase = tarifaBase;
         this.puerto = puerto;
         this.tiquetes = tiquetes;
         vuelos.add(this);
-        total_creado++;
+        totalCreado++;
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Vuelos.txt"));
@@ -39,8 +40,8 @@ public class Vuelo implements Serializable {
             o.writeObject(this);
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
-    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String hora_salida, String hora_llegada, String fecha, Double tarifa_base,String puerto) {
-        this(avion, origen, destino, hora_salida, hora_llegada, fecha, tarifa_base, puerto,new ArrayList<>());
+    public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String horaSalida, String horaLlegada, String fecha, int tarifaBase,String puerto) {
+        this(avion, origen, destino, horaSalida, horaLlegada, fecha, tarifaBase, puerto,new ArrayList<>());
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Vuelos.txt"));
@@ -48,6 +49,8 @@ public class Vuelo implements Serializable {
             o.writeObject(this);
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
+
+
     //metodos
     public static ArrayList<Vuelo> filtroVuelos(String origen){
         ArrayList<Vuelo> result = new ArrayList<Vuelo>();
@@ -78,19 +81,18 @@ public class Vuelo implements Serializable {
         }
         return result;
     }
-
     @Override
     public String toString() {
-        return " | Id: "+this.id_vuelo+" | Origen: "+this.origen+" | Destino: "+this.destino+" | Fecha: "+this.fecha+" | Hora De Salida: "+this.hora_salida+" | Hora De Llegada: "+this.hora_llegada;
+        return " | Id: "+this.idVuelo+" | Origen: "+this.origen+" | Destino: "+this.destino+" | Fecha: "+this.fecha+" | Hora De Salida: "+this.horaSalida+" | Hora De Llegada: "+this.horaLlegada;
     }
 
 
     //getter and setter
-    public int getId_vuelo() {
-        return id_vuelo;
+    public int getIdVuelo() {
+        return idVuelo;
     }
-    public void setId_vuelo(int id_vuelo) {
-        this.id_vuelo = id_vuelo;
+    public void setIdVuelo(int idVuelo) {
+        this.idVuelo = idVuelo;
     }
     public Avion getAvion() {
         return avion;
@@ -110,17 +112,17 @@ public class Vuelo implements Serializable {
     public void setDestino(Ciudad destino) {
         this.destino = destino;
     }
-    public String getHora_salida() {
-        return hora_salida;
+    public String getHoraSalida() {
+        return horaSalida;
     }
-    public void setHora_salida(String hora_salida) {
-        this.hora_salida = hora_salida;
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida = horaSalida;
     }
-    public String getHora_llegada() {
-        return hora_llegada;
+    public String getHoraLlegada() {
+        return horaLlegada;
     }
-    public void setHora_llegada(String hora_llegada) {
-        this.hora_llegada = hora_llegada;
+    public void setHoraLlegada(String horaLlegada) {
+        this.horaLlegada = horaLlegada;
     }
     public String getFecha() {
         return fecha;
@@ -128,11 +130,11 @@ public class Vuelo implements Serializable {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    public Double getTarifa_base() {
-        return tarifa_base;
+    public int getTarifaBase() {
+        return tarifaBase;
     }
-    public void setTarifa_base(Double tarifa_base) {
-        this.tarifa_base = tarifa_base;
+    public void setTarifaBase(int tarifaBase) {
+        this.tarifaBase = tarifaBase;
     }
     public String getPuerto() {
         return puerto;
@@ -157,5 +159,11 @@ public class Vuelo implements Serializable {
     }
     public static void setArchivo(File archivo) {
         Vuelo.archivo = archivo;
+    }
+    public static int getTotalCreado() {
+        return totalCreado;
+    }
+    public static void setTotalCreado(int totalCreado) {
+        Vuelo.totalCreado = totalCreado;
     }
 }

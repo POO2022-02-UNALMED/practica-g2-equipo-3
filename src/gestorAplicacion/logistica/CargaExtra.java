@@ -3,20 +3,22 @@ import java.io.*;
 
 public abstract class CargaExtra implements Serializable{
     
-    private Float precio;
+    private int precio;
     private String tamaño;
 
+
     //constructores
-    public CargaExtra(Float precio, String tamaño) {
+    public CargaExtra(int precio, String tamaño) {
         this.precio = precio;
         this.tamaño = tamaño;
     }
 
+
      //getter and setter
-    public Float getPrecio() {
+    public int getPrecio() {
         return precio;
     }
-    public void setPrecio(Float precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
     public String getTamaño() {

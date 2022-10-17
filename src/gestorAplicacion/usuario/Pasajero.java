@@ -1,14 +1,19 @@
-package gestorAplicacion.logistica;
+package gestorAplicacion.usuario;
 import java.util.*;
+
+import gestorAplicacion.logistica.Tiquete;
+
 import java.io.*;
 
 public class Pasajero implements Serializable{
     
     static File archivo = new File("");
+
     private static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
     private String nombre;
     private int identificacion;
     private Tiquete tiquete;
+
 
     //constructores
     public Pasajero(String nombre, int identificacion) {
@@ -24,10 +29,13 @@ public class Pasajero implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
+    
+    //metodos
     @Override
     public String toString() {
         return nombre+" "+identificacion;
     }
+
 
     //getter and setter
     public String getNombre() {
@@ -54,11 +62,9 @@ public class Pasajero implements Serializable{
     public static void setPasajeros(ArrayList<Pasajero> pasajeros) {
         Pasajero.pasajeros = pasajeros;
     }
-
     public static File getArchivo() {
         return archivo;
     }
-
     public static void setArchivo(File archivo) {
         Pasajero.archivo = archivo;
     }

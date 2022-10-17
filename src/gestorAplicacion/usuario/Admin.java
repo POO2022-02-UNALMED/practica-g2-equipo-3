@@ -1,7 +1,5 @@
 package gestorAplicacion.usuario;
 import java.util.*;
-import java.math.*;
-import gestorAplicacion.*;
 import gestorAplicacion.logistica.Avion;
 import gestorAplicacion.logistica.Ciudad;
 import gestorAplicacion.logistica.Vuelo;
@@ -14,6 +12,7 @@ public class Admin implements Serializable{
     private int id;
     private String password;
 
+    
     //constructores
     public Admin(int id, String password) {
         this.id = id;
@@ -26,9 +25,9 @@ public class Admin implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
-    //metodos
 
-    public static void vuelos_random(int n){
+    //metodos
+    public static void vuelosRandom(int n){
         ArrayList<Ciudad> ciudades = Ciudad.getCiudades();
         ArrayList<Avion> aviones = Avion.getAviones();
         for(int i=0; i<n; i++){
@@ -42,18 +41,19 @@ public class Admin implements Serializable{
                 int dia = (int) (Math.random()*27+1);
                 int mes =(int) (Math.random()*2+10);
                 int p = (int) (Math.random()*5+1);
-                Double tarifa = (double) (Math.random()*500000.+80000.);
+                int tarifa = (int) (Math.random()*300000+80000);
                     if(origen!=destino){
                         String fecha = dia+"/"+mes+"/2022";
                         String puerto = String.valueOf(p);
-                        String hora_salida = hora_s+":"+"00";
-                        String hora_llegada = hora_l+":"+"00";
-                        new Vuelo(aviones.get(avion), ciudades.get(origen), ciudades.get(destino), hora_salida, hora_llegada, fecha, tarifa, puerto);
+                        String horaSalida = hora_s+":"+"00";
+                        String horaLlegada = hora_l+":"+"00";
+                        new Vuelo(aviones.get(avion), ciudades.get(origen), ciudades.get(destino), horaSalida, horaLlegada, fecha, tarifa, puerto);
                         loop = false;
                     }
             }
         }
     }
+
 
     //getter and setter
     public int getId() {
@@ -67,5 +67,11 @@ public class Admin implements Serializable{
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public static File getArchivo() {
+        return archivo;
+    }
+    public static void setArchivo(File archivo) {
+        Admin.archivo = archivo;
     }
 }

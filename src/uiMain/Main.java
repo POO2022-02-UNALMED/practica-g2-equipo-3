@@ -1,8 +1,5 @@
 package uiMain;
-
-import java.lang.Math;
 import java.util.*;
-
 import gestorAplicacion.logistica.*;
 import gestorAplicacion.usuario.*;
 
@@ -27,24 +24,26 @@ public class Main {
         Avion A4 = new Avion("420", 300);
         Avion A5 = new Avion("747", 366 );
 
-        Admin.vuelos_random(50);
+        Admin.vuelosRandom(20);
 
-        Usuario Pepito = new Usuario(123, "1235", 100000);
-        //Pasajero Alejandro = new Pasajero("Alejandro", 777);
-        //Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
-        //ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
-        //tiquetes.add(barranca);
-        //Alejandro.setTiquete(barranca);
-        //Pepito.setTiquetes(tiquetes);
-        //Pepito.Factura(barranca);
-        //Pepito.Reembolsar(0);
-
+        /*  
+        Pasajero Alejandro = new Pasajero("Alejandro", 777);
+        Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
+        ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
+        tiquetes.add(barranca);
+        Alejandro.setTiquete(barranca);
+        Pepito.setTiquetes(tiquetes);
+        Pepito.Factura(barranca);
+        Pepito.Reembolsar(0);        
+        */
 
         //Real Main
+        Usuario Pepito = new Usuario(123, "1235", 100000);
+        boolean loop = true;
+        Usuario user = Pepito;
         System.out.println("\n================================");
         System.out.println("AERO UNAL");
         System.out.println("================================");
-        boolean loop = true;
         while (loop) {
             Scanner input = new Scanner(System.in);
             System.out.println("Servicios:");
@@ -60,15 +59,15 @@ public class Main {
                     break;
                 }
                 case 1:{
-                    Usuario.ver_todos_los_vuelos();
+                    Funcion.verTodosLosVuelos();
                     break;
                     }
                 case 2:{
-                    Pepito.ReservaTiquete();
+                    Funcion.ReservaTiquete(user);
                     break;
                 }
                 case 3:{
-                    Pepito.mis_tiquetes();
+                    Funcion.misTiquetes(user);
                     break;
                 }
             }

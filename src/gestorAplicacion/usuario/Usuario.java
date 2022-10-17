@@ -3,7 +3,7 @@ import java.util.*;
 import gestorAplicacion.logistica.*;
 import java.io.*;
 
-public class Usuario implements Serializable{
+public class Usuario implements Serializable,PreciosExtra{
 
     static File archivo = new File("");
     private int id;
@@ -26,7 +26,7 @@ public class Usuario implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Usuario(int id, String password, int cartera) {
-        this(id,password,cartera,new ArrayList<>());
+        this(id,password,cartera,new ArrayList<Tiquete>());
         try {
             FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
             "\\src\\baseDatos\\Usuarios.txt"));
@@ -37,163 +37,12 @@ public class Usuario implements Serializable{
     
     
     //metodos
-    public void ReservaTiquete(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("\nTipo de busqueda:");
-        System.out.println("1. Origen-Destino");
-        System.out.println("2. Origen-Destino y fecha");
-        System.out.println("3. Destinos disponibles");
-        System.out.println("0. Regresar");
-        int eleccion = input.nextInt();
-        while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion !=3){
-            System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
-        }
-        if(eleccion == 1){
-            System.out.println("\nIngrese un origen: ");
-            input.nextLine();
-            String origen = input.nextLine();
-            System.out.println("\nIngrese un destino: ");
-            String destino = input.nextLine();
-            int counter = 1;
-            System.out.println("");
-            for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino)){
-                System.out.println(counter+". "+vuelo.toString());
-                counter ++;
-            }
-        }else if(eleccion == 2){
-            System.out.println("\nIngrese un origen: ");
-            input.nextLine();
-            String origen = input.nextLine();
-            System.out.println("\nIngrese un destino: ");
-            String destino = input.nextLine();
-            System.out.println("\nFecha DD/MM/AAAA: ");
-            String fecha = input.nextLine();
-            int counter = 1;
-            System.out.println("");
-            for(Vuelo vuelo: Vuelo.filtroVuelos(origen, destino, fecha)){
-                System.out.println(counter+". "+vuelo.toString());
-                counter ++;
-            }
-        }else if(eleccion == 3){
-            System.out.println("\nIngrese un origen: ");
-            input.nextLine();
-            String origen = input.nextLine();
-            int counter = 1;
-            System.out.println("");
-            for(Vuelo vuelo: Vuelo.filtroVuelos(origen)){
-                System.out.println(counter+". "+vuelo.toString());
-                counter ++;
-            }
-        }else{
-            return;
-        }
-        System.out.println("\nIngrese el numero de opcion del vuelo: ");
-        eleccion = input.nextInt();
-        Vuelo vuelo = Vuelo.getVuelos().get(eleccion);
-        System.out.println("\nClase del asiento: ");
-        System.out.println("1. Premium");
-        System.out.println("2. Ejecutiva");
-        System.out.println("3. Economica");
-        System.out.println("0. Regresar");
-        eleccion = input.nextInt();
-        System.out.println("");
-        while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion != 3){
-            System.out.println("\nIngrese una opcion valida");
-            eleccion = input.nextInt();
-        }
-        int counter = 1;
-        ArrayList<Asiento> asientosdisp = new ArrayList<Asiento>();
-        if(eleccion == 1){
-            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.PREMIUM)){
-                if(asiento.getDisponibilidad()==true){
-                    asientosdisp.add(asiento);
-                    System.out.println(counter+". "+asiento);
-                    counter++;  
-                }
-            }
-        }else if(eleccion == 2){
-            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA)){
-                if(asiento.getDisponibilidad()==true){
-                    asientosdisp.add(asiento);
-                    System.out.println(counter+". "+asiento);
-                    counter++;
-                }
-            }
-        }else if(eleccion == 3){
-            for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.ECONOMICA)){
-                if(asiento.getDisponibilidad()==true){
-                    asientosdisp.add(asiento);
-                    System.out.println(counter+". "+asiento);
-                    counter++;
-                }
-            }
-        }else{
-            return;
-        }
-        System.out.println("\nIngrese el numero de opcion del asiento: ");
-        eleccion = input.nextInt();
-        Asiento asiento = vuelo.getAvion().getAsientos().get(eleccion);
 
-        System.out.println("\nIngrese el nombre del pasajero: ");
-        input.nextLine();
-        String nombre= input.nextLine();
-        System.out.println("\nIngrese el numero de documento del pasajero: ");
-        int identificacion = input.nextInt();
-        asiento.setDisponibilidad(false);
-        Tiquete tiquete = new Tiquete(new Pasajero(nombre, identificacion),vuelo,asiento);
-        this.Factura(tiquete);
-        System.out.println("\nConfirmacion de compra: ");
-        System.out.println("1. Confirmar");
-        System.out.println("2. rechazar");
-        eleccion = input.nextInt();
-        if(eleccion == 2){
-            tiquete=null;
-            return;
-        }
-        System.out.println("\n<3 Reserva exitosa :3 <3");
-        this.AddTiquete(tiquete);
-        return;
-    }
     public void Reembolsar(int tiquete){
             Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
-            this.cartera += tiqueteReembolsado.precio_total();
+            this.cartera += tiqueteReembolsado.precioTotal();
             this.tiquetes.remove(tiquete);
     }
-    public void mis_tiquetes(){
-        System.out.println();
-        for(Tiquete tiquete : tiquetes){
-            System.out.println(tiquete.toString());
-        }
-        System.out.println();
-    }
-
-    public void Factura(Tiquete tiquete){
-            double costoAsiento =tiquete.getVuelo().getTarifa_base()*tiquete.getAsiento().getClase().type;
-            System.out.println("\nCosto Asiento: "+ Math.round(costoAsiento));
-            int contadorMascotas=0;
-            int contadorEquipaje=0;
-            if (tiquete.getCargaExtra() != null){
-                for (CargaExtra carga : tiquete.getCargaExtra()){
-                    if (carga instanceof Mascota){
-                        contadorMascotas++;
-                        System.out.println("Costo Mascota "+contadorMascotas+":"+ carga.getPrecio());
-                    }
-                    else if (carga instanceof Equipaje){
-                        contadorEquipaje++;
-                        System.out.println("Costo Equipaje "+contadorEquipaje+":"+ carga.getPrecio());
-                    }
-                }
-            }
-    }
-    public static void ver_todos_los_vuelos(){
-        System.out.println("\nVuelos disponoibles:\n");
-        for(Vuelo vuelo: Vuelo.getVuelos()){
-            System.out.println(vuelo.toString());
-        }
-        System.out.println("");
-    }
-
 
     //getter and setter
     public int getId() {
@@ -208,11 +57,9 @@ public class Usuario implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-
     public ArrayList<Tiquete> getTiquetes() {
         return tiquetes;
     }
-
     public void setTiquetes(ArrayList<Tiquete> tiquetes) {
         this.tiquetes = tiquetes;
     }

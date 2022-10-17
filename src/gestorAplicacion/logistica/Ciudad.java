@@ -9,6 +9,7 @@ public class Ciudad implements Serializable{
     private String nombre;
     private String pais;
 
+
     //constructores
     public Ciudad(String nombre, String pais) {
         this.nombre = nombre;
@@ -22,9 +23,11 @@ public class Ciudad implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
+
     //metodos
     @Override
     public String toString() {return this.nombre;}
+
 
     //getter and setter
     public String getNombre() {
@@ -45,13 +48,9 @@ public class Ciudad implements Serializable{
     public void setPais(String pais) {
         this.pais = pais;
     }
-
-
     public static File getArchivo() {
         return archivo;
     }
-
-
     public static void setArchivo(File archivo) {
         Ciudad.archivo = archivo;
     }
