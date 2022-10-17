@@ -35,6 +35,7 @@ public class Usuario implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     
+    
     //metodos
     public void ReservaTiquete(){
         Scanner input = new Scanner(System.in);
@@ -110,7 +111,7 @@ public class Usuario implements Serializable{
                     System.out.println(counter+". "+asiento);
                     counter++;  
                 }
-            };
+            }
         }else if(eleccion == 2){
             for(Asiento asiento : vuelo.getAvion().filtrar_Asientos(Clase.EJECUTIVA)){
                 if(asiento.getDisponibilidad()==true){
@@ -154,7 +155,6 @@ public class Usuario implements Serializable{
         this.AddTiquete(tiquete);
         return;
     }
-
     public void Reembolsar(int tiquete){
             Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
             this.cartera += tiqueteReembolsado.precio_total();
@@ -186,7 +186,6 @@ public class Usuario implements Serializable{
                 }
             }
     }
-
     public static void ver_todos_los_vuelos(){
         System.out.println("\nVuelos disponoibles:\n");
         for(Vuelo vuelo: Vuelo.getVuelos()){
@@ -225,5 +224,11 @@ public class Usuario implements Serializable{
     }
     public void AddTiquete(Tiquete tiquete){
         this.tiquetes.add(tiquete);
+    }
+    public static File getArchivo() {
+        return archivo;
+    }
+    public static void setArchivo(File archivo) {
+        Usuario.archivo = archivo;
     }
 }

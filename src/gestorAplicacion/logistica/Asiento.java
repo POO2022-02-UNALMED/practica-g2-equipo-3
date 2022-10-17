@@ -9,6 +9,7 @@ public class Asiento implements Serializable{
     private Avion avion;
     private Clase clase;
 
+
     //constructores
     public Asiento(int numero_asiento, Avion avion, Clase clase){
         this.numero_asiento = numero_asiento;
@@ -23,6 +24,7 @@ public class Asiento implements Serializable{
         } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
+    
     //methods
     @Override
 	public String toString() {
@@ -38,6 +40,7 @@ public class Asiento implements Serializable{
         }
 	}
     
+
     //getter and setter
     public int getNumero_asiento() {
         return numero_asiento;
@@ -63,11 +66,9 @@ public class Asiento implements Serializable{
     public void setClase(Clase clase) {
         this.clase = clase;
     }
-
     public static File getArchivo() {
         return archivo;
     }
-
     public static void setArchivo(File archivo) {
         Asiento.archivo = archivo;
     }
