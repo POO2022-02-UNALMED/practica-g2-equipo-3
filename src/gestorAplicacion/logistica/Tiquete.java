@@ -1,13 +1,12 @@
 package gestorAplicacion.logistica;
 import java.util.*;
-
+import java.io.*;
 import gestorAplicacion.usuario.Pasajero;
 
-import java.io.*;
-
 public class Tiquete implements Serializable{
-    
-    static File archivo = new File("");
+
+    private static final long serialVersionUID = 1L;
+
     private static ArrayList<Tiquete>tiquetes = new ArrayList<Tiquete>();
     private static int totalCreado;
     private int idTiquete;
@@ -26,31 +25,13 @@ public class Tiquete implements Serializable{
         this.cargaExtra = cargaExtra;
         tiquetes.add(this);
         totalCreado++;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Tiquetes.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
         this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>());
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Tiquetes.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Tiquete() {
         tiquetes.add(this);
         totalCreado++;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Tiquetes.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
 
@@ -111,12 +92,6 @@ public class Tiquete implements Serializable{
     }
     public void setPasajero(Pasajero pasajero) {
         this.pasajero = pasajero;
-    }
-    public static File getArchivo() {
-        return archivo;
-    }
-    public static void setArchivo(File archivo) {
-        Tiquete.archivo = archivo;
     }
     public static int getTotalCreado() {
         return totalCreado;

@@ -1,12 +1,18 @@
 package uiMain;
 import java.util.*;
+
+import baseDatos.Persistencia;
 import gestorAplicacion.logistica.*;
 import gestorAplicacion.usuario.*;
+import java.io.*;
 
-public class Main {
+public class Main{
     //TEST
     public static void main(String[] args) {
-        Ciudad cucuta = new Ciudad("cucuta", "Colombia");
+        
+        Persistencia.deserializar();
+
+       /* Ciudad cucuta = new Ciudad("cucuta", "Colombia");
         Ciudad boyaca = new Ciudad("boyaca", "Colombia");
         Ciudad medellin  = new Ciudad("medellin", "Colombia");
         Ciudad cartagena = new Ciudad("cartagena", "Colombia");
@@ -24,18 +30,7 @@ public class Main {
         Avion A4 = new Avion("420", 240);
         Avion A5 = new Avion("747", 166 );
 
-        Admin.vuelosRandom(50);
-
-        /*  
-        Pasajero Alejandro = new Pasajero("Alejandro", 777);
-        Tiquete barranca = new Tiquete(0001, Alejandro, mc, mc.getAvion().getAsientos().get(0));
-        ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
-        tiquetes.add(barranca);
-        Alejandro.setTiquete(barranca);
-        Pepito.setTiquetes(tiquetes);
-        Pepito.Factura(barranca);
-        Pepito.Reembolsar(0);        
-        */
+        Admin.vuelosRandom(200);*/
 
         //Real Main
         Usuario Pepito = new Usuario(123, "1235", 100000);
@@ -60,6 +55,7 @@ public class Main {
             switch (eleccion) {
                 case 0:{
                     loop=false;
+                    Persistencia.serializar();
                     break;
                 }
                 case 1:{
@@ -76,6 +72,17 @@ public class Main {
                 }
             }
             System.out.println("================================");
+        }
+        try {
+            FileOutputStream f = new FileOutputStream(new File(System.getProperty("user.dir")+"\\src\\baseDatos\\temp\\vuelos.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(Vuelo.getVuelos());
+            o.close();
+            f.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("No se encuentra archivo");
+        } catch (IOException e) {
+            System.out.println("Error flujo de inicialización");
         }
     }
 }

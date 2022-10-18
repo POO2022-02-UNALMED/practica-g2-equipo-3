@@ -4,9 +4,9 @@ import gestorAplicacion.logistica.*;
 import java.io.*;
 
 public class Usuario implements Serializable,PreciosExtra{
-
-    static File archivo = new File("");
+    private static final long serialVersionUID = 1L;
     private int id;
+    private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     private String password;
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
     private int cartera;
@@ -18,21 +18,10 @@ public class Usuario implements Serializable,PreciosExtra{
         this.password = password;
         this.cartera = cartera;
         this.tiquetes = tiquetes;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Usuarios.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
+        usuarios.add(this);
     }
     public Usuario(int id, String password, int cartera) {
         this(id,password,cartera,new ArrayList<Tiquete>());
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Usuarios.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     
     
@@ -72,10 +61,10 @@ public class Usuario implements Serializable,PreciosExtra{
     public void AddTiquete(Tiquete tiquete){
         this.tiquetes.add(tiquete);
     }
-    public static File getArchivo() {
-        return archivo;
+    public static ArrayList<Usuario> getUsuarios() {
+        return usuarios;
     }
-    public static void setArchivo(File archivo) {
-        Usuario.archivo = archivo;
+    public static void setUsuarios(ArrayList<Usuario> usuarios) {
+        Usuario.usuarios = usuarios;
     }
 }

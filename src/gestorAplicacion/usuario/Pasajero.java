@@ -1,14 +1,11 @@
 package gestorAplicacion.usuario;
 import java.util.*;
-
-import gestorAplicacion.logistica.Tiquete;
-
 import java.io.*;
+import gestorAplicacion.logistica.Tiquete;
 
 public class Pasajero implements Serializable{
     
-    static File archivo = new File("");
-
+    private static final long serialVersionUID = 1L;
     private static ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
     private String nombre;
     private int identificacion;
@@ -21,12 +18,6 @@ public class Pasajero implements Serializable{
         this.identificacion = identificacion;
         this.tiquete = null;
         pasajeros.add(this);
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Pasajeros.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     
@@ -61,11 +52,5 @@ public class Pasajero implements Serializable{
     }
     public static void setPasajeros(ArrayList<Pasajero> pasajeros) {
         Pasajero.pasajeros = pasajeros;
-    }
-    public static File getArchivo() {
-        return archivo;
-    }
-    public static void setArchivo(File archivo) {
-        Pasajero.archivo = archivo;
     }
 }

@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Vuelo implements Serializable {
 
-    static File archivo = new File("");
+    private static final long serialVersionUID = 1L;
     private static ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
     private static int totalCreado;
     private int idVuelo;
@@ -33,21 +33,9 @@ public class Vuelo implements Serializable {
         this.tiquetes = tiquetes;
         vuelos.add(this);
         totalCreado++;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Vuelos.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
     public Vuelo(Avion avion, Ciudad origen, Ciudad destino, String horaSalida, String horaLlegada, String fecha, int tarifaBase,String puerto) {
         this(avion, origen, destino, horaSalida, horaLlegada, fecha, tarifaBase, puerto,new ArrayList<>());
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Vuelos.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
 
@@ -153,12 +141,6 @@ public class Vuelo implements Serializable {
     }
     public void setTiquetes(ArrayList<Tiquete> tiquetes) {
         this.tiquetes = tiquetes;
-    }
-    public static File getArchivo() {
-        return archivo;
-    }
-    public static void setArchivo(File archivo) {
-        Vuelo.archivo = archivo;
     }
     public static int getTotalCreado() {
         return totalCreado;

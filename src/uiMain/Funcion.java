@@ -2,7 +2,6 @@ package uiMain;
 import gestorAplicacion.logistica.*;
 import gestorAplicacion.usuario.Pasajero;
 import gestorAplicacion.usuario.Usuario;
-
 import java.util.*;
 
 public class Funcion implements PreciosExtra{

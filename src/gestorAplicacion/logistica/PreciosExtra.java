@@ -1,4 +1,5 @@
 package gestorAplicacion.logistica;
+import java.io.*;
 
 public interface PreciosExtra {
     int mascotaP = 80000;

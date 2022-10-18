@@ -4,7 +4,8 @@ import java.io.*;
 
 public class Avion implements Serializable{
     
-    static File archivo = new File("");
+    private static final long serialVersionUID = 1L;
+
     private  static ArrayList<Avion> aviones = new ArrayList<Avion>();
     private  String modelo;
     private  int cantidadAsientos;
@@ -26,12 +27,6 @@ public class Avion implements Serializable{
             }
         }
         aviones.add(this);
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Aviones.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
 
@@ -93,11 +88,5 @@ public class Avion implements Serializable{
     }
     public static void setAviones(ArrayList<Avion> aviones) {
         Avion.aviones = aviones;
-    }
-    public static File getArchivo() {
-        return archivo;
-    }
-    public static void setArchivo(File archivo) {
-        Avion.archivo = archivo;
     }
 }

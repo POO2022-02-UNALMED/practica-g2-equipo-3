@@ -3,7 +3,8 @@ import java.io.*;
 
 public class Asiento implements Serializable{
     
-    static File archivo = new File("");
+    private static final long serialVersionUID= 1L;
+
     private int numeroAsiento;
     private Boolean disponibilidad;
     private Avion avion;
@@ -16,12 +17,6 @@ public class Asiento implements Serializable{
         this.disponibilidad = true;
         this.avion = avion;
         this.clase = clase;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Asientos.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
     }
 
     
@@ -65,11 +60,5 @@ public class Asiento implements Serializable{
     }
     public void setClase(Clase clase) {
         this.clase = clase;
-    }
-    public static File getArchivo() {
-        return archivo;
-    }
-    public static void setArchivo(File archivo) {
-        Asiento.archivo = archivo;
     }
 }

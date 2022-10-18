@@ -7,8 +7,8 @@ import gestorAplicacion.logistica.Vuelo;
 import java.io.*;
 
 public class Admin implements Serializable{
-    
-    static File archivo = new File("");
+    private static final long serialVersionUID = 1L;
+    private static ArrayList<Admin> adminList = new ArrayList<Admin>();
     private int id;
     private String password;
 
@@ -17,12 +17,7 @@ public class Admin implements Serializable{
     public Admin(int id, String password) {
         this.id = id;
         this.password = password;
-        try {
-            FileOutputStream f = new FileOutputStream(new File(archivo.getAbsolutePath()+
-            "\\src\\baseDatos\\Administradores.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(this);
-        } catch (FileNotFoundException e) {} catch (IOException e) {}
+        adminList.add(this);
     }
 
 
@@ -83,10 +78,10 @@ public class Admin implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    public static File getArchivo() {
-        return archivo;
+    public static ArrayList<Admin> getAdminList() {
+        return adminList;
     }
-    public static void setArchivo(File archivo) {
-        Admin.archivo = archivo;
+    public static void setAdminList(ArrayList<Admin> adminList) {
+        Admin.adminList = adminList;
     }
 }
