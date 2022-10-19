@@ -96,6 +96,17 @@ public class Persistencia {
         } catch (IOException e) {
             System.out.println("Error flujo de inicialización");
         }
+        try {
+            FileOutputStream f = new FileOutputStream(new File(System.getProperty("user.dir")+"\\src\\baseDatos\\temp\\ttiquetes.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(Tiquete.getTotalCreado());
+            o.close();
+            f.close();
+        }catch (FileNotFoundException e) {
+            System.out.println("No se encuentra archivo");
+        }catch (IOException e) {
+            System.out.println("Error flujo de inicialización");
+        }
     }
 
     public static void deserializar() {
@@ -194,6 +205,19 @@ public class Persistencia {
             FileInputStream fi = new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\baseDatos\\temp\\cargas.txt"));
             ObjectInputStream oi = new ObjectInputStream(fi);
             CargaExtra.setCargas((ArrayList<CargaExtra>) oi.readObject());
+            oi.close();
+            fi.close();
+        }catch (FileNotFoundException e) {
+            System.out.println("No se encuentra archivo");
+        } catch (IOException e) {
+            System.out.println("Error flujo de inicialización");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            FileInputStream fi = new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\baseDatos\\temp\\ttiquetes.txt"));
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            Tiquete.setTotalCreado((int) oi.readObject());
             oi.close();
             fi.close();
         }catch (FileNotFoundException e) {

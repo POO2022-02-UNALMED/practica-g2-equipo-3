@@ -20,6 +20,7 @@ public class Usuario implements Serializable,PreciosExtra{
         this.cartera = cartera;
         this.tiquetes = tiquetes;
         usuarios.add(this);
+        totalUsuarios = usuarios.size();
     }
     public Usuario(String id, String password, int cartera) {
         this(id,password,cartera,new ArrayList<Tiquete>());
