@@ -1,10 +1,10 @@
 package gestorAplicacion.logistica;
+
 import java.io.*;
 
 public class Asiento implements Serializable{
     
     private static final long serialVersionUID= 1L;
-
     private int numeroAsiento;
     private Boolean disponibilidad;
     private Avion avion;

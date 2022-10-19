@@ -1,4 +1,5 @@
 package gestorAplicacion.logistica;
+import gestorAplicacion.usuario.*;
 import java.util.*;
 import java.io.*;
 

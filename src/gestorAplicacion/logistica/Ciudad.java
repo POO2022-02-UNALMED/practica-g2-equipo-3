@@ -5,7 +5,6 @@ import java.io.*;
 public class Ciudad implements Serializable{
     
     private static final long serialVersionUID = 1L;
-
     private static ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
     private String nombre;
     private String pais;

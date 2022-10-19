@@ -5,7 +5,6 @@ import java.io.*;
 public class Avion implements Serializable{
     
     private static final long serialVersionUID = 1L;
-
     private  static ArrayList<Avion> aviones = new ArrayList<Avion>();
     private  String modelo;
     private  int cantidadAsientos;
@@ -64,7 +63,7 @@ public class Avion implements Serializable{
     }
 
 
-    //getter and setteri
+    //getter and setter
     public String getModelo() {
         return modelo;
     }

@@ -1,12 +1,12 @@
-package gestorAplicacion.logistica;
+package gestorAplicacion.usuario;
 import java.util.*;
+import gestorAplicacion.logistica.*;
+
 import java.io.*;
-import gestorAplicacion.usuario.Pasajero;
 
 public class Tiquete implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
     private static ArrayList<Tiquete>tiquetes = new ArrayList<Tiquete>();
     private static int totalCreado;
     private int idTiquete;

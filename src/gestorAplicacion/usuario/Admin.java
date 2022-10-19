@@ -1,12 +1,11 @@
 package gestorAplicacion.usuario;
 import java.util.*;
-import gestorAplicacion.logistica.Avion;
-import gestorAplicacion.logistica.Ciudad;
-import gestorAplicacion.logistica.Vuelo;
+import gestorAplicacion.logistica.*;
 
 import java.io.*;
 
 public class Admin implements Serializable{
+    
     private static final long serialVersionUID = 1L;
     private static ArrayList<Admin> adminList = new ArrayList<Admin>();
     private int id;

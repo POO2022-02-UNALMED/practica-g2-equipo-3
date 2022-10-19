@@ -1,13 +1,20 @@
-package gestorAplicacion.logistica;
+package gestorAplicacion.usuario;
 import java.util.*;
+import gestorAplicacion.logistica.*;
 
 public class Mascota extends CargaExtra{
-    private static final long serialVersionUID = 1L;
+
     private static ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
+
+
+    //constructores
     public Mascota(int precio, String tamaño) {
         super(precio, tamaño);
         mascotas.add(this);
     }
+
+
+    //getter and setter
     public static ArrayList<Mascota> getMascotas() {
         return mascotas;
     }

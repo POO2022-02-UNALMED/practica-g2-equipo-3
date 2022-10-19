@@ -2,9 +2,7 @@ package uiMain;
 import java.util.*;
 
 import baseDatos.Persistencia;
-import gestorAplicacion.logistica.*;
 import gestorAplicacion.usuario.*;
-import java.io.*;
 
 public class Main{
     //TEST
@@ -51,7 +49,6 @@ public class Main{
                 System.out.println("Ingrese una opcion valida");
                 eleccion = input.nextInt();
             }
-            
             switch (eleccion) {
                 case 0:{
                     loop=false;
@@ -72,17 +69,6 @@ public class Main{
                 }
             }
             System.out.println("================================");
-        }
-        try {
-            FileOutputStream f = new FileOutputStream(new File(System.getProperty("user.dir")+"\\src\\baseDatos\\temp\\vuelos.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(Vuelo.getVuelos());
-            o.close();
-            f.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("No se encuentra archivo");
-        } catch (IOException e) {
-            System.out.println("Error flujo de inicialización");
         }
     }
 }

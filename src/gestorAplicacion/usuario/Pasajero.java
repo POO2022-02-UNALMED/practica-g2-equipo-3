@@ -1,7 +1,6 @@
 package gestorAplicacion.usuario;
 import java.util.*;
 import java.io.*;
-import gestorAplicacion.logistica.Tiquete;
 
 public class Pasajero implements Serializable{
     

@@ -1,9 +1,9 @@
 package gestorAplicacion.usuario;
 import java.util.*;
-import gestorAplicacion.logistica.*;
 import java.io.*;
 
 public class Usuario implements Serializable,PreciosExtra{
+
     private static final long serialVersionUID = 1L;
     private int id;
     private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
@@ -26,12 +26,12 @@ public class Usuario implements Serializable,PreciosExtra{
     
     
     //metodos
-
     public void Reembolsar(int tiquete){
             Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
             this.cartera += tiqueteReembolsado.precioTotal();
             this.tiquetes.remove(tiquete);
     }
+
 
     //getter and setter
     public int getId() {

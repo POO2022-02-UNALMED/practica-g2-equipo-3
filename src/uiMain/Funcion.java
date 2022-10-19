@@ -1,7 +1,6 @@
 package uiMain;
 import gestorAplicacion.logistica.*;
-import gestorAplicacion.usuario.Pasajero;
-import gestorAplicacion.usuario.Usuario;
+import gestorAplicacion.usuario.*;
 import java.util.*;
 
 public class Funcion implements PreciosExtra{
@@ -159,7 +158,7 @@ public class Funcion implements PreciosExtra{
         if(eleccion == 1){
             Funcion.agregarCargaExtra(tiquete);
         }
-        System.out.println(tiquete.Factura(tiquete));
+        System.out.println(Tiquete.Factura(tiquete));
         System.out.println("\nConfirmacion de compra: ");
         System.out.println("1. Confirmar");
         System.out.println("0. rechazar");
@@ -177,8 +176,6 @@ public class Funcion implements PreciosExtra{
         usuario.AddTiquete(tiquete);
         return;
     }
-
-
     public static void misTiquetes(Usuario usuario){
         System.out.println();
         for(Tiquete tiquete : usuario.getTiquetes()){
@@ -186,8 +183,6 @@ public class Funcion implements PreciosExtra{
         }
         System.out.println();
     }
-
-
     public static void verTodosLosVuelos(){
         System.out.println("\nVuelos disponoibles:\n");
         for(Vuelo vuelo: Vuelo.getVuelos()){
@@ -195,8 +190,6 @@ public class Funcion implements PreciosExtra{
         }
         System.out.println("");
     }
-
-
     public static void agregarCargaExtra(Tiquete tiquete){
         ArrayList<CargaExtra> cargas = new ArrayList<CargaExtra>();
         Scanner input = new Scanner(System.in);
