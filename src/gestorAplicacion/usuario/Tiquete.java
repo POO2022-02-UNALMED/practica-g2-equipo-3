@@ -8,7 +8,7 @@ public class Tiquete implements Serializable{
 
     private static final long serialVersionUID = 1L;
     private static ArrayList<Tiquete>tiquetes = new ArrayList<Tiquete>();
-    private static int totalCreado;
+    private static int totalCreado = tiquetes.size();
     private int idTiquete;
     private Pasajero pasajero;
     private Vuelo vuelo;
@@ -24,14 +24,12 @@ public class Tiquete implements Serializable{
         this.asiento = asiento;
         this.cargaExtra = cargaExtra;
         tiquetes.add(this);
-        totalCreado++;
     }
     public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
         this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>());
     }
     public Tiquete() {
         tiquetes.add(this);
-        totalCreado++;
     }
 
 

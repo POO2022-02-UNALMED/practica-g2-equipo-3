@@ -3,26 +3,28 @@ import java.util.*;
 import java.io.*;
 
 public class Usuario implements Serializable,PreciosExtra{
-
+    
     private static final long serialVersionUID = 1L;
-    private int id;
     private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private static int totalUsuarios = usuarios.size();
+    protected String id;
     private String password;
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
     private int cartera;
 
     
     //constructores
-    public Usuario(int id, String password,  int cartera, ArrayList<Tiquete> tiquetes) {
+    public Usuario(String id, String password,  int cartera, ArrayList<Tiquete> tiquetes) {
         this.id = id;
         this.password = password;
         this.cartera = cartera;
         this.tiquetes = tiquetes;
         usuarios.add(this);
     }
-    public Usuario(int id, String password, int cartera) {
+    public Usuario(String id, String password, int cartera) {
         this(id,password,cartera,new ArrayList<Tiquete>());
     }
+    public Usuario(){};
     
     
     //metodos
@@ -31,13 +33,21 @@ public class Usuario implements Serializable,PreciosExtra{
             this.cartera += tiqueteReembolsado.precioTotal();
             this.tiquetes.remove(tiquete);
     }
+    public static boolean isUsuarioExist(String user){
+        for(Usuario u : Usuario.getUsuarios()){
+            if(u.getId().equals(user)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     //getter and setter
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getPassword() {
@@ -66,5 +76,11 @@ public class Usuario implements Serializable,PreciosExtra{
     }
     public static void setUsuarios(ArrayList<Usuario> usuarios) {
         Usuario.usuarios = usuarios;
+    }
+    public static void setTotalUsuarios(int totalUsuarios) {
+        Usuario.totalUsuarios = totalUsuarios;
+    }
+    public static int getTotalUsuarios() {
+        return totalUsuarios;
     }
 }

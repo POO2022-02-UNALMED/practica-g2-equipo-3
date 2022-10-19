@@ -6,7 +6,7 @@ public class Asiento implements Serializable{
     
     private static final long serialVersionUID= 1L;
     private int numeroAsiento;
-    private Boolean disponibilidad;
+    private boolean disponibilidad;
     private Avion avion;
     private Clase clase;
 
@@ -43,10 +43,10 @@ public class Asiento implements Serializable{
     public void setNumeroAsiento(int numero_asiento) {
         this.numeroAsiento = numero_asiento;
     }
-    public Boolean getDisponibilidad() {
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
-    public void setDisponibilidad(Boolean disponibilidad) {
+    public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
     public Avion getAvion() {

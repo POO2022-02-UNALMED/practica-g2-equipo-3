@@ -6,7 +6,6 @@ public class Mascota extends CargaExtra{
 
     private static ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
 
-
     //constructores
     public Mascota(int precio, String tamaño) {
         super(precio, tamaño);

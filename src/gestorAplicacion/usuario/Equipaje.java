@@ -5,6 +5,7 @@ import gestorAplicacion.logistica.*;
 public class Equipaje extends CargaExtra {
 
     private static ArrayList<Equipaje> equipajes = new ArrayList<Equipaje>();
+
     //constructores
     public Equipaje(int precio, String tamaño) {
         super(precio, tamaño);

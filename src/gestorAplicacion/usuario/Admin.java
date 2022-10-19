@@ -2,20 +2,13 @@ package gestorAplicacion.usuario;
 import java.util.*;
 import gestorAplicacion.logistica.*;
 
-import java.io.*;
-
-public class Admin implements Serializable{
+public class Admin  extends Usuario{
     
-    private static final long serialVersionUID = 1L;
     private static ArrayList<Admin> adminList = new ArrayList<Admin>();
-    private int id;
-    private String password;
-
     
     //constructores
-    public Admin(int id, String password) {
-        this.id = id;
-        this.password = password;
+    public Admin(String id, String password) {
+        super(id, password, 0);
         adminList.add(this);
     }
 
@@ -65,18 +58,6 @@ public class Admin implements Serializable{
 
 
     //getter and setter
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
     public static ArrayList<Admin> getAdminList() {
         return adminList;
     }

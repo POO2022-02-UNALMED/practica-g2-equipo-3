@@ -40,6 +40,7 @@ public class Funcion implements PreciosExtra{
             v = Vuelo.filtroVuelos(origen, destino);
         }else if(eleccion == 2){
             System.out.println("\nIngrese un origen: ");
+            input.nextLine();
             String origen = input.nextLine();
             System.out.println("\nIngrese un destino: ");
             String destino = input.nextLine();
@@ -288,9 +289,45 @@ public class Funcion implements PreciosExtra{
             }
             if(eleccion == 3){
                 loop = false;
+                tiquete.setCargaExtra(cargas);
+                return;
             }
         }
-        tiquete.setCargaExtra(cargas);
+    }
+    public static Usuario login(){
+        System.out.println("\nUsuario: ");
+        Scanner input = new Scanner(System.in);
+        String username = input.nextLine();
+        Usuario prov = null;
+        if(!Usuario.isUsuarioExist(username)){
+            System.out.println("\nUsuario inexistente");
+            return null;
+        }
+        for(Usuario u : Usuario.getUsuarios()){
+            if(u.getId().equals(username)){
+                prov = u;
+                break;
+            }
+        }
+        System.out.println("\nContraseña: ");
+        String password = input.nextLine();
+        if(password.equals(prov.getPassword())){return prov;}
+        System.out.println("\nContraseña incorrecta");
+        return null;
+    }
+    public static Usuario crearUsuario(){
+        System.out.println("\nIngrese un nombre de Usuario: ");
+        Scanner input = new Scanner(System.in);
+        String username = input.nextLine();
+        while(Usuario.isUsuarioExist(username)){
+            System.out.println("\nUsuario existente");
+            System.out.println("\nIngrese su nombre de Usuario: ");
+            input = new Scanner(System.in);
+            username = input.nextLine();
+        }
+        System.out.println("\nIngrese una Contraseña: ");
+        String password = input.nextLine();
+        return new Usuario(username,password,0);
     }
     
 }
