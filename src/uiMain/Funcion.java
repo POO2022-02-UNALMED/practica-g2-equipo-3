@@ -13,10 +13,32 @@ public class Funcion implements PreciosExtra{
         System.out.println("2. Origen-Destino y fecha");
         System.out.println("3. Destinos disponibles");
         System.out.println("0. Regresar");
-        int eleccion = input.nextInt();
+        int eleccion = 0;
+        boolean inputNotNull = true;
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion !=3){
             System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         }
         if(eleccion == 1){
             System.out.println("\nIngrese un origen: ");
@@ -84,11 +106,31 @@ public class Funcion implements PreciosExtra{
             return;
         }
         System.out.println("\nIngrese el numero de opcion del vuelo: ");
-        eleccion = input.nextInt();
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         while (eleccion-1>v.size()){
             System.out.println("\nOpcion invalida");
             System.out.println("\nIngrese el numero de opcion del vuelo: ");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
         }
         Vuelo vuelo = v.get(eleccion-1);
         System.out.println("\nClase del asiento: ");
@@ -96,11 +138,31 @@ public class Funcion implements PreciosExtra{
         System.out.println("2. Ejecutiva");
         System.out.println("3. Economica");
         System.out.println("0. Regresar");
-        eleccion = input.nextInt();
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         System.out.println("");
         while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion != 3){
             System.out.println("\nIngrese una opcion valida");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
         }
         int counter = 1;
         ArrayList<Asiento> asientosdisp = new ArrayList<Asiento>();
@@ -132,11 +194,31 @@ public class Funcion implements PreciosExtra{
             return;
         }
         System.out.println("\nIngrese el numero de opcion del asiento: ");
-        eleccion = input.nextInt();
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         while (eleccion-1>asientosdisp.size()){
             System.out.println("\nOpcion invalida");
             System.out.println("\nIngrese el numero de opcion del asiento: ");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
         }
         Asiento asiento = asientosdisp.get(eleccion-1);
 
@@ -144,17 +226,48 @@ public class Funcion implements PreciosExtra{
         input.nextLine();
         String nombre= input.nextLine();
         System.out.println("\nIngrese el numero de documento del pasajero: ");
-        int identificacion = input.nextInt();
+        int identificacion = 0;
+        while (inputNotNull) {
+            try {
+                identificacion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         asiento.setDisponibilidad(false);
         Tiquete tiquete = new Tiquete(new Pasajero(nombre, identificacion),vuelo,asiento);
         System.out.println("\nDesea agregar equipaje extra o mascotas?: ");
         System.out.println("1. Si");
         System.out.println("0. No");
         
-        eleccion = input.nextInt();
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         while (eleccion != 1 & eleccion != 0){
             System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
         }
         if(eleccion == 1){
             Funcion.agregarCargaExtra(tiquete);
@@ -163,10 +276,30 @@ public class Funcion implements PreciosExtra{
         System.out.println("\nConfirmacion de compra: ");
         System.out.println("1. Confirmar");
         System.out.println("0. rechazar");
-        eleccion = input.nextInt();
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
         while (eleccion != 1 & eleccion != 0){
             System.out.println("Ingrese una opcion valida");
-            eleccion = input.nextInt();
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
         }
         if(eleccion == 0){
             asiento.setDisponibilidad(true);
@@ -199,28 +332,90 @@ public class Funcion implements PreciosExtra{
             System.out.println("\n1. Equipaje extra");
             System.out.println("2. Mascota");
             System.out.println("3. Siguiente");
-            int eleccion = input.nextInt();
+            int eleccion = 0;
+            boolean inputNotNull = true;
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
             while (eleccion != 3 & eleccion != 1 & eleccion != 2){
                 System.out.println("Ingrese una opcion valida");
-                eleccion = input.nextInt();
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
             }
             if(eleccion == 1){
                 System.out.println("\n1. Equipaje de mano");
                 System.out.println("2. Equipaje de bodega");
                 System.out.println("0. Regresar");
-                eleccion = input.nextInt();
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
                 while (eleccion != 0 & eleccion != 1 & eleccion != 2){
                     System.out.println("Ingrese una opcion valida");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                 }
                 if(eleccion == 1){
                     System.out.println("\nPrecio: $"+PreciosExtra.equipajeMano);
                     System.out.println("1. Confirmar");
                     System.out.println("0. Rechazar");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                     while (eleccion != 1 & eleccion != 0){
                         System.out.println("Ingrese una opcion valida");
-                        eleccion = input.nextInt();
+                        while (inputNotNull) {
+                            try {
+                                eleccion = input.nextInt();
+                                inputNotNull = false;
+                
+                            }catch (InputMismatchException e) {
+                                System.err.println("Solo ingrese Numeros");
+                                input.nextLine();
+                            }
+                        }
+                        inputNotNull = true;
                     }
                     if(eleccion == 1){
                         cargas.add(new Equipaje(PreciosExtra.equipajeMano, "Equipaje de mano"));
@@ -229,10 +424,30 @@ public class Funcion implements PreciosExtra{
                     System.out.println("\nPrecio: $"+PreciosExtra.equipajeBodega);
                     System.out.println("1. Confirmar");
                     System.out.println("0. Rechazar");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                     while (eleccion != 1 & eleccion != 0){
                         System.out.println("Ingrese una opcion valida");
-                        eleccion = input.nextInt();
+                        while (inputNotNull) {
+                            try {
+                                eleccion = input.nextInt();
+                                inputNotNull = false;
+                
+                            }catch (InputMismatchException e) {
+                                System.err.println("Solo ingrese Numeros");
+                                input.nextLine();
+                            }
+                        }
+                        inputNotNull = true;
                     }
                     if(eleccion == 1){
                         cargas.add(new Equipaje(PreciosExtra.equipajeBodega, "Equipaje de bodega"));
@@ -244,19 +459,59 @@ public class Funcion implements PreciosExtra{
                 System.out.println("2. Mascota Mediana");
                 System.out.println("3. Mascota Grande");
                 System.out.println("0. Regresar");
-                eleccion = input.nextInt();
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
                 while (eleccion != 0 & eleccion != 1 & eleccion != 2 & eleccion !=3){
                     System.out.println("Ingrese una opcion valida");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                 }
                 if(eleccion == 1){
                     System.out.println("\nPrecio: $"+PreciosExtra.mascotaP);
                     System.out.println("1. Confirmar");
                     System.out.println("0. Rechazar");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                     while (eleccion != 1 & eleccion != 0){
                         System.out.println("Ingrese una opcion valida");
-                        eleccion = input.nextInt();
+                        while (inputNotNull) {
+                            try {
+                                eleccion = input.nextInt();
+                                inputNotNull = false;
+                
+                            }catch (InputMismatchException e) {
+                                System.err.println("Solo ingrese Numeros");
+                                input.nextLine();
+                            }
+                        }
+                        inputNotNull = true;
                     }
                     if(eleccion == 1){
                         cargas.add(new Equipaje(PreciosExtra.mascotaP, "Mascota pequeña"));
@@ -265,10 +520,30 @@ public class Funcion implements PreciosExtra{
                     System.out.println("\nPrecio: $"+PreciosExtra.mascotaM);
                     System.out.println("1. Confirmar");
                     System.out.println("0. Rechazar");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                     while (eleccion != 1 & eleccion != 0){
                         System.out.println("Ingrese una opcion valida");
-                        eleccion = input.nextInt();
+                        while (inputNotNull) {
+                            try {
+                                eleccion = input.nextInt();
+                                inputNotNull = false;
+                
+                            }catch (InputMismatchException e) {
+                                System.err.println("Solo ingrese Numeros");
+                                input.nextLine();
+                            }
+                        }
+                        inputNotNull = true;
                     }
                     if(eleccion == 1){
                         cargas.add(new Equipaje(PreciosExtra.mascotaM, "Mascota mediana"));
@@ -277,10 +552,30 @@ public class Funcion implements PreciosExtra{
                     System.out.println("\nPrecio: $"+PreciosExtra.mascotaG);
                     System.out.println("1. Confirmar");
                     System.out.println("0. Rechazar");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                     while (eleccion != 1 & eleccion != 0){
                         System.out.println("Ingrese una opcion valida");
-                        eleccion = input.nextInt();
+                        while (inputNotNull) {
+                            try {
+                                eleccion = input.nextInt();
+                                inputNotNull = false;
+                
+                            }catch (InputMismatchException e) {
+                                System.err.println("Solo ingrese Numeros");
+                                input.nextLine();
+                            }
+                        }
+                        inputNotNull = true;
                     }
                     if(eleccion == 1){
                         cargas.add(new Equipaje(PreciosExtra.mascotaG, "Mascota grande"));

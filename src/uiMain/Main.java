@@ -12,6 +12,7 @@ public class Main{
         boolean loop = true;
         boolean logloop = true;
         boolean mainloop = true;
+        boolean inputNotNull = true;
         Usuario user = null;
         while(mainloop){
             
@@ -26,10 +27,31 @@ public class Main{
                 System.out.println("2. Crear cuenta");
                 System.out.println("0. Cerrar programa");
                 System.out.println("\n================================");
-                int eleccion = input.nextInt();
+                int eleccion = 0;
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
                 while (eleccion != 1 & eleccion != 2  & eleccion != 0){
                     System.out.println("Ingrese una opcion valida");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                 }
                 switch (eleccion) {
                     case 1:{
@@ -39,6 +61,7 @@ public class Main{
                     case 2:{
                         user = Funcion.crearUsuario();
                         loop = true;
+                        Persistencia.serializar();
                         break;
                         }
                     case 0:{
@@ -61,13 +84,34 @@ public class Main{
                 System.out.println("================================");
                 System.out.println("Servicios:");
                 System.out.println("1. Ver todos los vuelos disponibles");
-                System.out.println("2. Reserva tiquete");
+                System.out.println("2. Reservar tiquete");
                 System.out.println("3. Mis tiquetes");
                 System.out.println("0. Cerrar sesion");
-                int eleccion = input.nextInt();
+                int eleccion = 0;
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
                 while (eleccion != 0 &eleccion != 1 & eleccion != 2 & eleccion != 3){
                     System.out.println("Ingrese una opcion valida");
-                    eleccion = input.nextInt();
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
                 }
                 switch (eleccion) {
                     case 0:{
@@ -77,14 +121,17 @@ public class Main{
                     }
                     case 1:{
                         Funcion.verTodosLosVuelos();
+                        Persistencia.serializar();
                         break;
                         }
                     case 2:{
                         Funcion.ReservaTiquete(user);
+                        Persistencia.serializar();
                         break;
                     }
                     case 3:{
                         Funcion.misTiquetes(user);
+                        Persistencia.serializar();
                         break;
                     }
                 }
