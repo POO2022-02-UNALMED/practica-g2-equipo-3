@@ -88,4 +88,7 @@ public class Avion implements Serializable{
     public static void setAviones(ArrayList<Avion> aviones) {
         Avion.aviones = aviones;
     }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

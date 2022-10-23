@@ -61,4 +61,7 @@ public class Asiento implements Serializable{
     public void setClase(Clase clase) {
         this.clase = clase;
     }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

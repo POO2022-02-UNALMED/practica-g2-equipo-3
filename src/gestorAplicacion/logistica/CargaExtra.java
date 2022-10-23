@@ -37,7 +37,7 @@ public abstract class CargaExtra implements Serializable{
     public static void setCargas(ArrayList<CargaExtra> cargas) {
         CargaExtra.cargas = cargas;
     }
-
-
-
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

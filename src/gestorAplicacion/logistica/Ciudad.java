@@ -42,4 +42,7 @@ public class Ciudad implements Serializable{
     public void setPais(String pais) {
         this.pais = pais;
     }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

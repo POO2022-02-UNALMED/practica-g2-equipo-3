@@ -30,9 +30,13 @@ public class Usuario implements Serializable,PreciosExtra{
     
     //metodos
     public void Reembolsar(int tiquete){
-            Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
-            this.cartera += tiqueteReembolsado.precioTotal();
-            this.tiquetes.remove(tiquete);
+        Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
+        if (tiqueteReembolsado.getVuelo().isCheckIn()==true){
+            System.out.println("Ya se hizo Chek-in en este tiquete, no se puede reembolsar");
+            return;
+        }
+        this.cartera += tiqueteReembolsado.precioTotal();
+        this.tiquetes.remove(tiquete);
     }
     public static boolean isUsuarioExist(String user){
         for(Usuario u : Usuario.getUsuarios()){
@@ -83,5 +87,8 @@ public class Usuario implements Serializable,PreciosExtra{
     }
     public static int getTotalUsuarios() {
         return totalUsuarios;
+    }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 }

@@ -17,6 +17,7 @@ public class Vuelo implements Serializable {
     private String fecha;
     private int tarifaBase;
     private String puerto;
+    private boolean checkIn = false;
     private ArrayList<Tiquete> tiquetes = new ArrayList<Tiquete>();
 
 
@@ -148,5 +149,14 @@ public class Vuelo implements Serializable {
     }
     public static void setTotalCreado(int totalCreado) {
         Vuelo.totalCreado = totalCreado;
+    }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+    public boolean isCheckIn() {
+        return checkIn;
+    }
+    public void setCheckIn(boolean checkIn) {
+        this.checkIn = checkIn;
     }
 }

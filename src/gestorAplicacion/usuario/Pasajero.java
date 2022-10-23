@@ -52,4 +52,7 @@ public class Pasajero implements Serializable{
     public static void setPasajeros(ArrayList<Pasajero> pasajeros) {
         Pasajero.pasajeros = pasajeros;
     }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

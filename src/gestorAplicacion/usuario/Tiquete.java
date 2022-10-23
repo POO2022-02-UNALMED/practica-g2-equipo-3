@@ -104,4 +104,7 @@ public class Tiquete implements Serializable{
     public static void setTiquetes(ArrayList<Tiquete> tiquetes) {
         Tiquete.tiquetes = tiquetes;
     }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }
