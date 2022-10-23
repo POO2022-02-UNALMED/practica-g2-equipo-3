@@ -55,6 +55,144 @@ public class Admin  extends Usuario{
             }
         }
     }
+    public void creador_de_Viajes(){
+        Scanner input = new Scanner(System.in);
+        boolean inputNotNull = true;
+        int eleccion = 0;
+        System.out.println("1. Gestor de vuelos");
+        System.out.println("2. Gestor de ciudades");
+        System.out.println("3. Gestor de aviones");
+        while (inputNotNull) {
+            try {
+                eleccion = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
+        while (eleccion != 3 & eleccion != 1 & eleccion != 2){
+            System.out.println("Ingrese una opcion valida");
+            while (inputNotNull) {
+                try {
+                    eleccion = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
+        }
+        switch(eleccion){
+            case 1:{
+                System.out.println("1. Agregar vuelo");
+                System.out.println("2. Eliminar vuelo");
+                System.out.println("0. Regresar");
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
+                while (eleccion != 0 & eleccion != 1 & eleccion != 2){
+                    System.out.println("Ingrese una opcion valida");
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
+                }
+                break;
+            }
+            case 2:{
+                System.out.println("1. Agregar nueva ciudad");
+                System.out.println("2. Eliminar ciudad");
+                System.out.println("0. Regresar");
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                if(eleccion==1){
+                    System.err.println("Ingrese el  nomebres");
+                    String nombre = input.nextLine();
+                    System.err.println("Solo ingrese Numeros");
+                    String pais = input.nextLine();
+                    new Ciudad(nombre, pais);
+                }
+                }
+                inputNotNull = true;
+                while (eleccion != 3 & eleccion != 1 & eleccion != 2){
+                    System.out.println("Ingrese una opcion valida");
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
+                }
+                break;
+            }
+            case 3:{
+                System.out.println("1. Agregar nuevo avion");
+                System.out.println("2. Eliminar avion");
+                System.out.println("0. Regresar");
+                while (inputNotNull) {
+                    try {
+                        eleccion = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
+                while (eleccion != 3 & eleccion != 1 & eleccion != 2){
+                    System.out.println("Ingrese una opcion valida");
+                    while (inputNotNull) {
+                        try {
+                            eleccion = input.nextInt();
+                            inputNotNull = false;
+            
+                        }catch (InputMismatchException e) {
+                            System.err.println("Solo ingrese Numeros");
+                            input.nextLine();
+                        }
+                    }
+                    inputNotNull = true;
+                }
+                
+                break;
+            }
+        }
+    }
+
+
 
 
     //getter and setter
@@ -64,4 +202,6 @@ public class Admin  extends Usuario{
     public static void setAdminList(ArrayList<Admin> adminList) {
         Admin.adminList = adminList;
     }
+
+
 }
