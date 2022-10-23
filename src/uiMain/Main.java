@@ -86,6 +86,7 @@ public class Main{
                 System.out.println("1. Ver todos los vuelos disponibles");
                 System.out.println("2. Reservar tiquete");
                 System.out.println("3. Mis tiquetes");
+                System.out.println("4. Check-in");
                 System.out.println("0. Cerrar sesion");
                 int eleccion = 0;
                 while (inputNotNull) {
@@ -99,7 +100,7 @@ public class Main{
                     }
                 }
                 inputNotNull = true;
-                while (eleccion != 0 &eleccion != 1 & eleccion != 2 & eleccion != 3){
+                while (eleccion != 0 &eleccion != 1 & eleccion != 2 & eleccion != 3 & eleccion != 4){
                     System.out.println("Ingrese una opcion valida");
                     while (inputNotNull) {
                         try {
@@ -131,6 +132,11 @@ public class Main{
                     }
                     case 3:{
                         Funcion.misTiquetes(user);
+                        Persistencia.serializar();
+                        break;
+                    }
+                    case 4:{
+                        Funcion.checkIn(user);
                         Persistencia.serializar();
                         break;
                     }
