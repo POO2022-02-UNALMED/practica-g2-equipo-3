@@ -8,14 +8,13 @@ import gestorAplicacion.logistica.*;
 public class Main{
     //TEST
     public static void main(String[] args) {
-
+        System.out.println("\nPara seleccionar una opcion ingrese el numero que antecede al punto.\nejemplo: \n2. Prueba \nPara acceder a Prueba ingrese 2");
         boolean loop = true;
         boolean logloop = true;
         boolean mainloop = true;
         boolean inputNotNull = true;
         Usuario user = null;
         while(mainloop){
-            
             loop = true;
             logloop = true;
             mainloop = true;
@@ -75,9 +74,6 @@ public class Main{
             }
 
 
-
-
-
             while (loop) {
                 System.out.println("\n================================");
                 System.out.println("AERO UNAL");
@@ -87,6 +83,9 @@ public class Main{
                 System.out.println("2. Reservar tiquete");
                 System.out.println("3. Mis tiquetes");
                 System.out.println("4. Check-in");
+                if(user instanceof Admin){
+                    System.out.println("5. Gestionar el sistema");
+                }
                 System.out.println("0. Cerrar sesion");
                 int eleccion = 0;
                 while (inputNotNull) {
@@ -99,8 +98,9 @@ public class Main{
                         input.nextLine();
                     }
                 }
+                if((user instanceof Admin)==false & eleccion==5){eleccion=10;}
                 inputNotNull = true;
-                while (eleccion != 0 &eleccion != 1 & eleccion != 2 & eleccion != 3 & eleccion != 4){
+                while (eleccion != 1 & eleccion != 2  & eleccion != 0 & eleccion !=5 & eleccion != 4 &  eleccion != 3){
                     System.out.println("Ingrese una opcion valida");
                     while (inputNotNull) {
                         try {
@@ -111,6 +111,7 @@ public class Main{
                             System.err.println("Solo ingrese Numeros");
                             input.nextLine();
                         }
+                        if((user instanceof Admin)==false & eleccion==5){eleccion=10;}   
                     }
                     inputNotNull = true;
                 }
@@ -137,6 +138,11 @@ public class Main{
                     }
                     case 4:{
                         Funcion.checkIn(user);
+                        Persistencia.serializar();
+                        break;
+                    }
+                    case 5:{
+                        ((Admin)user).gestorSistema();
                         Persistencia.serializar();
                         break;
                     }

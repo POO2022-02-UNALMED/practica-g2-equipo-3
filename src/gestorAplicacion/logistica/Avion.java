@@ -61,7 +61,10 @@ public class Avion implements Serializable{
         }
         return result;
     }
-
+    @Override
+    public String toString() {
+        return "Avion: " + this.modelo + " Cantidad de asientos: " + this.cantidadAsientos;
+    }
 
     //getter and setter
     public String getModelo() {
