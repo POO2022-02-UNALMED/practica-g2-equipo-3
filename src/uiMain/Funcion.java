@@ -325,16 +325,13 @@ public class Funcion implements PreciosExtra{
 
     public static void checkIn(Usuario usuario){
         Scanner input = new Scanner(System.in);
-        int contador = 1;
         int numero = -1;
         int confirmacion = -1;
         boolean inputNotNull = true;
-        System.out.println("Por favor, escoja el numero del tiquete para el cual desea realizar Check-in:");
+        System.out.println("\nPor favor, escoja el numero del tiquete para el cual desea realizar Check-in:\n");
         for (Tiquete tiquete : usuario.getTiquetes()){
-            System.out.println("Tiquete "+ contador + ": " + tiquete);
-            contador ++;
+            System.out.println(tiquete);
         }
-        System.out.println("Por favor, NO ESCRIBA la ID del tiquete, escriba el numero corto que se le asigna al inicio");
         while (inputNotNull) {
             try {
                 numero = input.nextInt();
@@ -346,7 +343,7 @@ public class Funcion implements PreciosExtra{
             }
         }
         inputNotNull = true;
-        while (numero <= 0 || numero-1 > usuario.getTiquetes().size()){
+        while (numero < 0 || numero > usuario.getTiquetes().size()){
             System.out.println("Ingrese una opcion valida");
             while (inputNotNull) {
                 try {
@@ -361,8 +358,8 @@ public class Funcion implements PreciosExtra{
             inputNotNull = true;
         }
         inputNotNull = true;
-        Tiquete tiquete = usuario.getTiquetes().get(numero-1);
-        System.out.println("Usted ha escogido su tiquete #"+ numero +", asociado al vuelo "+ tiquete.getVuelo().getIdVuelo()+", el cual partira el "+ tiquete.getVuelo().getFecha() +"A las "+  tiquete.getVuelo().getHoraSalida());
+        Tiquete tiquete = usuario.getTiquetes().get(numero);
+        System.out.println("\nUsted ha escogido su tiquete #"+ numero +", asociado al vuelo "+ tiquete.getVuelo().getIdVuelo()+", el cual partira el "+ tiquete.getVuelo().getFecha() +" A las "+  tiquete.getVuelo().getHoraSalida()+"\n");
         System.out.println("Desea realizar su Check-in para este vuelo? No podra realizar mas cambios en su tiquete ni solicitar reembolsos");
         System.out.println("1. Confirmar");
         System.out.println("0. Rechazar");
@@ -370,7 +367,6 @@ public class Funcion implements PreciosExtra{
             try {
                 confirmacion = input.nextInt();
                 inputNotNull = false;
-
             }catch (InputMismatchException e) {
                 System.err.println("Solo ingrese Numeros");
                 input.nextLine();
@@ -383,7 +379,6 @@ public class Funcion implements PreciosExtra{
                 try {
                     numero = input.nextInt();
                     inputNotNull = false;
-    
                 }catch (InputMismatchException e) {
                     System.err.println("Solo ingrese Numeros");
                     input.nextLine();
@@ -391,12 +386,12 @@ public class Funcion implements PreciosExtra{
             }
             inputNotNull = true;
         }
-        if (numero==1){
+        if (confirmacion==1){
             tiquete.getVuelo().setCheckIn(true);
-            System.out.println("Check-in realizado con exito, disfrute su vuelo!");
+            System.out.println("\nCheck-in realizado con exito, disfrute su vuelo!");
         }
         else{
-            System.out.println("Proceso anulado, por favor recuerde realizar su Check-in con anticipacion");
+            System.out.println("\nProceso anulado, por favor recuerde realizar su Check-in con anticipacion");
         }
     }
 

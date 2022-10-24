@@ -64,6 +64,7 @@ public class Main{
                         break;
                         }
                     case 0:{
+                        System.out.println("\nHasta pronto!\n");
                         logloop = false;
                         loop = false;
                         mainloop = false;
