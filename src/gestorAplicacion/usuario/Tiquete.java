@@ -14,6 +14,7 @@ public class Tiquete implements Serializable{
     private Vuelo vuelo;
     private Asiento asiento;
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
+    private boolean checkIn = false;
 
 
     //constructores
@@ -106,5 +107,11 @@ public class Tiquete implements Serializable{
     }
     public static long getSerialversionuid() {
         return serialVersionUID;
+    }
+    public boolean isCheckIn() {
+        return checkIn;
+    }
+    public void setCheckIn(boolean checkIn) {
+        this.checkIn = checkIn;
     }
 }

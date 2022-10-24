@@ -1,0 +1,15 @@
+Al ejecutar el programa, se le pedirá que ingrese su usuario y contraseña, hay dos tipos de usuarios:
+administrador y usuario. Los usuarios pueden acceder a todas las funciones principales del sistema, los 
+administradores pueden acceder a estas funciones tambien, ademas de poder realizar cambios en el sistema.
+
+Los dos perfiles creados con anterioridad son:
+
+Usuario:
+prueba 
+Contraseña:
+123
+
+Usuario administrador:
+admin
+Contraseña:
+admin

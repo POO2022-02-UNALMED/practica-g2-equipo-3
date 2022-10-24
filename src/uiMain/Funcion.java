@@ -387,7 +387,7 @@ public class Funcion implements PreciosExtra{
             inputNotNull = true;
         }
         if (confirmacion==1){
-            tiquete.getVuelo().setCheckIn(true);
+            tiquete.setCheckIn(true);
             System.out.println("\nCheck-in realizado con exito, disfrute su vuelo!");
         }
         else{
@@ -411,7 +411,7 @@ public class Funcion implements PreciosExtra{
         ArrayList<CargaExtra> cargas = new ArrayList<CargaExtra>();
         Scanner input = new Scanner(System.in);
         boolean loop = true;
-        if (tiquete.getVuelo().isCheckIn()==true){
+        if (tiquete.isCheckIn()==true){
             System.out.println("Ya se hizo Chek-in en este tiquete, no se puede agregar carga extra");
             return;
         }
