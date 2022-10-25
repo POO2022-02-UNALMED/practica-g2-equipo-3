@@ -1,3 +1,3 @@
-java -jar practica-g2-equipo-3.jar
+java -jar AeroUnal.jar
 @echo off
 pause

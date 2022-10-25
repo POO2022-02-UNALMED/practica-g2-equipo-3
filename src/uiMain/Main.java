@@ -19,7 +19,8 @@ public class Main{
             logloop = true;
             mainloop = true;
             Persistencia.deserializar();
-            Scanner input = new Scanner(System.in);
+            @SuppressWarnings("resource")
+            Scanner inputmain = new Scanner(System.in);
             while(logloop){
                 //Admin.vuelosRandom(101);
                 //new Admin("admin", "admin");
@@ -31,12 +32,12 @@ public class Main{
                 int eleccion = 0;
                 while (inputNotNull) {
                     try {
-                        eleccion = input.nextInt();
+                        eleccion = inputmain.nextInt();
                         inputNotNull = false;
         
                     }catch (InputMismatchException e) {
                         System.err.println("Solo ingrese Numeros");
-                        input.nextLine();
+                        inputmain.nextLine();
                     }
                 }
                 inputNotNull = true;
@@ -44,12 +45,12 @@ public class Main{
                     System.out.println("Ingrese una opcion valida");
                     while (inputNotNull) {
                         try {
-                            eleccion = input.nextInt();
+                            eleccion = inputmain.nextInt();
                             inputNotNull = false;
             
                         }catch (InputMismatchException e) {
                             System.err.println("Solo ingrese Numeros");
-                            input.nextLine();
+                            inputmain.nextLine();
                         }
                     }
                     inputNotNull = true;
@@ -94,12 +95,12 @@ public class Main{
                 int eleccion = 0;
                 while (inputNotNull) {
                     try {
-                        eleccion = input.nextInt();
+                        eleccion = inputmain.nextInt();
                         inputNotNull = false;
         
                     }catch (InputMismatchException e) {
                         System.err.println("Solo ingrese Numeros");
-                        input.nextLine();
+                        inputmain.nextLine();
                     }
                 }
                 if((user instanceof Admin)==false & eleccion==10){eleccion=100;}
@@ -108,12 +109,12 @@ public class Main{
                     System.out.println("Ingrese una opcion valida");
                     while (inputNotNull) {
                         try {
-                            eleccion = input.nextInt();
+                            eleccion = inputmain.nextInt();
                             inputNotNull = false;
             
                         }catch (InputMismatchException e) {
                             System.err.println("Solo ingrese Numeros");
-                            input.nextLine();
+                            inputmain.nextLine();
                         }
                         if((user instanceof Admin)==false & eleccion==5){eleccion=10;}   
                     }

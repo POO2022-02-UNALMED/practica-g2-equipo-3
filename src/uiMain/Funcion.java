@@ -7,6 +7,7 @@ public class Funcion implements PreciosExtra{
 
     public static void ReservaTiquete(Usuario usuario){
         ArrayList<Vuelo> v = new ArrayList<Vuelo>();
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         System.out.println("\nTipo de busqueda:");
         System.out.println("1. Origen-Destino");
@@ -321,6 +322,7 @@ public class Funcion implements PreciosExtra{
 
     public static void misTiquetes(Usuario usuario){
         System.out.println();
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         int counter = 1;
         int numero = 0;
@@ -429,6 +431,7 @@ public class Funcion implements PreciosExtra{
 //Siguiente Funcion
 
     public static void checkIn(Usuario usuario){
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         int numero = -1;
         int confirmacion = -1;
@@ -518,6 +521,7 @@ public class Funcion implements PreciosExtra{
 
     public static void agregarCargaExtra(Tiquete tiquete){
         ArrayList<CargaExtra> cargas = new ArrayList<CargaExtra>();
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         boolean loop = true;
         if (tiquete.isCheckIn()==true){
@@ -790,6 +794,7 @@ public class Funcion implements PreciosExtra{
 
     public static Usuario login(){
         System.out.println("\nUsuario: ");
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         String username = input.nextLine();
         Usuario prov = null;
@@ -811,6 +816,7 @@ public class Funcion implements PreciosExtra{
     }
     public static Usuario crearUsuario(){
         System.out.println("\nIngrese un nombre de Usuario: ");
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);
         String username = input.nextLine();
         while(Usuario.isUsuarioExist(username)){

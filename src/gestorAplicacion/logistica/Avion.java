@@ -66,8 +66,10 @@ public class Avion implements Serializable{
         return "Avion: " + this.modelo + " Cantidad de asientos: " + this.cantidadAsientos;
     }
     public void eliminarAvion() {
-        for(Vuelo vuelo: Vuelo.getVuelos()){
-            if(vuelo.getAvion().equals(this)){vuelo.eliminarVuelo();}
+        for(int i = 0; i<Vuelo.getVuelos().size(); i++){
+            if(Vuelo.getVuelos().get(i).getAvion().getModelo().equals(this.modelo)){
+                Vuelo.getVuelos().get(i).eliminarVuelo();
+            }
         }
         aviones.remove(this);
     }

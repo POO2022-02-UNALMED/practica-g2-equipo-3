@@ -55,10 +55,11 @@ public class Vuelo implements Serializable {
     }
     public void eliminarVuelo(){
         for(Tiquete tiquete: Tiquete.getTiquetes()){
-            if(tiquete.getVuelo().equals(this)){
+            if(tiquete.getVuelo().getIdVuelo() ==this.getIdVuelo()){
                 for(Usuario u:Usuario.getUsuarios()){
                     for(int i = 0;i < u.getTiquetes().size(); i++)
-                        if(u.getTiquetes().get(i).equals(tiquete)){
+                        if(u.getTiquetes().get(i).getIdTiquete()==(tiquete.getIdTiquete())){
+                            System.out.println("tiquete reembolsado");
                             u.Reembolsar(i);
                         }
                 }
