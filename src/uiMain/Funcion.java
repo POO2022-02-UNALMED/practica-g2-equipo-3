@@ -332,6 +332,7 @@ public class Funcion implements PreciosExtra{
         }
         System.out.println("\n1. Remmbolsar tiquete");
         System.out.println("2. Ver cartera");
+        System.out.println("3. Agregar extras");
         System.out.println("0. regresar");
         while (inputNotNull) {
             try {
@@ -344,7 +345,7 @@ public class Funcion implements PreciosExtra{
             }
         }
         inputNotNull = true;
-        while (numero != 1 & numero != 2 & numero != 0){
+        while (numero != 1 & numero != 2 & numero != 0 & numero != 3){
             System.out.println("Ingrese una opcion valida");
             while (inputNotNull) {
                 try {
@@ -391,6 +392,35 @@ public class Funcion implements PreciosExtra{
             inputNotNull = true;
             usuario.Reembolsar(numero-1);
             System.out.println("Reembolso exitoso");
+        }else if(numero == 3){
+            System.err.println("Ingrese la opcion del numero del tiquete");
+            while (inputNotNull) {
+                try {
+                    numero = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
+            while (numero < 0 || numero > usuario.getTiquetes().size()){
+                System.out.println("Ingrese una opcion valida");
+                while (inputNotNull) {
+                    try {
+                        numero = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
+            }
+            inputNotNull = true;
+            Funcion.agregarCargaExtra(usuario.getTiquetes().get(numero-1));
         }
     }
 
