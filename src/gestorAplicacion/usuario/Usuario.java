@@ -31,7 +31,7 @@ public class Usuario implements Serializable,PreciosExtra{
     //metodos
     public void Reembolsar(int tiquete){
         Tiquete tiqueteReembolsado = this.tiquetes.get(tiquete);
-        if (tiqueteReembolsado.getVuelo().isCheckIn()==true){
+        if (tiqueteReembolsado.isCheckIn()==true){
             System.out.println("Ya se hizo Chek-in en este tiquete, no se puede reembolsar");
             return;
         }

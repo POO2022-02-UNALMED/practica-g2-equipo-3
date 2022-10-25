@@ -15,6 +15,7 @@ public class Tiquete implements Serializable{
     private Asiento asiento;
     private int descuento;
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
+    private boolean checkIn = false;
 
 
     //constructores
@@ -51,7 +52,7 @@ public class Tiquete implements Serializable{
         return p;
     }
     public String toString(){
-        return ("Tiquete No.: "+ this.getIdTiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"  Vuelo No.: "+ this.vuelo.getIdVuelo() +"  "+this.vuelo.getOrigen()+" - "+this.vuelo.getDestino()+"  Asiento: "+ this.getAsiento().toString()+ "  Carga Extra: "+ this.cargaExtra.size()) + "  Fecha: "+ this.vuelo.getFecha();
+        return ("Tiquete No.: "+ this.getIdTiquete() +"  Pasajero: "+ this.pasajero.getNombre() +"  Vuelo No.: "+ this.vuelo.getIdVuelo() +"  "+this.vuelo.getOrigen()+" - "+this.vuelo.getDestino()+"  Asiento: "+ this.getAsiento().toString()+ "  Carga Extra: "+ this.cargaExtra.size() + "  Fecha: "+ this.vuelo.getFecha() + "  Check-in realizado? "+ this.isCheckIn());
     }
     
     public static String Factura(Tiquete tiquete){
@@ -119,5 +120,10 @@ public class Tiquete implements Serializable{
     }
     public void setDescuento(int descuento) {
         this.descuento = descuento;
+    public boolean isCheckIn() {
+        return checkIn;
+    }
+    public void setCheckIn(boolean checkIn) {
+        this.checkIn = checkIn;
     }
 }

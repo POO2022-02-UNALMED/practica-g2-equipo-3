@@ -1,0 +1,60 @@
+Al ejecutar el programa, se le pedirá que ingrese su usuario y contraseña, hay dos tipos de usuarios:
+administrador y usuario. Los usuarios pueden acceder a todas las funciones principales del sistema, los 
+administradores pueden acceder a estas funciones tambien, ademas de poder realizar cambios en el sistema.
+
+Los dos perfiles creados con anterioridad son:
+
+Usuario:
+prueba 
+Contraseña:
+123
+
+Usuario administrador:
+admin
+Contraseña:
+admin
+
+Una vez realizado el login, se le presentaran las funciones principales (En caso de ser un administrador,
+tambien se le presentaran las funciones administrativas para realizar ajustes a las bases de datos), estas 
+funciones son las siguientes:
+
+1. Ver todos los vuelos disponibles.
+
+Esta funcion se explica por si misma, mostrara todos los vuelos actualmente disponibles en la base de datos
+con toda la informacion pertienente, esto es importante para la siguiente funcion:
+
+2. Reservar tiquete.
+
+Una vez se selecciona esta funcion, se le pedira al usuario que filtre los vuelos para poder escoger el que 
+desea reservar; las tres opciones disponibles son:
+
+Origen-Destino: Se le pedira que ingrese una ciudad de origen y una de destino, y se le mostraran todos los vuelos
+registrados que cumplan este requisito.
+
+Origen-Destino y fecha: Se le pedira que ingrese una ciudad de origen y una de destino, ademas de la fecha en formato 
+DD/MM/AAAA del vuelo, y se le mostraran todos los vuelos que cumplan este requisito.
+
+Destinos disponibles: Se le pedira que ingrese una ciudad de origen y se le mostraran todos los vuelos registrados
+que parten de esa ciudad.
+
+Por favor NO introducir mayusculas ni acentos en los nombres de la ciudad, para referencia, las ciudades disponibles son:
+
+Cartagena, Medellin, Ibague, Cali, Bogota, Barrancabermeja, Cucuta, Pasto, Leticia, Barranquilla, Boyaca.
+
+Tras filtrar y escoger un vuelo, se le pedira escoger la clase del asiento, esto afectara el precio de su tiquete.
+Posteriormente se le pedira rellenar algo de informacion basica
+
+Agregar equipaje extra es una de las funciones importantes del programa; se le pedira agregar la cantidad de
+mascotas y/o equipaje extra que necesite. Dependiendo del tamaño y tipo de estos se le cobrara un sobrecargo
+que quedara en el tiquete. Puede escoger agregar la cantidad de equipaje y mascotas que quiera, toda quedara
+registrada en el tiquete y sera utilizada para calcular el precio final de este.
+
+3. Mis tiquetes.
+
+La funcion mis tiquetes le mostrara todos los tiquetes actualmente asignados a su usuario, con toda la informacion
+relevante.
+
+4. Check-in.
+
+La funcion de check-in sirve para bloquear el tiquete: ya no se podra realizar ningun cambio a un tiquete al que se le
+haga un Check-in, tampoco se lo podra reembolsar.
