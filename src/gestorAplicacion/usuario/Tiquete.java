@@ -27,6 +27,7 @@ public class Tiquete implements Serializable{
         this.cargaExtra = cargaExtra;
         this.descuento = descuento;
         tiquetes.add(this);
+        vuelo.agregarTiquete(this);
         totalCreado++;
     }
     public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento) {

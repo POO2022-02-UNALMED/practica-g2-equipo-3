@@ -21,6 +21,12 @@ public class Ciudad implements Serializable{
     //metodos
     @Override
     public String toString() {return this.nombre;}
+    public void EliminarCiudad(){
+        for(Vuelo vuelo: Vuelo.getVuelos()){
+            if(vuelo.getOrigen().equals(this) || vuelo.getDestino().equals(this)){vuelo.eliminarVuelo();}
+        }
+        ciudades.remove(this);
+    }
 
 
     //getter and setter

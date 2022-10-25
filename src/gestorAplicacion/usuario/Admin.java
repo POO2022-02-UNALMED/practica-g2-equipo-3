@@ -265,19 +265,7 @@ public class Admin  extends Usuario{
                         }
                         inputNotNull = true;
                     }
-                    for(Tiquete tiquete:Vuelo.getVuelos().get(eleccion-1).getTiquetes()){
-                        for(Usuario u:Usuario.getUsuarios()){
-                            for(int i = 0;i < u.getTiquetes().size(); i++)
-                                if(u.getTiquetes().get(i).equals(tiquete)){
-                                    u.setCartera(u.getCartera()+tiquete.precioTotal());
-                                    ArrayList<Tiquete> provt = u.getTiquetes();
-                                    provt.remove(i);
-                                    u.setTiquetes(provt);
-                                }
-                        }
-                        tiquete = null;
-                    }
-                    Vuelo.getVuelos().remove(eleccion-1);
+                    Vuelo.getVuelos().get(eleccion-1).eliminarVuelo();
                 }
                 Persistencia.serializar();
                 Persistencia.deserializar();
@@ -361,7 +349,7 @@ public class Admin  extends Usuario{
                         }
                         inputNotNull = true;
                     }
-                    Ciudad.getCiudades().remove(eleccion-1);
+                    Ciudad.getCiudades().get(eleccion-1).EliminarCiudad();;
                 }
                 Persistencia.serializar();
                 break;
@@ -437,7 +425,7 @@ public class Admin  extends Usuario{
                         }
                         inputNotNull = true;
                     }
-                    Avion.getAviones().remove(eleccion-1);
+                    Avion.getAviones().get(eleccion-1).eliminarAvion();
                 }
                 Persistencia.serializar();
                 break;

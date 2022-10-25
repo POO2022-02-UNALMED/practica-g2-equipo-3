@@ -65,6 +65,12 @@ public class Avion implements Serializable{
     public String toString() {
         return "Avion: " + this.modelo + " Cantidad de asientos: " + this.cantidadAsientos;
     }
+    public void eliminarAvion() {
+        for(Vuelo vuelo: Vuelo.getVuelos()){
+            if(vuelo.getAvion().equals(this)){vuelo.eliminarVuelo();}
+        }
+        aviones.remove(this);
+    }
 
     //getter and setter
     public String getModelo() {

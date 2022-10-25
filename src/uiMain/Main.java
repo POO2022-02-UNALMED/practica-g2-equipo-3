@@ -21,7 +21,8 @@ public class Main{
             Persistencia.deserializar();
             Scanner input = new Scanner(System.in);
             while(logloop){
-                Admin.vuelosRandom(151);
+                //Admin.vuelosRandom(101);
+                //new Admin("admin", "admin");
                 System.out.println("\n================================");
                 System.out.println("\n1. Iniciar sesion");
                 System.out.println("2. Crear cuenta");

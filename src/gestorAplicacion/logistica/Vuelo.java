@@ -50,6 +50,23 @@ public class Vuelo implements Serializable {
         }
         return result;
     }
+    public void agregarTiquete(Tiquete tiquete){
+        this.tiquetes.add(tiquete);
+    }
+    public void eliminarVuelo(){
+        for(Tiquete tiquete: Tiquete.getTiquetes()){
+            if(tiquete.getVuelo().equals(this)){
+                for(Usuario u:Usuario.getUsuarios()){
+                    for(int i = 0;i < u.getTiquetes().size(); i++)
+                        if(u.getTiquetes().get(i).equals(tiquete)){
+                            u.Reembolsar(i);
+                        }
+                }
+                tiquete = null;
+            }
+        }
+        vuelos.remove(this);
+    }
     public static ArrayList<Vuelo> filtroVuelos(String origen,String destino){
         ArrayList<Vuelo> base = filtroVuelos(origen);
         ArrayList<Vuelo> result = new ArrayList<Vuelo>();

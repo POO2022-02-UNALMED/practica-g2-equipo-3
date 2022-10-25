@@ -46,6 +46,9 @@ public class Usuario implements Serializable,PreciosExtra{
         }
         return false;
     }
+    public void descontarCartera(int desc){
+        this.cartera = this.cartera - desc;
+    }
 
 
     //getter and setter

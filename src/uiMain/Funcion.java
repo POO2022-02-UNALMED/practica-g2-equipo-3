@@ -274,10 +274,8 @@ public class Funcion implements PreciosExtra{
         }
         if(usuario.getCartera()>tiquete.precioTotal()){
             tiquete.setDescuento(tiquete.precioTotal());
-            usuario.setCartera(usuario.getCartera()-tiquete.precioTotal());
         }else{
             tiquete.setDescuento(usuario.getCartera());
-            usuario.setCartera(0);
         }
         System.out.println(Tiquete.Factura(tiquete));
         System.out.println("\nConfirmacion de compra: ");
@@ -315,6 +313,7 @@ public class Funcion implements PreciosExtra{
         }
         System.out.println("\nReserva exitosa");
         usuario.AddTiquete(tiquete);
+        usuario.descontarCartera(tiquete.getDescuento());
         return;
     }
 
