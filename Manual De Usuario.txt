@@ -51,8 +51,19 @@ registrada en el tiquete y sera utilizada para calcular el precio final de este.
 
 3. Mis tiquetes.
 
-La funcion mis tiquetes le mostrara todos los tiquetes actualmente asignados a su usuario, con toda la informacion
-relevante.
+La funcion mis tiquetes le mostrara todos los tiquetes que tiene a su nombre, posteriormente, le dara multiples
+opciones para administrarlos:
+
+Reembolsar tiquete le pedira introducir el numero de tiquete que desea reembolsar, al hacer esto se removerá el tiquete
+de la lista del usuario y se le devolverá el total del valor a su cartera.
+
+Ver cartera mostrara el estado actual de su cartera, la cartera es el sitio al que iran los reembolsos, esta se podra
+utilizar a la hora de realizar el pago del servicio; si hay dinero en la cartera, este se descontara en el pago de los
+proximos tiquetes automaticamente.
+
+Agregar Carga extra funcionara exactamente igual que a la hora de crear un tiquete nuevo, solo que esta vez se edita
+la carga despues de haber creado el tiquete, esto por si algun usuario necesita agregar una carga con la que no contaba
+cuando creo el tiquete.
 
 4. Check-in.
 

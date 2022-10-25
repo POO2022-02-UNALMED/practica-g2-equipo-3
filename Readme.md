@@ -89,7 +89,14 @@ relacionados con el vuelo y las cargas extra, se preguntara al usuario si todo e
 si la respuesta es afirmativa, se generara un tiquete nuevo asociado al usuario con todas las
 especificaciones que fueron pasadas por consola.
 
-MisTiquetes
+MisTiquetes contacta tanto con el usuario como con sus tiquetes, la opcion de reembolsar recibe
+un input del usuario para buscar el tiquete apropiado y efectuar cambios sobre este, despues de
+tener el tiquete, se llama a la funcion reembolsar de la clase usuario, la cual elimina el 
+tiquete para el usuario y le reembolsa el costo a su cartera, la cual puede usar para futuros pagos.
+Ver cartera devuelve el valor en cartera del usuario actual.
+Agregar carga extra llama a la funcionagregarCargaExtra, la cual sera explicada mas adelante, 
+a esta funcion se accede una vez se crea un tiquete, sin embargo, tambien se la incluye aqui en caso
+que el usuario olvide alguna carga, o tenga que agregar una nueva carga que antes no tenia prevista
 
 CheckIn es una funcion esencial, pues esta se encarga de administrar el estado del tiquete,
 un tiquete al cual no se le ha hecho check-in puede ser editado sin limitaciones, sin embargo,
@@ -105,7 +112,8 @@ VerTodosLosVuelos Se explica por si misma, se hace un print por cada vuelo actua
 base de datos.
 
 AgregarCargaExtra no es una funcion que el usuario llame directamente, esta es una funcion que
-se utiliza a la hora de reservar un tiquete, una vez el usuario ha terminado de brindar toda la informacion.
+se utiliza a la hora de reservar un tiquete, una vez el usuario ha terminado de brindar toda la informacion,
+o cuando es llamada desde la funcion misTiquetes.
 Esta funcion es un ciclo que constantemente le pregunta al usuario si desea agregar carga extra
 a su tiquete, en caso de una respuesta positiva, generara un nuevo objeto de la clase que el
 usuario determine, con las caracteristicas que el usuario determine, para posteriormente ser agregada
