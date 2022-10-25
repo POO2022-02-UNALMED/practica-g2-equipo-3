@@ -73,11 +73,13 @@ seran utilizados a la hora de hacer el login. Sin un usuario no se puede accesar
 tendra un array de tiquetes que puede estar vacio, y una "cartera", la cual servira para almacenar cualquier
 reembolso que el usuario realice
 
-## uiMain
+## Funciones
 
 La clase Funcion contiene todas las funciones principales que interactuan directamente con el usuario,
 entre estas estan:
-ReservaTiquetes es probablemente la funcion mas completa de todas, esta le pedira un input al usuario
+
+### ReservaTiquetes 
+Es probablemente la funcion mas completa de todas, esta le pedira un input al usuario
 para realizar una busqueda en el array que contiene todos los vuelos, una vez encuentra vuelos que
 satisfagan las condiciones entregadas, le pedira al usuario que escoja cual de los vuelos desea tomar,
 le preguntara la clase de silla que desea, le mostrara una lista con las sillas disponisbles y le pedira
@@ -89,7 +91,8 @@ relacionados con el vuelo y las cargas extra, se preguntara al usuario si todo e
 si la respuesta es afirmativa, se generara un tiquete nuevo asociado al usuario con todas las
 especificaciones que fueron pasadas por consola.
 
-MisTiquetes contacta tanto con el usuario como con sus tiquetes, la opcion de reembolsar recibe
+### MisTiquetes 
+Contacta tanto con el usuario como con sus tiquetes, la opcion de reembolsar recibe
 un input del usuario para buscar el tiquete apropiado y efectuar cambios sobre este, despues de
 tener el tiquete, se llama a la funcion reembolsar de la clase usuario, la cual elimina el 
 tiquete para el usuario y le reembolsa el costo a su cartera, la cual puede usar para futuros pagos.
@@ -98,7 +101,8 @@ Agregar carga extra llama a la funcionagregarCargaExtra, la cual sera explicada 
 a esta funcion se accede una vez se crea un tiquete, sin embargo, tambien se la incluye aqui en caso
 que el usuario olvide alguna carga, o tenga que agregar una nueva carga que antes no tenia prevista.
 
-CheckIn es una funcion esencial, pues esta se encarga de administrar el estado del tiquete,
+### CheckIn 
+Es una funcion esencial, pues esta se encarga de administrar el estado del tiquete,
 un tiquete al cual no se le ha hecho check-in puede ser editado sin limitaciones, sin embargo,
 tras hacer el Check-in no se pueden realizar mas cambios al respectivo tiquete, devoluciones
 incluidas. Esta funcion le mostrara al usuario todos sus tiquetes actualmente asignados con toda la
@@ -108,10 +112,12 @@ le pedira una ultima confirmacion. Tras hacer la confirmacion se cambiara el val
 del tiquete seleccionado, esto significa que no se podra ejecutar ninguna funcion mas sobre este tiquete.
 Idealmente, no realizar el Check-in a tiempo significa que el usuario no puede utilizar su tiquete.
 
-VerTodosLosVuelos Se explica por si misma, se hace un print por cada vuelo actualmente en la
+### VerTodosLosVuelos 
+Se explica por si misma, se hace un print por cada vuelo actualmente en la
 base de datos.
 
-AgregarCargaExtra no es una funcion que el usuario llame directamente, esta es una funcion que
+### AgregarCargaExtra 
+No es una funcion que el usuario llame directamente, esta es una funcion que
 se utiliza a la hora de reservar un tiquete, una vez el usuario ha terminado de brindar toda la informacion,
 o cuando es llamada desde la funcion misTiquetes.
 Esta funcion es un ciclo que constantemente le pregunta al usuario si desea agregar carga extra
