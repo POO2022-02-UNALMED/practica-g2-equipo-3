@@ -70,5 +70,17 @@ cuando creo el tiquete.
 La funcion de check-in sirve para bloquear el tiquete: ya no se podra realizar ningun cambio a un tiquete al que se le
 haga un Check-in, tampoco se lo podra reembolsar.
 
+5. Ver todos los destinos.
+
+Muestra una lista de todas las ciudades cubiertas por la aerolinea, para que sea mas facil realizar la busqueda por
+destino u origen a la hora de reservar un tiquete.
+
 -----------------------------------------
 
+Si se logea como admin, tendra una opcion extra:
+
+10. Gestionar el sistema.
+
+Gestionar el sistema le permitira agregar, eliminar o modificar los vuelos, las ciudades y los aviones. Tenga en cuenta que
+si elimina cualquiera de estas y ya le han sido asignados vuelos, se eliminaran todos los vuelos relacionados a dicha
+ciudad o avion, y se reembolsara todos los tiquetes que estuviesen relacionados a estos vuelos.

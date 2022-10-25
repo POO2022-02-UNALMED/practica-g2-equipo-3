@@ -1,5 +1,5 @@
 
-# Proyecto de Programación Orientada a Objetos: AeroUnal
+# Proyecto de Programación Orientada a Objetos
 El objetivo del proyecto es crear un sistema de administracion de tiquetes para una aerolinea,
 el cual permita agendar, cancelar, modificar y revisar los vuelos asignados al usuario que la
 utilice. A continuacion se explicaran las funciones de cada clase y la relacion que tienen entre
@@ -126,5 +126,27 @@ usuario determine, con las caracteristicas que el usuario determine, para poster
 al tiquete del usuario y ser utilizada en el calculo del recibo, asi como en el calculo del reembolso,
 de ser necesario.
 
+### VerTodosLosDestinos
+
+Igual que VerTodosLosVuelos, hace un print con todas las ciudades actualmente
+en la base de datos.
+
+
+
 En la clase Main se utiliza ligadura dinamica a la hora de asignar usuarios y administradores,
-pues un administrador es un usuario y se hace uso de esto a la hora de utilizar un administrados.
+pues un administrador es un usuario y se hace uso de esto a la hora de llamar a la clase administrador,
+ademas, el administrador tiene una funcion extra de suma importancia, pues interactua con todas las clases:
+
+### GestionarElSistema
+
+Gestionar el sistema se divide en tres funciones que tienen el mismo comportamiento:
+Gestor de vuelos, gestor de ciudades y gestor de aviones. Estas tres funciones le permiten al usuario
+Hacer cambios en le base de datos, agregar, eliminar o revisar cualquiera de estos tres elementos;
+la parte mas importante de esto, sin embargo, es la funcion de eliminar, pues si el usuario elimina 
+una ciudad o un avion que ya tenian vuelos asignados, estos vuelos seran eliminados. En caso que un
+usuario ya tuviese un tiquete comprado para este vuelo, se le reembolsara el costo total.
+Lo mismo sucede si un usuario elimina un vuelo: se reembolsaran todos los tiquetes previamente
+comprados para este. La funcion de eliminar es importante porque requeiere comunicadion activa
+entre las diferentes clases, pues ha de revisar las ciudades y aviones relacionados a cada vuelo,
+y ha de revisar los tiquetes asociados a este, ademas de interactuar directamente con los
+atributos del usuario que haya comprado el vuelo.
