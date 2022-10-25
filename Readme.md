@@ -12,6 +12,8 @@ estas.
 ## Diagrama de clases
 [Diagrama de clases](https://app.genmymodel.com/api/projects/_ilWKYCTREe2TQ77rRj9fOQ/diagrams/_ilWKYyTREe2TQ77rRj9fOQ/svg)
 
+(En este diagrama se obvian los Getters y Setters)
+
 ## En el paquete logistica:
 
 La clase Asiento se usa para determinar que asientos estan ocupados en un vuelo, además de su clase.
@@ -86,6 +88,29 @@ informacion, se haran dos procesos: Se generara una factura que contenga todos l
 relacionados con el vuelo y las cargas extra, se preguntara al usuario si todo es correcto y, 
 si la respuesta es afirmativa, se generara un tiquete nuevo asociado al usuario con todas las
 especificaciones que fueron pasadas por consola.
+
+MisTiquetes
+
+CheckIn es una funcion esencial, pues esta se encarga de administrar el estado del tiquete,
+un tiquete al cual no se le ha hecho check-in puede ser editado sin limitaciones, sin embargo,
+tras hacer el Check-in no se pueden realizar mas cambios al respectivo tiquete, devoluciones
+incluidas. Esta funcion le mostrara al usuario todos sus tiquetes actualmente asignados con toda la
+informacion correspondiente, y le pedira que escoja en cual de estos desea realizar su
+Check-in, posteriormente se le volvera a mostrar la informacion importante del tiquete y se
+le pedira una ultima confirmacion. Tras hacer la confirmacion se cambiara el valor de Check-in
+del tiquete seleccionado, esto significa que no se podra ejecutar ninguna funcion mas sobre este tiquete.
+Idealmente, no realizar el Check-in a tiempo significa que el usuario no puede utilizar su tiquete.
+
+VerTodosLosVuelos Se explica por si misma, se hace un print por cada vuelo actualmente en la
+base de datos.
+
+AgregarCargaExtra no es una funcion que el usuario llame directamente, esta es una funcion que
+se utiliza a la hora de reservar un tiquete, una vez el usuario ha terminado de brindar toda la informacion.
+Esta funcion es un ciclo que constantemente le pregunta al usuario si desea agregar carga extra
+a su tiquete, en caso de una respuesta positiva, generara un nuevo objeto de la clase que el
+usuario determine, con las caracteristicas que el usuario determine, para posteriormente ser agregada
+al tiquete del usuario y ser utilizada en el calculo del recibo, asi como en el calculo del reembolso,
+de ser necesario.
 
 En la clase Main se utiliza ligadura dinamica a la hora de asignar usuarios y administradores,
 pues un administrador es un usuario y se hace uso de esto a la hora de utilizar un administrados.
