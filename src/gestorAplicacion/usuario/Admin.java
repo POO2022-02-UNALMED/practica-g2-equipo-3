@@ -265,9 +265,22 @@ public class Admin  extends Usuario{
                         }
                         inputNotNull = true;
                     }
+                    for(Tiquete tiquete:Vuelo.getVuelos().get(eleccion-1).getTiquetes()){
+                        for(Usuario u:Usuario.getUsuarios()){
+                            for(int i = 0;i < u.getTiquetes().size(); i++)
+                                if(u.getTiquetes().get(i).equals(tiquete)){
+                                    u.setCartera(u.getCartera()+tiquete.precioTotal());
+                                    ArrayList<Tiquete> provt = u.getTiquetes();
+                                    provt.remove(i);
+                                    u.setTiquetes(provt);
+                                }
+                        }
+                        tiquete = null;
+                    }
                     Vuelo.getVuelos().remove(eleccion-1);
                 }
                 Persistencia.serializar();
+                Persistencia.deserializar();
                 break;
             }
             case 2:{

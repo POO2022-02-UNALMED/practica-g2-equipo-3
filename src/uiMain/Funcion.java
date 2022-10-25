@@ -313,7 +313,7 @@ public class Funcion implements PreciosExtra{
             tiquete=null;
             return;
         }
-        System.out.println("\n<3 Reserva exitosa :3 <3");
+        System.out.println("\nReserva exitosa");
         usuario.AddTiquete(tiquete);
         return;
     }
@@ -322,10 +322,42 @@ public class Funcion implements PreciosExtra{
 
     public static void misTiquetes(Usuario usuario){
         System.out.println();
+        Scanner input = new Scanner(System.in);
+        int counter = 1;
+        int numero = 0;
+        boolean inputNotNull = true;
         for(Tiquete tiquete : usuario.getTiquetes()){
-            System.out.println(tiquete.toString());
+            System.out.println(counter+". "+tiquete.toString());
         }
-        System.out.println();
+        System.out.println("\n1. Remmbolsar tiquete");
+        System.out.println("2. Ver cartera");
+        System.out.println("0. regresar");
+        while (inputNotNull) {
+            try {
+                numero = input.nextInt();
+                inputNotNull = false;
+
+            }catch (InputMismatchException e) {
+                System.err.println("Solo ingrese Numeros");
+                input.nextLine();
+            }
+        }
+        inputNotNull = true;
+        while (numero < 0 || numero > usuario.getTiquetes().size()){
+            System.out.println("Ingrese una opcion valida");
+            while (inputNotNull) {
+                try {
+                    numero = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
+        }
+        inputNotNull = true;
     }
 
 //Siguiente Funcion
