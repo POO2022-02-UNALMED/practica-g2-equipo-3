@@ -70,3 +70,22 @@ La clase Usuario es la que interactua con el programa, tiene un usuario y contra
 seran utilizados a la hora de hacer el login. Sin un usuario no se puede accesar al programa. Un usuario
 tendra un array de tiquetes que puede estar vacio, y una "cartera", la cual servira para almacenar cualquier
 reembolso que el usuario realice
+
+## uiMain
+
+La clase Funcion contiene todas las funciones principales que interactuan directamente con el usuario,
+entre estas estan:
+ReservaTiquetes es probablemente la funcion mas completa de todas, esta le pedira un input al usuario
+para realizar una busqueda en el array que contiene todos los vuelos, una vez encuentra vuelos que
+satisfagan las condiciones entregadas, le pedira al usuario que escoja cual de los vuelos desea tomar,
+le preguntara la clase de silla que desea, le mostrara una lista con las sillas disponisbles y le pedira
+que escoja una. Tras esto se le pedira la informacion de la persona a nombre de la cual se hara 
+el tiquete. Por ultimo, se le preguntara si desea agregar equipaje extra o mascotas. El usuario
+determinara cuales y cuantas de estas cargas extras deseara tomar. Tras haber suministrado toda esta
+informacion, se haran dos procesos: Se generara una factura que contenga todos los costos 
+relacionados con el vuelo y las cargas extra, se preguntara al usuario si todo es correcto y, 
+si la respuesta es afirmativa, se generara un tiquete nuevo asociado al usuario con todas las
+especificaciones que fueron pasadas por consola.
+
+En la clase Main se utiliza ligadura dinamica a la hora de asignar usuarios y administradores,
+pues un administrador es un usuario y se hace uso de esto a la hora de utilizar un administrados.
