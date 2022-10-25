@@ -332,7 +332,7 @@ public class Funcion implements PreciosExtra{
         }
         System.out.println("\n1. Remmbolsar tiquete");
         System.out.println("2. Ver cartera");
-        System.out.println("3. Agregar extras");
+        System.out.println("3. Agregar carga extra");
         System.out.println("0. regresar");
         while (inputNotNull) {
             try {
