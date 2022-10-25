@@ -40,4 +40,24 @@ La clase Admin se utiliza a la hora de hacer el log-in, un usuario que se loguee
 acceso a multiples opciones extra que le permitiran modificar la base de datos, hacer cosas como
 agregar vuelos, ciudades, aviones, etc.
 
-La clases Equipaje y Mascota heredan de CargaExtra, son los dos tipos de 
+La clases Equipaje y Mascota heredan de CargaExtra, son los dos tipos de carga extra que se pueden asignar
+a un tiquete, cada una con su respectivo impacto en el costo final.
+
+La clase Pasajero se utiliza para guardar la informacion del pasajero que se registrara en el tiquete,
+esta informacion se requerira a la hora de reservar un tiquete. Esta clase es importante, pues un
+usuario puede comprar un tiquete a nombre de alguien mas si tiene su informacion, por ejemplo, para
+regalar el tiquete.
+
+PreciosExtra es una interfaz que guarda los precios correspondientes a las cargas extras. A esta
+interfaz se la llama a la hora de calcular precios.
+
+La clase tiquete es, definitivamente, la clase mas importante de todas. Esta clase almacena informacion
+y llama a todas las clases anteriores, las funciones principales se centran en ella, y es el interes
+principal del usuario. Un tiquete almacena toda la informacion que tanto el usuario como las funciones
+necesitan, es llamado, modificado, y creado por el usuario por medio de los metodos del main. Un usuario
+puede tener asignados multiples tiquetes.
+
+La clase Usuario es la que interactua con el programa, tiene un usuario y contraseña que
+seran utilizados a la hora de hacer el login. Sin un usuario no se puede accesar al programa. Un usuario
+tendra un array de tiquetes que puede estar vacio, y una "cartera", la cual servira para almacenar cualquier
+reembolso que el usuario realice
