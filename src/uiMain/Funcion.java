@@ -328,6 +328,7 @@ public class Funcion implements PreciosExtra{
         boolean inputNotNull = true;
         for(Tiquete tiquete : usuario.getTiquetes()){
             System.out.println(counter+". "+tiquete.toString());
+            counter++;
         }
         System.out.println("\n1. Remmbolsar tiquete");
         System.out.println("2. Ver cartera");
@@ -343,7 +344,7 @@ public class Funcion implements PreciosExtra{
             }
         }
         inputNotNull = true;
-        while (numero < 0 || numero > usuario.getTiquetes().size()){
+        while (numero != 1 & numero != 2 & numero != 0){
             System.out.println("Ingrese una opcion valida");
             while (inputNotNull) {
                 try {
@@ -358,6 +359,39 @@ public class Funcion implements PreciosExtra{
             inputNotNull = true;
         }
         inputNotNull = true;
+        if(numero==2){
+            System.out.println("Cartera: $"+usuario.getCartera());
+        }else if(numero==1){
+            System.err.println("Ingrese la opcion del numero del tiquete");
+            while (inputNotNull) {
+                try {
+                    numero = input.nextInt();
+                    inputNotNull = false;
+    
+                }catch (InputMismatchException e) {
+                    System.err.println("Solo ingrese Numeros");
+                    input.nextLine();
+                }
+            }
+            inputNotNull = true;
+            while (numero < 0 || numero > usuario.getTiquetes().size()){
+                System.out.println("Ingrese una opcion valida");
+                while (inputNotNull) {
+                    try {
+                        numero = input.nextInt();
+                        inputNotNull = false;
+        
+                    }catch (InputMismatchException e) {
+                        System.err.println("Solo ingrese Numeros");
+                        input.nextLine();
+                    }
+                }
+                inputNotNull = true;
+            }
+            inputNotNull = true;
+            usuario.Reembolsar(numero-1);
+            System.out.println("Reembolso exitoso");
+        }
     }
 
 //Siguiente Funcion
