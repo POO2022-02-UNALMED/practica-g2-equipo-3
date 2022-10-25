@@ -21,6 +21,7 @@ public class Main{
             Persistencia.deserializar();
             Scanner input = new Scanner(System.in);
             while(logloop){
+                Admin.vuelosRandom(151);
                 System.out.println("\n================================");
                 System.out.println("\n1. Iniciar sesion");
                 System.out.println("2. Crear cuenta");
@@ -84,8 +85,9 @@ public class Main{
                 System.out.println("2. Reservar tiquete");
                 System.out.println("3. Mis tiquetes");
                 System.out.println("4. Check-in");
+                System.out.println("5. Ver todos los destinos");
                 if(user instanceof Admin){
-                    System.out.println("5. Gestionar el sistema");
+                    System.out.println("10. Gestionar el sistema");
                 }
                 System.out.println("0. Cerrar sesion");
                 int eleccion = 0;
@@ -99,9 +101,9 @@ public class Main{
                         input.nextLine();
                     }
                 }
-                if((user instanceof Admin)==false & eleccion==5){eleccion=10;}
+                if((user instanceof Admin)==false & eleccion==10){eleccion=100;}
                 inputNotNull = true;
-                while (eleccion != 1 & eleccion != 2  & eleccion != 0 & eleccion !=5 & eleccion != 4 &  eleccion != 3){
+                while (eleccion != 1 & eleccion != 2  & eleccion != 0 & eleccion !=5 & eleccion != 4 &  eleccion != 3 & eleccion != 10){
                     System.out.println("Ingrese una opcion valida");
                     while (inputNotNull) {
                         try {
@@ -143,6 +145,10 @@ public class Main{
                         break;
                     }
                     case 5:{
+                        for(Ciudad c: Ciudad.getCiudades()){System.out.println(c);}
+                        break;
+                    }
+                    case 10:{
                         ((Admin)user).gestorSistema();
                         Persistencia.serializar();
                         break;

@@ -420,6 +420,10 @@ public class Funcion implements PreciosExtra{
                 inputNotNull = true;
             }
             inputNotNull = true;
+            if (usuario.getTiquetes().get(numero-1).isCheckIn()==true){
+                System.out.println("Ya se hizo Chek-in en este tiquete, no se puede reembolsar");
+                return;
+            }
             Funcion.agregarCargaExtra(usuario.getTiquetes().get(numero-1));
         }
     }
