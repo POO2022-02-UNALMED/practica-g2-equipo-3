@@ -37,6 +37,7 @@ public class Usuario implements Serializable,PreciosExtra{
         }
         this.cartera += tiqueteReembolsado.precioTotal();
         this.tiquetes.remove(tiquete);
+        System.out.println("Reembolso exitoso");
     }
     public static boolean isUsuarioExist(String user){
         for(Usuario u : Usuario.getUsuarios()){

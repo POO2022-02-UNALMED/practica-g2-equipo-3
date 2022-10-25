@@ -117,7 +117,7 @@ public class Funcion implements PreciosExtra{
             }
         }
         inputNotNull = true;
-        while (eleccion-1>v.size()){
+        while (eleccion>v.size() || eleccion-1<0){
             System.out.println("\nOpcion invalida");
             System.out.println("\nIngrese el numero de opcion del vuelo: ");
             while (inputNotNull) {
@@ -205,7 +205,7 @@ public class Funcion implements PreciosExtra{
             }
         }
         inputNotNull = true;
-        while (eleccion-1>asientosdisp.size()){
+        while (eleccion-1>asientosdisp.size() || eleccion-1<0){
             System.out.println("\nOpcion invalida");
             System.out.println("\nIngrese el numero de opcion del asiento: ");
             while (inputNotNull) {
@@ -374,7 +374,7 @@ public class Funcion implements PreciosExtra{
                 }
             }
             inputNotNull = true;
-            while (numero < 0 || numero > usuario.getTiquetes().size()){
+            while (numero <= 0 || numero > usuario.getTiquetes().size()){
                 System.out.println("Ingrese una opcion valida");
                 while (inputNotNull) {
                     try {
@@ -390,7 +390,6 @@ public class Funcion implements PreciosExtra{
             }
             inputNotNull = true;
             usuario.Reembolsar(numero-1);
-            System.out.println("Reembolso exitoso");
         }else if(numero == 3){
             System.err.println("Ingrese la opcion del numero del tiquete");
             while (inputNotNull) {
@@ -404,7 +403,7 @@ public class Funcion implements PreciosExtra{
                 }
             }
             inputNotNull = true;
-            while (numero < 0 || numero > usuario.getTiquetes().size()){
+            while (numero <= 0 || numero > usuario.getTiquetes().size()){
                 System.out.println("Ingrese una opcion valida");
                 while (inputNotNull) {
                     try {
@@ -420,7 +419,7 @@ public class Funcion implements PreciosExtra{
             }
             inputNotNull = true;
             if (usuario.getTiquetes().get(numero-1).isCheckIn()==true){
-                System.out.println("Ya se hizo Chek-in en este tiquete, no se puede reembolsar");
+                System.out.println("Ya se hizo Chek-in en este tiquete, no se puede agregar carga extra");
                 return;
             }
             Funcion.agregarCargaExtra(usuario.getTiquetes().get(numero-1));
@@ -465,6 +464,10 @@ public class Funcion implements PreciosExtra{
         }
         inputNotNull = true;
         Tiquete tiquete = usuario.getTiquetes().get(numero);
+        if (tiquete.isCheckIn()==true){
+            System.out.println("Ya se ha realizado Check-in en este tiquete");
+            return;
+        }
         System.out.println("\nUsted ha escogido su tiquete #"+ numero +", asociado al vuelo "+ tiquete.getVuelo().getIdVuelo()+", el cual partira el "+ tiquete.getVuelo().getFecha() +" A las "+  tiquete.getVuelo().getHoraSalida()+"\n");
         System.out.println("Desea realizar su Check-in para este vuelo? No podra realizar mas cambios en su tiquete ni solicitar reembolsos");
         System.out.println("1. Confirmar");
