@@ -96,7 +96,7 @@ tiquete para el usuario y le reembolsa el costo a su cartera, la cual puede usar
 Ver cartera devuelve el valor en cartera del usuario actual.
 Agregar carga extra llama a la funcionagregarCargaExtra, la cual sera explicada mas adelante, 
 a esta funcion se accede una vez se crea un tiquete, sin embargo, tambien se la incluye aqui en caso
-que el usuario olvide alguna carga, o tenga que agregar una nueva carga que antes no tenia prevista
+que el usuario olvide alguna carga, o tenga que agregar una nueva carga que antes no tenia prevista.
 
 CheckIn es una funcion esencial, pues esta se encarga de administrar el estado del tiquete,
 un tiquete al cual no se le ha hecho check-in puede ser editado sin limitaciones, sin embargo,
