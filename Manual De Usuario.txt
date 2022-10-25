@@ -5,7 +5,7 @@ administradores pueden acceder a estas funciones tambien, ademas de poder realiz
 Los dos perfiles creados con anterioridad son:
 
 Usuario:
-prueba 
+prueba
 Contraseña:
 123
 
@@ -69,3 +69,6 @@ cuando creo el tiquete.
 
 La funcion de check-in sirve para bloquear el tiquete: ya no se podra realizar ningun cambio a un tiquete al que se le
 haga un Check-in, tampoco se lo podra reembolsar.
+
+-----------------------------------------
+
