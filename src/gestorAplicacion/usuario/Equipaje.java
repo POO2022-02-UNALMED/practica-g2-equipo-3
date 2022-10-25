@@ -9,7 +9,13 @@ public class Equipaje extends CargaExtra {
     //constructores
     public Equipaje(int precio, String tamaño) {
         super(precio, tamaño);
+        agregar();
+    }
+
+    @Override
+    public void agregar() {
         equipajes.add(this);
+        
     }
 
     //getter and setter

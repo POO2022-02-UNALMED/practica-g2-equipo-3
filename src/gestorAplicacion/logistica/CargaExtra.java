@@ -17,6 +17,7 @@ public abstract class CargaExtra implements Serializable{
         cargas.add(this);
     }
 
+    public abstract void agregar();
 
      //getter and setter
     public int getPrecio() {
