@@ -9,9 +9,14 @@ public class Mascota extends CargaExtra{
     //constructores
     public Mascota(int precio, String tamaño) {
         super(precio, tamaño);
-        mascotas.add(this);
+        agregar();
     }
 
+    @Override
+    public void agregar() {
+        mascotas.add(this);
+        
+    }
 
     //getter and setter
     public static ArrayList<Mascota> getMascotas() {
@@ -21,3 +26,4 @@ public class Mascota extends CargaExtra{
         Mascota.mascotas = mascotas;
     }
 }
+
