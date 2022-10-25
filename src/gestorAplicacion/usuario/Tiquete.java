@@ -120,6 +120,7 @@ public class Tiquete implements Serializable{
     }
     public void setDescuento(int descuento) {
         this.descuento = descuento;
+    }
     public boolean isCheckIn() {
         return checkIn;
     }
