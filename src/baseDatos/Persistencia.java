@@ -1,8 +1,12 @@
 package baseDatos;
 import java.io.*;
 import java.util.*;
-import gestorAplicacion.usuario.*;
+//import gestorAplicacion.usuario.*;
 import gestorAplicacion.logistica.*;
+import gestorAplicacion.usuario.Admin;
+import gestorAplicacion.usuario.Pasajero;
+import gestorAplicacion.usuario.Tiquete;
+import gestorAplicacion.usuario.Usuario;
 
 public class Persistencia {
     

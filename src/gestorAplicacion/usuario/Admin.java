@@ -1,6 +1,7 @@
 package gestorAplicacion.usuario;
 import java.util.*;
 
+import baseDatos.Persistencia;
 import gestorAplicacion.logistica.*;
 
 public class Admin  extends Usuario{
@@ -266,6 +267,7 @@ public class Admin  extends Usuario{
                     }
                     Vuelo.getVuelos().remove(eleccion-1);
                 }
+                Persistencia.serializar();
                 break;
             }
             case 2:{
@@ -348,6 +350,7 @@ public class Admin  extends Usuario{
                     }
                     Ciudad.getCiudades().remove(eleccion-1);
                 }
+                Persistencia.serializar();
                 break;
             }
             case 3:{
@@ -423,6 +426,7 @@ public class Admin  extends Usuario{
                     }
                     Avion.getAviones().remove(eleccion-1);
                 }
+                Persistencia.serializar();
                 break;
             }
             case 0:{

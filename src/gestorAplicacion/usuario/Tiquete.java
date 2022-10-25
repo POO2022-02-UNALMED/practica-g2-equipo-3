@@ -13,21 +13,26 @@ public class Tiquete implements Serializable{
     private Pasajero pasajero;
     private Vuelo vuelo;
     private Asiento asiento;
+    private int descuento;
     private ArrayList<CargaExtra> cargaExtra = new ArrayList<>();
 
 
     //constructores
-    public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra) {
+    public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento, ArrayList<CargaExtra> cargaExtra, int descuento) {
         this.idTiquete = totalCreado;
         this.pasajero = pasajero;
         this.vuelo = vuelo;
         this.asiento = asiento;
         this.cargaExtra = cargaExtra;
+        this.descuento = descuento;
         tiquetes.add(this);
         totalCreado++;
     }
     public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento) {
-        this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>());
+        this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>(),0);
+    }
+    public Tiquete(Pasajero pasajero, Vuelo vuelo, Asiento asiento, int descuento) {
+        this(pasajero,vuelo,asiento,new ArrayList<CargaExtra>(),descuento);
     }
     public Tiquete() {
         tiquetes.add(this);
@@ -41,6 +46,7 @@ public class Tiquete implements Serializable{
             for(CargaExtra extra : this.cargaExtra){
                 p+=extra.getPrecio();
             }
+        p = p - this.descuento;
         }
         return p;
     }
@@ -56,6 +62,7 @@ public class Tiquete implements Serializable{
                 str = str + "\n" + carga.getTamaño() + ": $" + carga.getPrecio();
             }
         }
+        if(tiquete.descuento!=0){str = str + "\n" +"descuento: -$" +tiquete.getDescuento();}
         str = str + "\n-------------------\n" +"Total: $"+tiquete.precioTotal();
         return str;
     }
@@ -106,5 +113,11 @@ public class Tiquete implements Serializable{
     }
     public static long getSerialversionuid() {
         return serialVersionUID;
+    }
+    public int getDescuento() {
+        return descuento;
+    }
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
     }
 }
