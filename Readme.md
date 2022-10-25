@@ -5,11 +5,14 @@ el cual permita agendar, cancelar, modificar y revisar los vuelos asignados al u
 utilice. A continuacion se explicaran las funciones de cada clase y la relacion que tienen entre
 estas.
 
-# Integrantes
+## Integrantes
 - Juan Pablo Gomez Reyes
 - Felipe Muñoz Echeverri
+  
+## Diagrama de clases
+[Diagrama de clases](https://app.genmymodel.com/api/projects/_ilWKYCTREe2TQ77rRj9fOQ/diagrams/_ilWKYyTREe2TQ77rRj9fOQ/svg)
 
-# En el paquete logistica:
+## En el paquete logistica:
 
 La clase Asiento se usa para determinar que asientos estan ocupados en un vuelo, además de su clase.
 Un vuelo tiene multiples asientos. La disponibilidad del asiento es utilizada por la funcion reservar
@@ -40,7 +43,7 @@ La clase Vuelo es accesada constantemente por practicamente todas las funciones,
 de crear o editar un tiquete, es lo que se le muestra al usuario a la hora de comprar un nuevo tiquete,
 y es ella quien contiene la gran mayoria de la informacion que el tiquete utilizara.
 
-# En el paquete usuario:
+## En el paquete usuario:
 
 La clase Admin se utiliza a la hora de hacer el log-in, un usuario que se loguee como Admin tendra
 acceso a multiples opciones extra que le permitiran modificar la base de datos, hacer cosas como
