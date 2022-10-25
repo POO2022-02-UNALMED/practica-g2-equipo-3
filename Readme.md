@@ -1,5 +1,5 @@
 
-# Proyecto de Programación Orientada a Objetos
+# Proyecto de Programación Orientada a Objetos: AeroUnal
 El objetivo del proyecto es crear un sistema de administracion de tiquetes para una aerolinea,
 el cual permita agendar, cancelar, modificar y revisar los vuelos asignados al usuario que la
 utilice. A continuacion se explicaran las funciones de cada clase y la relacion que tienen entre
