@@ -8,6 +8,7 @@ class VentanaInicial(Tk):
         self.title("Ventana Inicial")
         self.resizable(0,0)
 
+        ##################
         self.option_add("*tearOff",False)
         self.menubar=Menu(self)
         self.menuInicial=Menu(self.menubar)
@@ -15,6 +16,7 @@ class VentanaInicial(Tk):
         self.menuInicial.add_command(label="Descripción",command=self.menuDescripción)
         self.menuInicial.add_command(label="Salir",command=self.menuSalir)
         self.configure(menu=self.menubar)
+        ##################
 
         self.P1=Frame(self, width=450,height=700)
         self.P1.pack(side=LEFT)
@@ -55,10 +57,10 @@ class VentanaInicial(Tk):
         self.foto2.place(relx=0.5,rely=0)
         self.foto3.place(relx=0,rely=0.5)
         self.foto4.place(relx=0.5,rely=0.5)
-
+        ##############
         self.imagen=0
         self.desarrollador=0
-
+        ##############
         self.mainloop()
 
     def nuevaVentana(self):
