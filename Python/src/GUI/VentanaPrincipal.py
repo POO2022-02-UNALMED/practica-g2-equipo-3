@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import Combobox
+from FieldFrame import *
 
 class VentanaPrincipal(Toplevel):
 
@@ -135,6 +136,8 @@ class VentanaPrincipal(Toplevel):
         self.framePrincipal.pack_forget()
         self.framePrincipal=Frame(self.frame)
         self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
+        self.reserBoton4=Button(self.framePrincipal,text="Continuar",height=2,width=20,command=self.continuarReserva3)
+        self.reserBoton4.place(relx=0.8,rely=0.8)
 
     def continuarReserva2(self):
         self.labelTitulo.configure(text="Vuelos disponíbles")
@@ -142,7 +145,21 @@ class VentanaPrincipal(Toplevel):
         self.framePrincipal.pack_forget()
         self.framePrincipal=Frame(self.frame)
         self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
+        self.reserBoton4=Button(self.framePrincipal,text="Continuar",height=2,width=20,command=self.continuarReserva3)
+        self.reserBoton4.place(relx=0.8,rely=0.8)
 
+    def continuarReserva3(self):
+        self.framePrincipal.pack_forget()
+        self.framePrincipal=Frame(self.frame)
+        self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
+        self.frameParaCentrarlo.pack_forget()
+        self.frameParaCentrarlo=Frame(self.framePrincipal)
+        self.frameParaCentrarlo.pack(padx=200)
+        self.labelTitulo.configure(text="Generar Tiquete")
+        self.labelDescripcion.configure(text="Rellene la siguiente información para la generación de su tiquete")
+        self.fieldFrame= FieldFrame(self.frameParaCentrarlo,"Información",["ID del vuelo","Nombre del usuario","Documento de Identidad","Carga extra? S/N"],"Respuesta",None,None)
+
+        
     def misTiquetes(self):
         a
         
