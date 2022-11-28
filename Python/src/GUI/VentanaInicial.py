@@ -90,7 +90,7 @@ class VentanaInicial(Tk):
         self.foto3.configure(image=self.desImagen3)
         self.foto4.configure(image=self.desImagen4)
         if self.desarrollador%2==0:
-            self.stringDesarrolladores.set("Felipe Muños Echeverry\n20 años\nEstudiante de Ingeniería de Sistemas\n(No ha mandado fotos)")
+            self.stringDesarrolladores.set("También yo pero en otro color para\n probar que sí funciona el botón")
         else:
             self.stringDesarrolladores.set("Juan Pablo Gómez Reyes\n19 años\nEstudiante de Ingeniería de Sistemas")
 

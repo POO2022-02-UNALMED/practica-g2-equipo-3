@@ -48,8 +48,8 @@ class VentanaPrincipal(Toplevel):
 
         self.framePrincipal=Frame(self.frame)
         self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
-        self.labelDescripcion=Label(self.framePrincipal,text="Una vez clickee en una de ellas, podrá consultarla desde esta ventana",font=("Times New Roman",10),height=3)
-        self.labelDescripcion.pack()
+        self.labelPrincipal=Label(self.framePrincipal,text="Una vez clickee en una de ellas, podrá consultarla desde esta ventana",font=("Times New Roman",10),height=3)
+        self.labelPrincipal.pack()
         ###############
         
         
@@ -63,11 +63,85 @@ class VentanaPrincipal(Toplevel):
     def menuSalir(self):
         quit()
 
+    def acercaDe(self):
+        self.popup=messagebox.showinfo(title="Información", message= "Desarrollado por Juan Pablo Gómez Reyes")
+
     def verVuelos(self):
         a
 
     def reservarTiquete(self):
-        a
+        self.labelTitulo.configure(text="Reserva de tiquetes")
+        self.labelDescripcion.configure(text="Consulte los vuelos disponibles, Encuentre y reserve su vuelo ideal")
+        self.framePrincipal.pack_forget()
+        self.framePrincipal=Frame(self.frame)
+        self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
+        self.frameParaCentrarlo=Frame(self.framePrincipal)
+        self.frameParaCentrarlo.pack(padx=200)
+        self.reserTexto=Label(self.frameParaCentrarlo,text="filtrar vuelos por:",font=("Times New Roman",15))
+        self.reserTexto.grid(row=0,column=0,columnspan=2,pady=5)
+        self.reserBoton1=Button(self.frameParaCentrarlo,text="Destino",height=3,width=20,command=self.filtrarPorDestino)
+        self.reserBoton1.grid(row=1,column=0,padx=10)
+        self.reserBoton2=Button(self.frameParaCentrarlo,text="Destino y Salida",height=3,width=20,command=self.filtrarPorSalidaYDestino)
+        self.reserBoton2.grid(row=1,column=1,padx=10)
+
+    def filtrarPorDestino(self):
+        self.frameParaCentrarlo.pack_forget()
+        self.frameParaCentrarlo=Frame(self.framePrincipal)
+        self.frameParaCentrarlo.pack(padx=200)
+        self.reserTexto=Label(self.frameParaCentrarlo,text="filtrar vuelos por:",font=("Times New Roman",15))
+        self.reserTexto.grid(row=0,column=0,columnspan=2,pady=5)
+        self.reserBoton1=Button(self.frameParaCentrarlo,text="Destino",height=3,width=20,command=self.filtrarPorDestino)
+        self.reserBoton1.grid(row=1,column=0,padx=10)
+        self.reserBoton2=Button(self.frameParaCentrarlo,text="Destino y Salida",height=3,width=20,command=self.filtrarPorSalidaYDestino)
+        self.reserBoton2.grid(row=1,column=1,padx=10)
+        self.labelTitulo.configure(text="Ha escogido filtrar por Destino")
+        self.labelDescripcion.configure(text="Escoja la ciudad a la que partirá el vuelo")
+        self.destinos=Combobox(self.frameParaCentrarlo, state="readonly", values=("Bogotá","Titiribi","Medellín","Ibagué","Cartagena"),width=22)
+        self.destinos.grid(row=2,column=0,padx=10,pady=20)
+        self.reserBoton3=Button(self.frameParaCentrarlo,text="Continuar",height=2,width=20,command=self.continuarReserva1)
+        self.reserBoton3.grid(row=2,column=1,padx=10,pady=20)
+        
+    def filtrarPorSalidaYDestino(self):
+        self.frameParaCentrarlo.pack_forget()
+        self.frameParaCentrarlo=Frame(self.framePrincipal)
+        self.frameParaCentrarlo.pack(padx=200)
+        self.reserTexto=Label(self.frameParaCentrarlo,text="filtrar vuelos por:",font=("Times New Roman",15))
+        self.reserTexto.grid(row=0,column=0,columnspan=2,pady=5)
+        self.reserBoton1=Button(self.frameParaCentrarlo,text="Destino",height=3,width=20,command=self.filtrarPorDestino)
+        self.reserBoton1.grid(row=1,column=0,padx=10)
+        self.reserBoton2=Button(self.frameParaCentrarlo,text="Destino y Salida",height=3,width=20,command=self.filtrarPorSalidaYDestino)
+        self.reserBoton2.grid(row=1,column=1,padx=10)
+        self.labelTitulo.configure(text="Ha escogido filtrar por Destino")
+        self.labelDescripcion.configure(text="Escoja la ciudad de donde partirá el vuelo y su destino")
+        self.texto1=StringVar()
+        self.texto1.set("Destino")
+        self.EntryBloqueada1=Entry(self.frameParaCentrarlo,textvariable=self.texto1,state=DISABLED,font=("Times New Roman",12))
+        self.EntryBloqueada1.grid(row=2,column=0,padx=10,pady=20)
+        self.texto2=StringVar()
+        self.texto2.set("Salida")
+        self.EntryBloqueada2=Entry(self.frameParaCentrarlo,textvariable=self.texto2,state=DISABLED,font=("Times New Roman",12))
+        self.EntryBloqueada2.grid(row=2,column=1,padx=10,pady=20)
+        self.destinos=Combobox(self.frameParaCentrarlo, state="readonly", values=("Bogotá","Titiribi","Medellín","Ibagué","Cartagena"),width=22)
+        self.destinos.grid(row=3,column=0,padx=10,pady=20)
+        self.destinos=Combobox(self.frameParaCentrarlo, state="readonly", values=("Bogotá","Titiribi","Medellín","Ibagué","Cartagena"),width=22)
+        self.destinos.grid(row=3,column=1,padx=10,pady=20)
+        self.reserBoton3=Button(self.frameParaCentrarlo,text="Continuar",height=2,width=20,command=self.continuarReserva2)
+        self.reserBoton3.grid(row=4,column=1,padx=10,pady=20)
+
+
+    def continuarReserva1(self):
+        self.labelTitulo.configure(text="Vuelos disponíbles hacia su destino")
+        self.labelDescripcion.configure(text="Por favor, tome nota de la ID de su vuelo deseado")
+        self.framePrincipal.pack_forget()
+        self.framePrincipal=Frame(self.frame)
+        self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
+
+    def continuarReserva2(self):
+        self.labelTitulo.configure(text="Vuelos disponíbles")
+        self.labelDescripcion.configure(text="Por favor, tome nota de la ID de su vuelo deseado")
+        self.framePrincipal.pack_forget()
+        self.framePrincipal=Frame(self.frame)
+        self.framePrincipal.pack(padx=3,pady=3,fill=BOTH,expand=TRUE)
 
     def misTiquetes(self):
         a
@@ -77,8 +151,3 @@ class VentanaPrincipal(Toplevel):
 
     def cargaExtra(self):
         a
-
-    def acercaDe(self):
-        self.popup=messagebox.showinfo(title="Información", message= "Desarrollado por Juan Pablo Gómez Reyes")
-
-test=VentanaPrincipal()
