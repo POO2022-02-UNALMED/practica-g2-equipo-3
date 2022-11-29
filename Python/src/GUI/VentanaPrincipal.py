@@ -68,7 +68,7 @@ class VentanaPrincipal(Toplevel):
         self.popup=messagebox.showinfo(title="Información", message= "Desarrollado por Juan Pablo Gómez Reyes")
 
     def verVuelos(self):
-        a
+        pass
 
     def reservarTiquete(self):
         self.labelTitulo.configure(text="Reserva de tiquetes")
@@ -112,7 +112,7 @@ class VentanaPrincipal(Toplevel):
         self.reserBoton1.grid(row=1,column=0,padx=10)
         self.reserBoton2=Button(self.frameParaCentrarlo,text="Destino y Salida",height=3,width=20,command=self.filtrarPorSalidaYDestino)
         self.reserBoton2.grid(row=1,column=1,padx=10)
-        self.labelTitulo.configure(text="Ha escogido filtrar por Destino")
+        self.labelTitulo.configure(text="Ha escogido filtrar por Destino y Salida")
         self.labelDescripcion.configure(text="Escoja la ciudad de donde partirá el vuelo y su destino")
         self.texto1=StringVar()
         self.texto1.set("Destino")
@@ -161,10 +161,10 @@ class VentanaPrincipal(Toplevel):
 
         
     def misTiquetes(self):
-        a
+        pass
         
     def checkIn(self):
-        a
+        pass
 
     def cargaExtra(self):
-        a
+        pass
